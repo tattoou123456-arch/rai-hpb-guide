@@ -205,7 +205,16 @@
   width: 36px;
 }
 .gift-lp-card__body { flex: 1; }
-.gift-lp-card__icon { font-size: 20px; margin-bottom: 6px; }
+.gift-lp-card__icon {
+  width: 52px; height: 52px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(201,168,76,.18), rgba(201,168,76,.06));
+  border: 1px solid rgba(201,168,76,.25);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.gift-lp-card__icon svg { width: 26px; height: 26px; }
 .gift-lp-card__title {
   font-size: 13.5px;
   font-weight: 700;
@@ -778,7 +787,7 @@
       <div class="gift-lp-card reveal">
         <div class="gift-lp-card__num">01</div>
         <div class="gift-lp-card__body">
-          <div class="gift-lp-card__icon">🔍</div>
+          <div class="gift-lp-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 12 2 2 4-4"/><path d="m9 17 2 2 4-4" opacity=".45"/></svg></div>
           <div class="gift-lp-card__title">HPBページ健康診断チェックリスト30項目</div>
           <div class="gift-lp-card__desc">今すぐ確認すべき設定漏れ・改善ポイントを優先度付きで網羅。スコアリングで弱点が一目瞭然。</div>
         </div>
@@ -786,7 +795,7 @@
       <div class="gift-lp-card reveal">
         <div class="gift-lp-card__num">02</div>
         <div class="gift-lp-card__body">
-          <div class="gift-lp-card__icon">📊</div>
+          <div class="gift-lp-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="12" width="3.5" height="9" rx=".5"/><rect x="8.5" y="7" width="3.5" height="14" rx=".5"/><rect x="14" y="3" width="3.5" height="18" rx=".5"/><path d="M5 12 9 7l5-4" stroke-width="1.4" opacity=".5"/></svg></div>
           <div class="gift-lp-card__title">PV数別・改善優先度マップ</div>
           <div class="gift-lp-card__desc">月間PV数によって打ち手は変わる。あなたの現状に合った最速改善ルートがわかる。</div>
         </div>
@@ -794,7 +803,7 @@
       <div class="gift-lp-card reveal">
         <div class="gift-lp-card__num">03</div>
         <div class="gift-lp-card__body">
-          <div class="gift-lp-card__icon">🎫</div>
+          <div class="gift-lp-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v1.5a1.5 1.5 0 0 0 0 3V15a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1.5a1.5 1.5 0 0 0 0-3V9Z"/><path d="M9 9v6" stroke-dasharray="2 2"/><path d="M13 12h3" stroke-width="1.4"/><path d="M13 14h2" stroke-width="1.4" opacity=".5"/></svg></div>
           <div class="gift-lp-card__title">HPBクーポン設計50選</div>
           <div class="gift-lp-card__desc">新規・リピート・時期別で使い分ける50パターン。クリック率と予約転換率を同時に上げる。</div>
         </div>
@@ -802,7 +811,7 @@
       <div class="gift-lp-card reveal">
         <div class="gift-lp-card__num">04</div>
         <div class="gift-lp-card__body">
-          <div class="gift-lp-card__icon">✍️</div>
+          <div class="gift-lp-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M8 13h8" stroke-width="1.4"/><path d="M8 17h5" stroke-width="1.4" opacity=".5"/><path d="M8 9h2" stroke-width="1.4" opacity=".5"/></svg></div>
           <div class="gift-lp-card__title">こだわりページ文章テンプレ集（業種別5種）</div>
           <div class="gift-lp-card__desc">ヘア・ネイル・まつ毛・エステ・リラクゼーション。コピペで使えるテンプレート集。</div>
         </div>
@@ -810,7 +819,7 @@
       <div class="gift-lp-card reveal">
         <div class="gift-lp-card__num">05</div>
         <div class="gift-lp-card__body">
-          <div class="gift-lp-card__icon">💬</div>
+          <div class="gift-lp-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10Z"/><path d="M8 10h8" stroke-width="1.4"/><path d="M8 13h5" stroke-width="1.4" opacity=".5"/></svg></div>
           <div class="gift-lp-card__title">HPB口コミ依頼スクリプト3選</div>
           <div class="gift-lp-card__desc">嫌がられずに口コミをもらえる自然な依頼トーク。施術後タイミング別3パターン。</div>
         </div>
@@ -818,7 +827,7 @@
       <div class="gift-lp-card reveal">
         <div class="gift-lp-card__num">06</div>
         <div class="gift-lp-card__body">
-          <div class="gift-lp-card__icon">🔄</div>
+          <div class="gift-lp-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2.1l4 4-4 4"/><path d="M3 12.2a9 9 0 0 1 15-6.1l3 2.9"/><path d="M7 21.9l-4-4 4-4"/><path d="M21 11.8a9 9 0 0 1-15 6.1l-3-2.9"/><circle cx="12" cy="12" r="2.5" fill="rgba(201,168,76,.2)" stroke="#c9a84c"/></svg></div>
           <div class="gift-lp-card__title">新規→リピート転換トーク集10選</div>
           <div class="gift-lp-card__desc">初回客を確実にリピーターに変える接客トーク。次回予約率80%超を実現したフレーズ集。</div>
         </div>
@@ -826,7 +835,7 @@
       <div class="gift-lp-card reveal">
         <div class="gift-lp-card__num">07</div>
         <div class="gift-lp-card__body">
-          <div class="gift-lp-card__icon">🤖</div>
+          <div class="gift-lp-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/><circle cx="9" cy="14" r="1.2" fill="#c9a84c"/><circle cx="15" cy="14" r="1.2" fill="#c9a84c"/><path d="M8 18h8" stroke-width="1.4" opacity=".5"/><path d="M12 3v1" opacity=".5"/></svg></div>
           <div class="gift-lp-card__title">クーポン文・キャッチコピー生成プロンプト集</div>
           <div class="gift-lp-card__desc">AIを使って瞬時に高品質なクーポン文とキャッチコピーを量産するプロンプト集。</div>
         </div>
@@ -834,7 +843,7 @@
       <div class="gift-lp-card reveal">
         <div class="gift-lp-card__num">08</div>
         <div class="gift-lp-card__body">
-          <div class="gift-lp-card__icon">📝</div>
+          <div class="gift-lp-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/><path d="m15 5 3 3" opacity=".5"/></svg></div>
           <div class="gift-lp-card__title">HPBブログ記事爆速生成プロンプト</div>
           <div class="gift-lp-card__desc">SEOに強くPVが集まるHPBブログ記事を5分で作るAIプロンプト。ネタ出しから本文まで。</div>
         </div>
@@ -842,7 +851,7 @@
       <div class="gift-lp-card reveal">
         <div class="gift-lp-card__num">09</div>
         <div class="gift-lp-card__body">
-          <div class="gift-lp-card__icon">🗺️</div>
+          <div class="gift-lp-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="10" r="3"/><circle cx="16" cy="10" r="3"/><path d="M11 10h2"/><path d="M5 20c0-2.2 1.3-4 3-4s3 1.8 3 4" opacity=".5"/><path d="M13 20c0-2.2 1.3-4 3-4s3 1.8 3 4" opacity=".5"/><path d="M3 4h4M17 4h4" stroke-width="1.4" opacity=".4"/></svg></div>
           <div class="gift-lp-card__title">Google × HPB 役割分担攻略マップ</div>
           <div class="gift-lp-card__desc">GoogleマップとHPBを組み合わせた最強の集客戦略。どちらで何を狙うべきかが一目でわかる。</div>
         </div>
@@ -850,7 +859,7 @@
       <div class="gift-lp-card reveal">
         <div class="gift-lp-card__num">10</div>
         <div class="gift-lp-card__body">
-          <div class="gift-lp-card__icon">⚡</div>
+          <div class="gift-lp-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z" fill="rgba(201,168,76,.15)"/></svg></div>
           <div class="gift-lp-card__title">低プランで高プランを超えた設定術ガイド</div>
           <div class="gift-lp-card__desc">コストをかけずにプレミアム掲載と同等の成果を出す設定テクニック。プラン格差を知識で覆す。</div>
         </div>
