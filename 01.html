@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>01｜HPBページ健康診断チェックリスト30項目 — RAI</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="index.html" class="back-btn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      一覧に戻る
+    </a>
+    <div class="header-pager">
+      <div class="header-pager__label">Present</div>
+      <div class="header-pager__num">01 / 10</div>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <span class="page-hero__tag">Checklist</span>
+  <h1 class="page-hero__title">HPBページ<br>健康診断チェックリスト</h1>
+  <p class="page-hero__desc">今すぐ確認すべき30項目。チェックしながらあなたのHPBページのスコアを計測しましょう。</p>
+</section>
+
+<div class="content">
+  <div class="wrap">
+
+    <!-- スコアウィジェット -->
+    <div class="score-widget reveal">
+      <div class="score-widget__num" id="scoreNum">0</div>
+      <div class="score-widget__label">/ 30 項目チェック済み</div>
+      <div class="score-widget__progress">
+        <div class="score-widget__fill" id="progFill" style="width:0%"></div>
+      </div>
+      <div class="score-widget__grade" id="scoreGrade">まず診断を始めましょう</div>
+      <br>
+      <button class="reset-btn" onclick="resetAll()">↺ リセット</button>
+    </div>
+
+    <!-- カテゴリ1 -->
+    <div class="section-label">プロフィール・基本設定</div>
+    <div class="card reveal">
+      <ul class="checklist">
+        <li onclick="toggle(this)"><span class="cb"></span><span>サロン名・住所・電話番号に間違いがない<span class="badge badge-r">必須</span></span></li>
+        <li onclick="toggle(this)"><span class="cb"></span><span>営業時間が最新の情報に更新されている<span class="badge badge-r">必須</span></span></li>
+        <li onclick="toggle(this)"><span class="cb"></span><span>定休日・不定休の設定が正確である<span class="badge badge-g">重要</span></span></li>
+        <li onclick="toggle(this)"><span class="cb"></span><span>アクセス欄に最寄り駅からの所要時間・目印を記載している<span class="badge badge-g">重要</span></span></li>
+        <li onclick="toggle(this)"><span class="cb"></span><span>駐車場の有無・台数・無料/有料を明記している<span class="badge badge-d">推奨</span></span></li>
+      </ul>
+    </div>
+
+    <div class="section-label">写真・ビジュアル</div>
+    <div class="card reveal">
+      <ul class="checklist">
+        <li onclick="toggle(this)"><span class="cb"></span><span>トップ画像がサロンの世界観を表している<span class="badge badge-r">必須</span></span></li>
+        <li onclick="toggle(this)"><span class="cb"></span><span>施術写真（ビフォーアフター含む）が5枚以上登録されている<span class="badge badge-r">必須</span></span></li>
+        <li onclick="toggle(this)"><span class="cb"></span><span>サロン内観・外観写真が掲載されている<span class="badge badge-g">重要</span></span></li>
+        <li onclick="toggle(this)"><span class="cb"></span><span>スタッフ写真（笑顔・清潔感）を掲載している<span class="badge badge-g">重要</span></span></li>
+        <li onclick="toggle(this)"><span class="cb"></span><span>写真の画質が規定に沿っており、暗い・ぼやけた写真がない<span class="badge badge-d">推奨</span></span></li>
+      </ul>
+    </div>
+
+    <div class="section-label">クーポン設定</div>
+    <div class="card reveal">
+      <ul class="checklist">
+        <li onclick="toggle(this)"><span class="cb"></span><span>新規向けクーポンが最低3種類以上登録されている<span class="badge badge-r">必須</span></span></li>
+        <li onclick="toggle(this)"><span class="cb"></span><span>クーポンタイトルにお客様が検索するキーワードが含まれている<span class="badge badge-r">必須</span></span></li>
+        <li onclick="toggle(this)"><span class="cb"></span><span>クーポン説明文に施術内容・所要時間・通常価格が明記されている<span class="badge badge-g">重要</span></span></li>
+        <li onclick="toggle(this)"><span class="cb"></span><span>リピーター向けクーポンが設定されている<span class="badge badge-g">重要</span></span></li>
+        <li onclick="toggle(this)"><span class="cb"></span><span>有効期限が切れているクーポンがない<span class="badge badge-r">必須</span></span></li>
+      </ul>
+    </div>
+
+    <div class="section-label">こだわり・サロン説明</div>
+    <div class="card reveal">
+      <ul class="checklist">
+        <li onclick="toggle(this)"><span class="cb"></span><span>「こだわり」ページに300文字以上の文章が記載されている<span class="badge badge-r">必須</span></span></li>
+        <li onclick="toggle(this)"><span class="cb"></span><span>使用している薬剤・機材・技術の特徴が具体的に記載されている<span class="badge badge-g">重要</span></span></li>
+        <li onclick="toggle(this)"><span class="cb"></span><span>ターゲット客層（こんな方におすすめ）が明記されている<span class="badge badge-g">重要</span></span></li>
+        <li onclick="toggle(this)"><span class="cb"></span><span>他店との違い・選ばれる理由が1つ以上書かれている<span class="badge badge-d">推奨</span></span></li>
+      </ul>
+    </div>
+
+    <div class="section-label">スタッフ情報</div>
+    <div class="card reveal">
+      <ul class="checklist">
+        <li onclick="toggle(this)"><span class="cb"></span><span>在籍スタッフ全員のプロフィールが登録されている<span class="badge badge-g">重要</span></span></li>
+        <li onclick="toggle(this)"><span class="cb"></span><span>各スタッフの得意メニュー・資格・経歴が記載されている<span class="badge badge-d">推奨</span></span></li>
+        <li onclick="toggle(this)"><span class="cb"></span><span>スタッフ指名クーポンが設定されている<span class="badge badge-d">推奨</span></span></li>
+      </ul>
+    </div>
+
+    <div class="section-label">ブログ・コンテンツ</div>
+    <div class="card reveal">
+      <ul class="checklist">
+        <li onclick="toggle(this)"><span class="cb"></span><span>直近30日以内にブログが1本以上投稿されている<span class="badge badge-r">必須</span></span></li>
+        <li onclick="toggle(this)"><span class="cb"></span><span>ブログタイトルに地域名＋施術名が含まれている<span class="badge badge-g">重要</span></span></li>
+        <li onclick="toggle(this)"><span class="cb"></span><span>ブログ本文が200文字以上で写真が1枚以上添付されている<span class="badge badge-g">重要</span></span></li>
+      </ul>
+    </div>
+
+    <div class="section-label">口コミ対策</div>
+    <div class="card reveal">
+      <ul class="checklist">
+        <li onclick="toggle(this)"><span class="cb"></span><span>口コミ件数が10件以上ある<span class="badge badge-r">必須</span></span></li>
+        <li onclick="toggle(this)"><span class="cb"></span><span>直近3ヶ月以内の口コミに返信している<span class="badge badge-r">必須</span></span></li>
+        <li onclick="toggle(this)"><span class="cb"></span><span>口コミ返信に具体的なメッセージがある（テンプレ返信でない）<span class="badge badge-g">重要</span></span></li>
+      </ul>
+    </div>
+
+    <div class="section-label">予約設定・UX</div>
+    <div class="card reveal">
+      <ul class="checklist">
+        <li onclick="toggle(this)"><span class="cb"></span><span>オンライン予約の受付可能枠が3日先まで空いている<span class="badge badge-r">必須</span></span></li>
+        <li onclick="toggle(this)"><span class="cb"></span><span>予約メニューの所要時間・料金が正確に設定されている<span class="badge badge-g">重要</span></span></li>
+        <li onclick="toggle(this)"><span class="cb"></span><span>キャンセルポリシーが明記されている<span class="badge badge-d">推奨</span></span></li>
+      </ul>
+    </div>
+
+    <!-- 結果カード -->
+    <div class="card reveal" id="resultCard" style="display:none;border-color:var(--border);">
+      <div class="card__title">
+        <span class="big-num" id="resultNum">0</span>
+        <span>点 — あなたの診断結果</span>
+      </div>
+      <p id="resultText" style="font-size:14px;line-height:1.8;color:var(--text2);"></p>
+    </div>
+
+    <div class="notice notice-g reveal">
+      <span class="notice__icon">💡</span>
+      <div>
+        <strong class="gold">バッジの見方：</strong><br>
+        <span class="badge badge-r">必須</span> 未設定は即改善。予約機会の損失に直結します。<br>
+        <span class="badge badge-g">重要</span> 設定済みならライバルと差がつきます。<br>
+        <span class="badge badge-d">推奨</span> 余裕があれば対応。スコアをさらに上げます。
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<nav class="page-nav">
+  <a href="index.html" class="page-nav__btn">← 一覧へ</a>
+  <a href="02.html" class="page-nav__btn">次：PV別マップ →</a>
+</nav>
+
+<section class="cta-section">
+  <div class="gold-div"></div>
+  <div class="cta-section__title">診断してみてどうでしたか？</div>
+  <div class="cta-section__desc">改善方法がわからない項目はLINEで個別相談できます</div>
+  <a href="#" class="btn-line">
+    <svg width="19" height="19" viewBox="0 0 24 24" fill="white"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+    RAIに相談する（無料）
+  </a>
+</section>
+
+<footer class="site-footer">
+  <div class="site-footer__logo">RAI</div>
+  <div class="site-footer__text">HPB集客コンサルタント｜美容サロン専門</div>
+</footer>
+
+<script>
+const io = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting){x.target.classList.add('in-view');io.unobserve(x.target);} }), {threshold:.1,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+let checked = 0;
+const total = 30;
+function toggle(el) {
+  el.classList.toggle('checked');
+  checked = document.querySelectorAll('.checklist li.checked').length;
+  update();
+}
+function update() {
+  document.getElementById('scoreNum').textContent = checked;
+  document.getElementById('progFill').style.width = (checked/total*100)+'%';
+  const p = checked/total*100;
+  let g, c;
+  if(p>=90){g='🏆 優秀！ほぼ完璧です';c='var(--gold2)';}
+  else if(p>=70){g='✅ 良好。あと少しで上位表示圏内';c='var(--gold)';}
+  else if(p>=50){g='⚠️ 改善余地あり。必須項目を優先に';c='#f0a050';}
+  else if(p>=30){g='🔴 要改善。予約機会を失っています';c='var(--red)';}
+  else{g='診断を続けてください';c='var(--text3)';}
+  const ge = document.getElementById('scoreGrade');
+  ge.textContent = g; ge.style.color = c; ge.style.borderColor = c; ge.style.background = c.includes('red')?'rgba(212,73,106,.1)':'rgba(201,168,76,.1)';
+  if(checked>0){
+    const rc = document.getElementById('resultCard');
+    rc.style.display = 'block';
+    document.getElementById('resultNum').textContent = checked;
+    let txt = '';
+    if(p>=90) txt='素晴らしい状態です！現在のHPBページは非常に最適化されています。口コミ件数の増加とブログの定期投稿でさらなる上位表示を狙いましょう。';
+    else if(p>=70) txt='全体的に良い状態です。未チェック項目を確認し、特に「必須」バッジの項目から優先的に対応してください。';
+    else if(p>=50) txt='改善の余地があります。「必須」バッジの未チェック項目は今すぐ対応してください。クーポン設定と写真の充実が最優先です。';
+    else txt='多くの改善が必要な状態です。まず「必須」バッジの項目だけを集中してすべてクリアしてください。';
+    document.getElementById('resultText').textContent = txt;
+  }
+}
+function resetAll() {
+  document.querySelectorAll('.checklist li').forEach(li => li.classList.remove('checked'));
+  checked = 0; update();
+  document.getElementById('resultCard').style.display = 'none';
+}
+</script>
+</body>
+</html>

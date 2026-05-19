@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>04｜こだわりページ文章テンプレ集（業種別5種） — RAI</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="index.html" class="back-btn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      一覧に戻る
+    </a>
+    <div class="header-pager">
+      <div class="header-pager__label">Present</div>
+      <div class="header-pager__num">04 / 10</div>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <span class="page-hero__tag">Templates</span>
+  <h1 class="page-hero__title">こだわりページ<br>文章テンプレ集</h1>
+  <p class="page-hero__desc">ヘア・ネイル・まつ毛・エステ・リラクゼーション。業種別に最適化されたコピペで使えるテンプレート。</p>
+</section>
+
+<div class="content">
+  <div class="wrap">
+
+    <div class="notice notice-g reveal">
+      <span class="notice__icon">💡</span>
+      <div>
+        <strong class="gold">使い方：</strong>
+        業種タブを選んで、<span style="color:var(--gold2)">【　】</span>内をあなたのサロン情報に書き換えるだけ。HPBのこだわりページに貼り付けてください。
+      </div>
+    </div>
+
+    <div class="card reveal">
+      <div class="tabs" id="industryTabs">
+        <button class="tab active" onclick="switchTab('hair',this)">✂ ヘア</button>
+        <button class="tab" onclick="switchTab('nail',this)">💅 ネイル</button>
+        <button class="tab" onclick="switchTab('eye',this)">👁 まつ毛</button>
+        <button class="tab" onclick="switchTab('esthe',this)">✨ エステ</button>
+        <button class="tab" onclick="switchTab('relax',this)">🌿 リラク</button>
+      </div>
+
+      <!-- ヘア -->
+      <div class="tab-panel active" id="tab-hair">
+        <div class="section-label">ヘアサロン</div>
+        <div class="tmpl" id="tmpl-hair">【サロン名】は、【最寄り駅】から徒歩【◯】分の美容室です。
+
+■ 私たちのこだわり
+
+「なりたいヘアスタイルを、叶えるだけでなく、長く続けられる形に仕上げる」——これが私たちのテーマです。
+
+お客様一人ひとりの髪質・生活スタイル・再来店のサイクルに合わせたヘアデザインをご提案。施術後のホームケアまで丁寧にアドバイスするため、次回来店時も「綺麗が続く」と実感いただけます。
+
+■ 使用薬剤について
+
+カラー剤は【使用ブランド名（例：アディクシーカラー / イルミナカラー）】を使用。ダメージを最小限に抑えながら、透明感・発色にこだわります。
+
+■ こんな方におすすめ
+
+・髪のダメージが気になる方
+・カラーのもちが悪いと感じている方
+・忙しくてスタイルのキープが難しい方
+・初めての美容室で不安な方
+
+【スタッフ数】名のスタッフが全員、丁寧なカウンセリングを心がけています。ご来店を心よりお待ちしております。</div>
+        <button class="copy-btn" onclick="copyTmpl('tmpl-hair',this)">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          テキストをコピー
+        </button>
+      </div>
+
+      <!-- ネイル -->
+      <div class="tab-panel" id="tab-nail">
+        <div class="section-label">ネイルサロン</div>
+        <div class="tmpl" id="tmpl-nail">【サロン名】は、【最寄り駅】から徒歩【◯】分のネイルサロンです。
+
+■ 私たちのこだわり
+
+「爪の健康を守りながら、おしゃれを楽しんでほしい」——そんな想いで施術をしています。
+
+ジェルネイルは爪への密着性が高い【使用ブランド名（例：パラジェル）】を採用。自爪を削らないフォーミュラで、繰り返しご来店いただいても爪が薄くなりにくい施術を実現しています。
+
+■ デザインのこだわり
+
+トレンドのニュアンスネイルから、オフィスでも使える上品なシンプルネイルまで幅広く対応。お客様のライフスタイルに合わせたデザインをご提案します。
+
+■ こんな方におすすめ
+
+・爪が薄くて痛みを感じたことがある方
+・長持ちするネイルを求めている方
+・デザインのセンスに自信がない方（お任せも歓迎）
+・プライベート〜ブライダルまで幅広くご利用の方
+
+ご予約はオンラインで24時間受け付けております。お気軽にどうぞ。</div>
+        <button class="copy-btn" onclick="copyTmpl('tmpl-nail',this)">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          テキストをコピー
+        </button>
+      </div>
+
+      <!-- まつ毛 -->
+      <div class="tab-panel" id="tab-eye">
+        <div class="section-label">まつ毛エクステ</div>
+        <div class="tmpl" id="tmpl-eye">【サロン名】は、【最寄り駅】から徒歩【◯】分のまつ毛エクステ専門サロンです。
+
+■ 私たちのこだわり
+
+「すっぴんでも自信が持てる目元を。」——施術ではナチュラルな仕上がりから、華やかなデザインまで対応しています。
+
+使用するグルーは低刺激・速乾タイプの【使用グルー名】を採用。アレルギーが心配な方にも安心してご利用いただけるよう、パッチテストにも対応しています（要事前予約）。
+
+■ 技術のこだわり
+
+一本一本の装着精度にこだわり、自まつ毛への負担を最小限に。もちの良さと自然な仕上がりにこだわった施術を提供しています。エクステの太さ・長さ・カールは豊富なバリエーションからお選びいただけます。
+
+■ こんな方におすすめ
+
+・毎朝のメイク時間を短縮したい方
+・目力を上げたいが不自然になりたくない方
+・まつ毛が細くて短く悩んでいる方
+・ブライダル・イベント前に綺麗にしたい方
+
+完全個室のプライベート空間でリラックスしてお過ごしください。</div>
+        <button class="copy-btn" onclick="copyTmpl('tmpl-eye',this)">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          テキストをコピー
+        </button>
+      </div>
+
+      <!-- エステ -->
+      <div class="tab-panel" id="tab-esthe">
+        <div class="section-label">エステサロン</div>
+        <div class="tmpl" id="tmpl-esthe">【サロン名】は、【最寄り駅】から徒歩【◯】分のエステサロンです。
+
+■ 私たちのこだわり
+
+「一時的なきれいではなく、体の内側から変わる美しさを。」——お客様の体質・悩みに合わせた施術プログラムをご提案しています。
+
+■ 機器・技術について
+
+【使用機器名（例：ラジオ波 / EMS / 超音波）】をはじめとした最新機器と、熟練したハンドテクニックを組み合わせた施術を行っています。施術前のカウンセリングで現在の状態を丁寧に確認し、最適な施術メニューをご提案します。
+
+■ 使用コスメ
+
+【使用コスメブランド名】の高機能コスメを使用。施術効果を最大限に引き出します。
+
+■ こんな方におすすめ
+
+・小顔・引き締めに本気で取り組みたい方
+・産後の体型変化が気になる方
+・痩身だけでなく肌質も改善したい方
+・忙しい中でも定期的に自分に投資したい方
+
+完全予約制のプライベートサロンです。ゆったりとした時間の中で、美しさへの投資を始めてみませんか。</div>
+        <button class="copy-btn" onclick="copyTmpl('tmpl-esthe',this)">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          テキストをコピー
+        </button>
+      </div>
+
+      <!-- リラクゼーション -->
+      <div class="tab-panel" id="tab-relax">
+        <div class="section-label">リラクゼーション</div>
+        <div class="tmpl" id="tmpl-relax">【サロン名】は、【最寄り駅】から徒歩【◯】分のリラクゼーションサロンです。
+
+■ 私たちのこだわり
+
+「疲れを取るだけでなく、明日への活力を取り戻してほしい」——忙しい毎日の中で、心と体をリセットする場所を提供しています。
+
+■ 施術のこだわり
+
+【主力施術名（例：タイ古式マッサージ / ディープリラクゼーション）】を中心に、お客様の疲れ具合・お好みの強さに合わせた施術を行います。セラピスト全員が【資格名（例：JREC認定 / ボディケア）】を取得しており、解剖学に基づいた正確なアプローチで深部の疲労にアプローチします。
+
+■ 空間について
+
+照明・BGM・アロマにこだわった、非日常のくつろぎ空間をご用意しています。施術後は特製ハーブティーをご提供（無料）。
+
+■ こんな方におすすめ
+
+・肩こり・腰痛が慢性化している方
+・仕事のストレスで心身ともに疲弊している方
+・ぐっすり眠れていない方
+・定期的なメンテナンスで体調管理をしたい方
+
+当日予約もお気軽にどうぞ。セラピスト一同、心よりお待ちしております。</div>
+        <button class="copy-btn" onclick="copyTmpl('tmpl-relax',this)">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          テキストをコピー
+        </button>
+      </div>
+    </div>
+
+    <div class="card reveal">
+      <div class="card__title">カスタマイズのポイント</div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div class="action-row">
+          <div class="action-row__icon">✏️</div>
+          <div class="action-row__body">
+            <strong>【　】は必ず埋める</strong><br>
+            <span style="font-size:12px;color:var(--text2)">括弧内はすべてあなたのサロン固有の情報に置き換えてください。汎用的な表現のままにしないことが重要です。</span>
+          </div>
+        </div>
+        <div class="action-row">
+          <div class="action-row__icon">📏</div>
+          <div class="action-row__body">
+            <strong>300文字以上が目安</strong><br>
+            <span style="font-size:12px;color:var(--text2)">HPBのこだわりページはSEOに影響します。テンプレは300〜500文字が目安。追記してボリュームを増やすと◎</span>
+          </div>
+        </div>
+        <div class="action-row">
+          <div class="action-row__icon">🖼</div>
+          <div class="action-row__body">
+            <strong>こだわり画像と組み合わせる</strong><br>
+            <span style="font-size:12px;color:var(--text2)">テキストだけでなく、施術シーンや使用アイテムの写真を合わせると滞在時間が伸びてCVRが上がります。</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="notice notice-r reveal">
+      <span class="notice__icon">⚠️</span>
+      <div>
+        <strong style="color:var(--red)">NGパターン：</strong>「アットホームなサロンです」「丁寧な施術が自慢です」などの抽象的な表現は、他店と差別化になりません。<strong>具体的な薬剤名・資格・数字・施術方法</strong>を入れることで独自性が生まれます。
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<nav class="page-nav">
+  <a href="03.html" class="page-nav__btn">← 前：クーポン設計50選</a>
+  <a href="05.html" class="page-nav__btn">次：口コミ依頼スクリプト →</a>
+</nav>
+
+<section class="cta-section">
+  <div class="gold-div"></div>
+  <div class="cta-section__title">もっと具体的な文章が書きたい方へ</div>
+  <div class="cta-section__desc">あなたのサロンに特化した「こだわり文章」をLINEで個別サポートします</div>
+  <a href="#" class="btn-line">
+    <svg width="19" height="19" viewBox="0 0 24 24" fill="white"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+    RAIに相談する（無料）
+  </a>
+</section>
+
+<footer class="site-footer">
+  <div class="site-footer__logo">RAI</div>
+  <div class="site-footer__text">HPB集客コンサルタント｜美容サロン専門</div>
+</footer>
+
+<script>
+const io = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting){x.target.classList.add('in-view');io.unobserve(x.target);} }), {threshold:.1,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-' + id).classList.add('active');
+}
+
+function copyTmpl(id, btn) {
+  const text = document.getElementById(id).textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const orig = btn.innerHTML;
+    btn.classList.add('ok');
+    btn.innerHTML = '✓ コピーしました';
+    setTimeout(() => { btn.classList.remove('ok'); btn.innerHTML = orig; }, 2000);
+  });
+}
+</script>
+</body>
+</html>

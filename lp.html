@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HPB×SEO完全攻略ガイド｜10大特典を無料プレゼント — RAI</title>
+<meta name="description" content="元リクルート集客マニアが教えるHPB×SEO完全攻略ガイド。低プランでも新規数を最大化する方法を10大特典として無料プレゼント中。LINE登録だけで受け取れます。">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ─── LP SPECIFIC ─── */
+
+/* HERO LP */
+.lp-hero {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 24px 80px;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,.13) 0%, transparent 60%),
+              radial-gradient(ellipse 60% 40% at 80% 100%, rgba(212,73,106,.07) 0%, transparent 60%);
+}
+.lp-hero__pre {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(212,73,106,.1);
+  border: 1px solid rgba(212,73,106,.3);
+  padding: 5px 16px;
+  border-radius: 999px;
+  font-size: 11px;
+  color: var(--red);
+  letter-spacing: .1em;
+  margin-bottom: 24px;
+}
+.lp-hero__pre-dot {
+  width: 5px; height: 5px;
+  background: var(--red);
+  border-radius: 50%;
+  animation: blink 2.4s ease-in-out infinite;
+}
+.lp-hero__sub {
+  font-size: 13px;
+  color: var(--text2);
+  letter-spacing: .06em;
+  margin-bottom: 14px;
+}
+.lp-hero__title {
+  font-size: clamp(34px, 8vw, 72px);
+  font-weight: 900;
+  line-height: 1.12;
+  letter-spacing: -.02em;
+  margin-bottom: 20px;
+}
+.lp-hero__title em { font-style: normal; }
+.lp-hero__copy {
+  font-size: clamp(14px, 3vw, 18px);
+  color: var(--text2);
+  line-height: 1.85;
+  max-width: 480px;
+  margin: 0 auto 40px;
+}
+.lp-hero__targets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  justify-content: center;
+  margin-bottom: 44px;
+}
+.lp-target-pill {
+  font-size: 12px;
+  padding: 5px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--gold2);
+  background: rgba(201,168,76,.07);
+  letter-spacing: .04em;
+}
+.lp-hero__logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 44px;
+  flex-wrap: wrap;
+}
+.lp-logo-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 700;
+}
+.lp-logo-x {
+  color: var(--text3);
+  font-size: 18px;
+  font-weight: 300;
+}
+.lp-hero__cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.lp-hero__cta-note {
+  font-size: 11px;
+  color: var(--text3);
+  letter-spacing: .04em;
+}
+
+/* PROBLEM SECTION */
+.problem-section {
+  padding: 80px 24px;
+  background: var(--bg2);
+  border-top: 1px solid var(--border2);
+  border-bottom: 1px solid var(--border2);
+}
+.problem-section .wrap { max-width: 720px; }
+.problem-headline {
+  text-align: center;
+  font-size: clamp(20px, 4vw, 30px);
+  font-weight: 900;
+  line-height: 1.45;
+  margin-bottom: 40px;
+}
+.problem-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+.problem-item {
+  display: flex;
+  gap: 14px;
+  padding: 16px 20px;
+  background: rgba(212,73,106,.05);
+  border: 1px solid rgba(212,73,106,.18);
+  border-radius: 12px;
+  align-items: flex-start;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.problem-item__icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+.problem-resolve {
+  text-align: center;
+  padding: 24px;
+  background: linear-gradient(135deg, rgba(201,168,76,.08), rgba(201,168,76,.03));
+  border: 1px solid var(--gold);
+  border-radius: 14px;
+}
+.problem-resolve p { font-size: 15px; line-height: 1.85; color: var(--text2); }
+.problem-resolve strong { color: var(--gold2); }
+
+/* GIFTS SECTION */
+.gifts-lp-section {
+  padding: 96px 24px;
+}
+.gifts-lp-section .section-headline {
+  text-align: center;
+  font-size: clamp(22px, 5vw, 38px);
+  font-weight: 900;
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+.gifts-lp-section .section-sub {
+  text-align: center;
+  font-size: 14px;
+  color: var(--text2);
+  margin-bottom: 56px;
+  line-height: 1.8;
+}
+.gifts-lp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 14px;
+  margin-bottom: 52px;
+}
+.gift-lp-card {
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: 14px;
+  padding: 22px 20px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  transition: border-color .2s, transform .2s;
+}
+.gift-lp-card:hover {
+  border-color: var(--border);
+  transform: translateY(-3px);
+}
+.gift-lp-card__num {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 42px;
+  line-height: 1;
+  color: rgba(201,168,76,.18);
+  flex-shrink: 0;
+  width: 36px;
+}
+.gift-lp-card__body { flex: 1; }
+.gift-lp-card__icon { font-size: 20px; margin-bottom: 6px; }
+.gift-lp-card__title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--gold2);
+  line-height: 1.4;
+  margin-bottom: 5px;
+}
+.gift-lp-card__desc {
+  font-size: 12px;
+  color: var(--text2);
+  line-height: 1.65;
+}
+
+/* CTA BLOCK */
+.cta-block {
+  background: linear-gradient(135deg, rgba(201,168,76,.08) 0%, rgba(201,168,76,.02) 100%);
+  border: 1px solid var(--gold);
+  border-radius: 20px;
+  padding: 44px 32px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-block::before {
+  content: '';
+  position: absolute;
+  top: -40%; left: 50%;
+  transform: translateX(-50%);
+  width: 400px; height: 300px;
+  background: radial-gradient(ellipse, rgba(201,168,76,.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cta-block__tag {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--border);
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+}
+.cta-block__title {
+  font-size: clamp(20px, 4vw, 32px);
+  font-weight: 900;
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+.cta-block__desc {
+  font-size: 13.5px;
+  color: var(--text2);
+  line-height: 1.85;
+  margin-bottom: 28px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cta-block__steps {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+.cta-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 20px;
+}
+.cta-step__num {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 11px;
+  letter-spacing: .12em;
+  color: var(--text3);
+}
+.cta-step__icon { font-size: 22px; }
+.cta-step__label { font-size: 12px; color: var(--text); font-weight: 700; text-align: center; line-height: 1.4; }
+.cta-step-arr {
+  display: flex;
+  align-items: center;
+  color: var(--gold);
+  font-size: 18px;
+  padding-top: 10px;
+}
+.cta-block__note {
+  font-size: 11px;
+  color: var(--text3);
+  margin-top: 12px;
+  letter-spacing: .04em;
+}
+
+/* ABOUT SECTION */
+.about-section {
+  padding: 96px 24px;
+  background: var(--bg2);
+  border-top: 1px solid var(--border2);
+}
+.about-section .wrap { max-width: 720px; }
+.about-card {
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: 16px;
+  padding: 36px 32px;
+}
+.about-profile {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.about-avatar {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--gold3));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 28px;
+  color: var(--bg);
+  flex-shrink: 0;
+  letter-spacing: .06em;
+}
+.about-meta { flex: 1; }
+.about-name {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 32px;
+  letter-spacing: .08em;
+  background: linear-gradient(120deg, var(--gold), var(--gold3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.about-title { font-size: 13px; color: var(--text2); margin-bottom: 10px; }
+.about-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.about-tag {
+  font-size: 10px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: rgba(201,168,76,.08);
+  border: 1px solid var(--border);
+  color: var(--gold);
+  letter-spacing: .04em;
+}
+.about-body { font-size: 13.5px; line-height: 1.85; color: var(--text2); }
+.about-body strong { color: var(--text); }
+.about-results {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border2);
+}
+.about-result-item { text-align: center; }
+.about-result-num {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 32px;
+  line-height: 1;
+  background: linear-gradient(120deg, var(--gold), var(--gold3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.about-result-label { font-size: 11px; color: var(--text2); margin-top: 3px; line-height: 1.5; }
+
+/* TESTIMONIALS */
+.testimonial-section {
+  padding: 80px 24px;
+  border-top: 1px solid var(--border2);
+}
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+.testimonial-card {
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: 14px;
+  padding: 22px 20px;
+  position: relative;
+}
+.testimonial-card::before {
+  content: '"';
+  position: absolute;
+  top: 10px; right: 16px;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 60px;
+  color: rgba(201,168,76,.08);
+  line-height: 1;
+}
+.testimonial-card__stars {
+  font-size: 12px;
+  color: var(--gold);
+  margin-bottom: 10px;
+  letter-spacing: .06em;
+}
+.testimonial-card__text {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--text2);
+  margin-bottom: 14px;
+}
+.testimonial-card__author {
+  font-size: 12px;
+  color: var(--text3);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.testimonial-card__author-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+/* CONSULT SECTION */
+.consult-section {
+  padding: 96px 24px;
+  background: var(--bg2);
+  border-top: 1px solid var(--border2);
+}
+.consult-section .wrap { max-width: 720px; }
+.consult-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 40px 0;
+  position: relative;
+}
+.consult-flow::before {
+  content: '';
+  position: absolute;
+  left: 28px;
+  top: 40px;
+  bottom: 40px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+}
+.consult-step {
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+  align-items: flex-start;
+  position: relative;
+}
+.consult-step__num {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 14px;
+  color: var(--gold);
+  background: var(--bg);
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  width: 36px; height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  letter-spacing: .04em;
+  position: relative;
+  z-index: 1;
+}
+.consult-step__body { flex: 1; padding-top: 4px; }
+.consult-step__title { font-size: 15px; font-weight: 700; color: var(--gold2); margin-bottom: 5px; }
+.consult-step__desc { font-size: 13px; color: var(--text2); line-height: 1.7; }
+.consult-step__desc strong { color: var(--text); }
+
+/* FINAL CTA */
+.final-cta {
+  padding: 100px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--border2);
+}
+.final-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(201,168,76,.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.final-cta__big {
+  font-family: 'Bebas Neue', cursive;
+  font-size: clamp(56px, 12vw, 120px);
+  line-height: 1;
+  letter-spacing: .04em;
+  background: linear-gradient(120deg, var(--gold) 0%, var(--gold3) 50%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+}
+.final-cta__title { font-size: clamp(18px, 4vw, 28px); font-weight: 900; margin-bottom: 14px; }
+.final-cta__desc { font-size: 14px; color: var(--text2); line-height: 1.85; margin-bottom: 36px; max-width: 440px; margin-left: auto; margin-right: auto; }
+
+/* STICKY CTA BAR */
+.sticky-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  background: rgba(7,9,12,.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid var(--border);
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  transform: translateY(100%);
+  transition: transform .4s cubic-bezier(.4,0,.2,1);
+}
+.sticky-cta.show { transform: translateY(0); }
+.sticky-cta__text { font-size: 12px; color: var(--text2); line-height: 1.5; }
+.sticky-cta__text strong { color: var(--gold2); display: block; }
+.sticky-cta .btn-line { padding: 11px 20px; font-size: 13px; flex-shrink: 0; }
+
+/* LINE BUTTON BIG */
+.btn-line-big {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #06c755 !important;
+  color: #ffffff !important;
+  font-size: 16px;
+  font-weight: 900;
+  padding: 18px 40px;
+  border-radius: 999px;
+  transition: filter .2s, transform .2s;
+  letter-spacing: .04em;
+  box-shadow: 0 8px 32px rgba(6,199,85,.35);
+  text-decoration: none;
+}
+.btn-line-big:hover { filter: brightness(1.1); transform: translateY(-3px); }
+.btn-line-big svg { fill: #ffffff; flex-shrink: 0; }
+
+@media (max-width: 640px) {
+  .about-results { grid-template-columns: 1fr 1fr; }
+  .cta-block { padding: 32px 20px; }
+  .cta-step { padding: 12px 14px; }
+  .consult-flow::before { display: none; }
+  .gifts-lp-grid { grid-template-columns: 1fr; }
+  .sticky-cta__text strong { display: inline; }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── STICKY CTA ─── -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-cta__text">
+    <strong>10大特典を無料でもらう</strong>
+    LINE登録だけ・費用0円・60秒で完了
+  </div>
+  <a href="https://lin.ee/UbEyJAu" class="btn-line" style="padding:11px 20px;font-size:13px;flex-shrink:0;">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="white"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+    無料で受け取る
+  </a>
+</div>
+
+<!-- ─── HERO ─── -->
+<section class="lp-hero">
+  <div class="hero__glow-top"></div>
+  <div class="hero__glow-bottom"></div>
+
+  <div class="lp-hero__pre">
+    <span class="lp-hero__pre-dot"></span>
+    LINE登録者限定 · 完全無料配布中
+  </div>
+
+  <p class="lp-hero__sub">元リクルート集客マニアが教える</p>
+
+  <h1 class="lp-hero__title">
+    <em class="g-text">HPB × SEO</em><br>
+    完全攻略ガイド
+  </h1>
+
+  <p class="lp-hero__copy">
+    低プランでも<strong style="color:var(--text)">新規数を最大化</strong>する方法を<br>
+    10大特典として<em style="font-style:normal;color:var(--gold2)">すべて無料</em>でお届けします
+  </p>
+
+  <div class="lp-hero__targets">
+    <span class="lp-target-pill">✂ 美容室</span>
+    <span class="lp-target-pill">💅 ネイルサロン</span>
+    <span class="lp-target-pill">👁 アイサロン</span>
+    <span class="lp-target-pill">✨ エステサロン</span>
+    <span class="lp-target-pill">🌿 リラクゼーション</span>
+  </div>
+
+  <div class="lp-hero__logos">
+    <div class="lp-logo-box">
+      <span style="color:var(--red);font-size:14px;">🌸</span>
+      <span style="color:var(--text);">Hot Pepper<br><span style="color:var(--gold);">Beauty</span></span>
+    </div>
+    <div class="lp-logo-x">×</div>
+    <div class="lp-logo-box">
+      <span style="font-size:14px;"><span style="color:#4285f4">G</span><span style="color:#ea4335">o</span><span style="color:#fbbc04">o</span><span style="color:#4285f4">g</span><span style="color:#34a853">l</span><span style="color:#ea4335">e</span></span>
+      <span style="color:var(--text2);">SEO /<br>MEO</span>
+    </div>
+  </div>
+
+  <div class="lp-hero__cta">
+    <a href="#line-cta" class="btn-line-big">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+      10大特典を無料で受け取る
+    </a>
+    <p class="lp-hero__cta-note">LINE登録だけ · 費用0円 · 60秒で完了</p>
+  </div>
+
+  <div class="hero__scroll" style="margin-top:48px;">
+    SCROLL<span class="hero__scroll-line"></span>
+  </div>
+</section>
+
+<!-- ─── PROBLEM ─── -->
+<section class="problem-section">
+  <div class="wrap">
+    <h2 class="problem-headline reveal">
+      こんなお悩み、<em class="g-text" style="font-style:normal;">ありませんか？</em>
+    </h2>
+
+    <div class="problem-list">
+      <div class="problem-item reveal">
+        <div class="problem-item__icon">😟</div>
+        <div>HPBに掲載しているのに、なかなか新規のお客様が増えない</div>
+      </div>
+      <div class="problem-item reveal">
+        <div class="problem-item__icon">💸</div>
+        <div>上位プランに上げたいが、費用対効果が不安で踏み切れない</div>
+      </div>
+      <div class="problem-item reveal">
+        <div class="problem-item__icon">📉</div>
+        <div>クーポンを登録しているのに、クリックされていない・予約につながらない</div>
+      </div>
+      <div class="problem-item reveal">
+        <div class="problem-item__icon">📸</div>
+        <div>競合サロンと何が違うのか、どこを改善すればいいか分からない</div>
+      </div>
+      <div class="problem-item reveal">
+        <div class="problem-item__icon">🔄</div>
+        <div>新規客は来てくれるが、リピートにつながらず売上が安定しない</div>
+      </div>
+    </div>
+
+    <div class="problem-resolve reveal">
+      <p>
+        これらの悩みはすべて、<strong>HPBページの設定方法と集客の仕組み</strong>を知ることで解決できます。<br>
+        プランの高さより、<strong>正しい知識と設定</strong>のほうが集客に直結します。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── GIFTS ─── -->
+<section class="gifts-lp-section">
+  <div class="wrap">
+    <div class="section-eyebrow reveal">10 Presents · All Free</div>
+    <h2 class="section-headline reveal">
+      サロン集客に必要な<em class="g-text" style="font-style:normal;">すべて</em>を凝縮<br>
+      <span style="font-size:.65em;color:var(--text2);font-weight:400;">10大特典を完全無料でプレゼント</span>
+    </h2>
+    <p class="section-sub reveal">
+      LINE登録だけで、今すぐ全10コンテンツにアクセスできます。<br>
+      実践テンプレ・スクリプト・AIプロンプトをすぐに使える形でお届け。
+    </p>
+
+    <div class="gifts-lp-grid">
+      <div class="gift-lp-card reveal">
+        <div class="gift-lp-card__num">01</div>
+        <div class="gift-lp-card__body">
+          <div class="gift-lp-card__icon">🔍</div>
+          <div class="gift-lp-card__title">HPBページ健康診断チェックリスト30項目</div>
+          <div class="gift-lp-card__desc">今すぐ確認すべき設定漏れ・改善ポイントを優先度付きで網羅。スコアリングで弱点が一目瞭然。</div>
+        </div>
+      </div>
+      <div class="gift-lp-card reveal">
+        <div class="gift-lp-card__num">02</div>
+        <div class="gift-lp-card__body">
+          <div class="gift-lp-card__icon">📊</div>
+          <div class="gift-lp-card__title">PV数別・改善優先度マップ</div>
+          <div class="gift-lp-card__desc">月間PV数によって打ち手は変わる。あなたの現状に合った最速改善ルートがわかる。</div>
+        </div>
+      </div>
+      <div class="gift-lp-card reveal">
+        <div class="gift-lp-card__num">03</div>
+        <div class="gift-lp-card__body">
+          <div class="gift-lp-card__icon">🎫</div>
+          <div class="gift-lp-card__title">HPBクーポン設計50選</div>
+          <div class="gift-lp-card__desc">新規・リピート・時期別で使い分ける50パターン。クリック率と予約転換率を同時に上げる。</div>
+        </div>
+      </div>
+      <div class="gift-lp-card reveal">
+        <div class="gift-lp-card__num">04</div>
+        <div class="gift-lp-card__body">
+          <div class="gift-lp-card__icon">✍️</div>
+          <div class="gift-lp-card__title">こだわりページ文章テンプレ集（業種別5種）</div>
+          <div class="gift-lp-card__desc">ヘア・ネイル・まつ毛・エステ・リラクゼーション。コピペで使えるテンプレート集。</div>
+        </div>
+      </div>
+      <div class="gift-lp-card reveal">
+        <div class="gift-lp-card__num">05</div>
+        <div class="gift-lp-card__body">
+          <div class="gift-lp-card__icon">💬</div>
+          <div class="gift-lp-card__title">HPB口コミ依頼スクリプト3選</div>
+          <div class="gift-lp-card__desc">嫌がられずに口コミをもらえる自然な依頼トーク。施術後タイミング別3パターン。</div>
+        </div>
+      </div>
+      <div class="gift-lp-card reveal">
+        <div class="gift-lp-card__num">06</div>
+        <div class="gift-lp-card__body">
+          <div class="gift-lp-card__icon">🔄</div>
+          <div class="gift-lp-card__title">新規→リピート転換トーク集10選</div>
+          <div class="gift-lp-card__desc">初回客を確実にリピーターに変える接客トーク。次回予約率80%超を実現したフレーズ集。</div>
+        </div>
+      </div>
+      <div class="gift-lp-card reveal">
+        <div class="gift-lp-card__num">07</div>
+        <div class="gift-lp-card__body">
+          <div class="gift-lp-card__icon">🤖</div>
+          <div class="gift-lp-card__title">クーポン文・キャッチコピー生成プロンプト集</div>
+          <div class="gift-lp-card__desc">AIを使って瞬時に高品質なクーポン文とキャッチコピーを量産するプロンプト集。</div>
+        </div>
+      </div>
+      <div class="gift-lp-card reveal">
+        <div class="gift-lp-card__num">08</div>
+        <div class="gift-lp-card__body">
+          <div class="gift-lp-card__icon">📝</div>
+          <div class="gift-lp-card__title">HPBブログ記事爆速生成プロンプト</div>
+          <div class="gift-lp-card__desc">SEOに強くPVが集まるHPBブログ記事を5分で作るAIプロンプト。ネタ出しから本文まで。</div>
+        </div>
+      </div>
+      <div class="gift-lp-card reveal">
+        <div class="gift-lp-card__num">09</div>
+        <div class="gift-lp-card__body">
+          <div class="gift-lp-card__icon">🗺️</div>
+          <div class="gift-lp-card__title">Google × HPB 役割分担攻略マップ</div>
+          <div class="gift-lp-card__desc">GoogleマップとHPBを組み合わせた最強の集客戦略。どちらで何を狙うべきかが一目でわかる。</div>
+        </div>
+      </div>
+      <div class="gift-lp-card reveal">
+        <div class="gift-lp-card__num">10</div>
+        <div class="gift-lp-card__body">
+          <div class="gift-lp-card__icon">⚡</div>
+          <div class="gift-lp-card__title">低プランで高プランを超えた設定術ガイド</div>
+          <div class="gift-lp-card__desc">コストをかけずにプレミアム掲載と同等の成果を出す設定テクニック。プラン格差を知識で覆す。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA BLOCK -->
+    <div class="cta-block reveal" id="line-cta">
+      <div class="cta-block__tag">受け取り方法</div>
+      <h3 class="cta-block__title">LINE登録だけで<br><em class="g-text" style="font-style:normal;">全10コンテンツ</em>を受け取れる</h3>
+      <p class="cta-block__desc">費用は一切かかりません。難しい手順もありません。LINEを登録するだけで、すぐにすべての特典にアクセスできます。</p>
+
+      <div class="cta-block__steps">
+        <div class="cta-step">
+          <div class="cta-step__num">STEP 01</div>
+          <div class="cta-step__icon">📲</div>
+          <div class="cta-step__label">LINEを<br>登録する</div>
+        </div>
+        <div class="cta-step-arr">→</div>
+        <div class="cta-step">
+          <div class="cta-step__num">STEP 02</div>
+          <div class="cta-step__icon">🎁</div>
+          <div class="cta-step__label">特典URLが<br>届く</div>
+        </div>
+        <div class="cta-step-arr">→</div>
+        <div class="cta-step">
+          <div class="cta-step__num">STEP 03</div>
+          <div class="cta-step__icon">✅</div>
+          <div class="cta-step__label">今すぐ<br>使える！</div>
+        </div>
+      </div>
+
+      <a href="https://lin.ee/UbEyJAu" class="btn-line-big">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+        RAIのLINEに登録する（無料）
+      </a>
+      <p class="cta-block__note">登録解除はいつでもできます · スパム送信はしません</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TESTIMONIALS ─── -->
+<section class="testimonial-section">
+  <div class="wrap">
+    <div class="section-eyebrow reveal">Voice</div>
+    <h2 style="text-align:center;font-size:clamp(20px,4vw,30px);font-weight:900;margin-bottom:40px;" class="reveal">実践したサロンオーナーの声</h2>
+
+    <div class="testimonial-grid">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-card__stars">★★★★★</div>
+        <p class="testimonial-card__text">チェックリストを確認したら設定漏れが7項目もありました。修正したら翌月のPVが1.4倍になってびっくりしました。</p>
+        <div class="testimonial-card__author">
+          <span class="testimonial-card__author-dot"></span>
+          東京・ヘアサロン経営 / 30代女性
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-card__stars">★★★★★</div>
+        <p class="testimonial-card__text">クーポン設計50選を参考に全部リニューアルしたら、新規予約数が月18件から41件になりました。テンプレートのクオリティが高くてすぐ使えました。</p>
+        <div class="testimonial-card__author">
+          <span class="testimonial-card__author-dot"></span>
+          大阪・ネイルサロン経営 / 40代女性
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-card__stars">★★★★★</div>
+        <p class="testimonial-card__text">口コミ依頼スクリプトを使い始めてから口コミが月3〜5件コンスタントに増えるようになりました。以前は1〜2件/月だったのに全然違います。</p>
+        <div class="testimonial-card__author">
+          <span class="testimonial-card__author-dot"></span>
+          福岡・まつ毛サロン経営 / 30代女性
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ABOUT ─── -->
+<section class="about-section">
+  <div class="wrap">
+    <div class="section-eyebrow reveal">About RAI</div>
+
+    <div class="about-card reveal">
+      <div class="about-profile">
+        <div class="about-avatar">RAI</div>
+        <div class="about-meta">
+          <div class="about-name">RAI</div>
+          <div class="about-title">HPB集客コンサルタント｜美容サロン専門</div>
+          <div class="about-tags">
+            <span class="about-tag">元リクルート</span>
+            <span class="about-tag">HPB集客</span>
+            <span class="about-tag">SEO/MEO</span>
+            <span class="about-tag">美容サロン専門</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-body">
+        <p>元リクルートで集客マニアとして活動後、独立。<strong>美容サロン専門のHPB集客コンサルタント</strong>として、全国のサロンオーナーをサポートしています。</p>
+        <br>
+        <p>「プランを上げなくても集客できる」という信念のもと、<strong>設定の最適化・コンテンツ強化・口コミ構築</strong>の3軸で、費用を抑えながら予約数を最大化する手法を体系化。ライトプランで月50件以上、プラチナプランで月300件以上の新規数を実現したノウハウをすべて無料でお届けしています。</p>
+      </div>
+      <div class="about-results">
+        <div class="about-result-item">
+          <div class="about-result-num">200<span style="font-size:.4em;">+</span></div>
+          <div class="about-result-label">サポート<br>サロン数</div>
+        </div>
+        <div class="about-result-item">
+          <div class="about-result-num">50<span style="font-size:.4em;">+</span></div>
+          <div class="about-result-label">ライトプランで<br>月間新規件数</div>
+        </div>
+        <div class="about-result-item">
+          <div class="about-result-num">300<span style="font-size:.4em;">+</span></div>
+          <div class="about-result-label">プラチナプランで<br>月間新規件数</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONSULT FLOW ─── -->
+<section class="consult-section">
+  <div class="wrap">
+    <div class="section-eyebrow reveal">Next Step</div>
+    <h2 style="text-align:center;font-size:clamp(20px,4vw,30px);font-weight:900;margin-bottom:8px;" class="reveal">
+      特典の次は<em class="g-text" style="font-style:normal;">個別サポート</em>へ
+    </h2>
+    <p style="text-align:center;font-size:13px;color:var(--text2);margin-bottom:0;line-height:1.8;" class="reveal">
+      特典コンテンツを読んで「もっと具体的に相談したい」と感じたら、<br>無料相談からスタートできます。
+    </p>
+
+    <div class="consult-flow">
+      <div class="consult-step reveal">
+        <div class="consult-step__num">01</div>
+        <div class="consult-step__body">
+          <div class="consult-step__title">LINE登録 → 10大特典を受け取る</div>
+          <div class="consult-step__desc">まずは10大特典を受け取り、自分のサロンの現状を把握しましょう。チェックリストで<strong>何が足りないか</strong>がすぐにわかります。</div>
+        </div>
+      </div>
+      <div class="consult-step reveal">
+        <div class="consult-step__num">02</div>
+        <div class="consult-step__body">
+          <div class="consult-step__title">無料相談（LINE・30分 / 完全無料）</div>
+          <div class="consult-step__desc">特典を読んだ後、疑問点や「うちのサロンに当てはめるとどうなる？」という質問をLINEでお気軽に。<strong>押し売りは一切ありません</strong>。</div>
+        </div>
+      </div>
+      <div class="consult-step reveal">
+        <div class="consult-step__num">03</div>
+        <div class="consult-step__body">
+          <div class="consult-step__title">HPBページ個別診断（オプション）</div>
+          <div class="consult-step__desc">あなたのHPBページを直接確認し、<strong>具体的な改善ポイントと優先順位</strong>をレポートにまとめてお届けします。ご希望の方のみ。</div>
+        </div>
+      </div>
+      <div class="consult-step reveal">
+        <div class="consult-step__num">04</div>
+        <div class="consult-step__body">
+          <div class="consult-step__title">コンサルティング（月額契約 / 希望者のみ）</div>
+          <div class="consult-step__desc">本格的に集客を改善したい方には、継続サポートプランをご用意。<strong>HPBの設定・クーポン・口コミ・ブログ</strong>を一括でサポートします。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="notice notice-g reveal">
+      <span class="notice__icon">🙅</span>
+      <div>
+        <strong class="gold">ご安心ください：</strong>
+        LINE登録・無料相談は完全無料です。強引な営業・勧誘は一切行いません。特典だけ受け取って終わりでも全く構いません。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FINAL CTA ─── -->
+<section class="final-cta">
+  <div class="final-cta__big bebas">FREE</div>
+  <h2 class="final-cta__title">今すぐ、10大特典を受け取る</h2>
+  <p class="final-cta__desc">
+    登録は60秒で完了。費用は一切かかりません。<br>
+    明日から使えるテンプレート・スクリプト・AIプロンプトを<br>今すぐ手に入れてください。
+  </p>
+
+  <a href="https://lin.ee/UbEyJAu" class="btn-line-big" style="margin-bottom:14px;">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+    RAIのLINEに登録する（無料）
+  </a>
+  <p style="font-size:11px;color:var(--text3);letter-spacing:.04em;">登録解除はいつでも可能 · 個人情報の第三者提供なし</p>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer class="site-footer" style="padding-bottom:80px;">
+  <div class="site-footer__logo">RAI</div>
+  <div class="site-footer__text">HPB集客コンサルタント｜美容サロン専門</div>
+  <div class="site-footer__copy">© 2024 RAI HPB Consultant. All rights reserved.</div>
+</footer>
+
+<script>
+// Scroll reveal
+const io = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting){x.target.classList.add('in-view');io.unobserve(x.target);} }), {threshold:.1,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach((el, i) => {
+  el.style.transitionDelay = (i % 4) * 60 + 'ms';
+  io.observe(el);
+});
+
+// Sticky CTA: show after scrolling past hero
+const stickyCta = document.getElementById('stickyCta');
+const hero = document.querySelector('.lp-hero');
+const heroObserver = new IntersectionObserver(entries => {
+  if (!entries[0].isIntersecting) {
+    stickyCta.classList.add('show');
+  } else {
+    stickyCta.classList.remove('show');
+  }
+}, { threshold: 0 });
+heroObserver.observe(hero);
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+</body>
+</html>

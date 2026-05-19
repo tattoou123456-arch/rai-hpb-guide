@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>08｜HPBブログ記事爆速生成プロンプト — RAI</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="index.html" class="back-btn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      一覧に戻る
+    </a>
+    <div class="header-pager">
+      <div class="header-pager__label">Present</div>
+      <div class="header-pager__num">08 / 10</div>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <span class="page-hero__tag">Blog Prompts</span>
+  <h1 class="page-hero__title">HPBブログ記事<br>爆速生成プロンプト</h1>
+  <p class="page-hero__desc">SEOに強くPVが集まるHPBブログ記事を5分で作るAIプロンプト。ネタ出しから本文まで完全網羅。</p>
+</section>
+
+<div class="content">
+  <div class="wrap">
+
+    <div class="blog-stats reveal">
+      <div class="blog-stat-item">
+        <div class="blog-stat-num">30<span style="font-size:.5em;">日</span></div>
+        <div class="blog-stat-label">最低更新頻度<br>（月1本以上必須）</div>
+      </div>
+      <div class="blog-stat-item">
+        <div class="blog-stat-num">200<span style="font-size:.5em;">字</span></div>
+        <div class="blog-stat-label">1記事最低文字数<br>（写真1枚以上必須）</div>
+      </div>
+      <div class="blog-stat-item">
+        <div class="blog-stat-num">5<span style="font-size:.5em;">分</span></div>
+        <div class="blog-stat-label">AIを使えば<br>1記事の目安時間</div>
+      </div>
+    </div>
+
+    <div class="notice notice-g reveal">
+      <span class="notice__icon">📝</span>
+      <div>
+        <strong class="gold">HPBブログの役割：</strong>
+        検索エンジンに「このサロンは活発に発信している」と評価させるためのコンテンツです。<strong style="color:var(--text)">地域名＋施術名</strong>をタイトルに含めることで、HPB内検索だけでなくGoogleからも流入が発生します。
+      </div>
+    </div>
+
+    <div class="card reveal">
+      <div class="card__title">ブログ記事作成の流れ</div>
+      <div class="step-flow">
+        <div class="step-pill">① テーマ決め</div>
+        <div class="step-arr">→</div>
+        <div class="step-pill">② タイトル生成</div>
+        <div class="step-arr">→</div>
+        <div class="step-pill">③ 本文生成</div>
+        <div class="step-arr">→</div>
+        <div class="step-pill">④ 写真を追加</div>
+        <div class="step-arr">→</div>
+        <div class="step-pill">⑤ 投稿</div>
+      </div>
+      <p style="font-size:12px;color:var(--text2);margin-top:12px;line-height:1.7;">以下のプロンプトを順番に使うことで、テーマ決めから本文完成まで一気通貫で対応できます。</p>
+    </div>
+
+    <div class="prompt-card reveal">
+      <div class="prompt-card__head">
+        <div class="prompt-card__title">STEP 1 — ブログネタ出し（月間カレンダー）</div>
+        <span class="prompt-card__use">ネタ切れ解消</span>
+      </div>
+      <div class="prompt-text">美容サロンのHPBブログ記事のネタを出してください。
+
+【サロン情報】
+・業種：<span class="fill">【ヘアサロン / ネイル / etc】</span>
+・得意メニュー：<span class="fill">【カット / カラー / etc】</span>
+・エリア：<span class="fill">【◯◯市 / ◯◯駅周辺】</span>
+・ターゲット：<span class="fill">【20〜40代女性 / etc】</span>
+
+【生成してほしいもの】
+・<span class="fill">【◯月】</span>のブログネタを12本（月3本 × 4週分）
+・各ネタに以下を含めること：
+  1. タイトル案（地域名+施術名を含む）
+  2. 記事の概要（2〜3文）
+  3. 狙うキーワード
+
+【注意点】
+・季節・イベントに合わせる
+・SEOに有利な「◯◯する方法」「◯◯とは」形式のタイトルも含める
+・リピーター獲得につながるネタも入れる</div>
+      <div class="prompt-card__foot">
+        <div class="prompt-tip">月初めに一気にネタ出しして、月間スケジュールを立てると習慣化しやすい</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          プロンプトをコピー
+        </button>
+      </div>
+    </div>
+
+    <div class="prompt-card reveal">
+      <div class="prompt-card__head">
+        <div class="prompt-card__title">STEP 2 — SEOタイトル最適化</div>
+        <span class="prompt-card__use">タイトル改善</span>
+      </div>
+      <div class="prompt-text">HPBブログのSEOに強いタイトルを作ってください。
+
+【記事テーマ】
+<span class="fill">【例：夏のダメージヘアケアについて】</span>
+
+【サロン情報】
+・エリア：<span class="fill">【◯◯市 / ◯◯駅】</span>
+・業種：<span class="fill">【ヘアサロン / ネイル / etc】</span>
+
+【条件】
+・40文字以内
+・以下のパターンで各1案ずつ計5案を作成：
+  1. 「地域名＋メニュー名」で検索を狙ったもの
+  2. 「お悩み解決型」（〜で悩む方へ / 〜に効く）
+  3. 「数字入り」（◯選 / ◯つのポイント）
+  4. 「季節+施術」で旬感を出したもの
+  5. 「知らなきゃ損」系の興味喚起型
+
+・各タイトルに狙いキーワードを明記すること</div>
+      <div class="prompt-card__foot">
+        <div class="prompt-tip">Googleのサジェストで実際に検索されているキーワードを確認してから使うとさらに効果UP</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          プロンプトをコピー
+        </button>
+      </div>
+    </div>
+
+    <div class="prompt-card reveal">
+      <div class="prompt-card__head">
+        <div class="prompt-card__title">STEP 3 — ブログ本文の完全生成</div>
+        <span class="prompt-card__use">本文作成</span>
+      </div>
+      <div class="prompt-text">HPBブログの記事本文を書いてください。
+
+【記事タイトル】
+<span class="fill">【決定したタイトルを入力】</span>
+
+【サロン情報】
+・サロン名：<span class="fill">【◯◯サロン】</span>
+・エリア：<span class="fill">【◯◯市 / ◯◯駅徒歩◯分】</span>
+・得意施術：<span class="fill">【◯◯】</span>
+・使用薬剤・技術：<span class="fill">【◯◯を使用 / ◯◯技法 etc】</span>
+
+【記事の目的】
+<span class="fill">【新規集客 / リピーター向け / ブランディング】</span>
+
+【条件】
+・400〜600文字
+・見出し（■ や ◆）で読みやすく構造化する
+・専門用語は使わず、一般の方にわかりやすい言葉で
+・施術の「ビフォーアフター」的なイメージを言葉で描写
+・最後に予約を促すCTA文を入れる
+・HPBのサロン名と最寄り駅を自然に本文中に含める</div>
+      <div class="output-box">
+        <div class="output-box__label">Output Sample</div>
+        ■ 渋谷でダメージに悩む方へ<br>
+        「カラーするたびに髪が傷む…」そんな声をよくいただきます。【サロン名】では、ダメージを最小限に抑えるイルミナカラーを使用。施術後はつやつやのサラ髪を実感いただけます。<br><br>
+        ■ こんな方におすすめ<br>
+        ・カラーを繰り返している方 ・パサつきが気になる方…
+      </div>
+      <div class="prompt-card__foot">
+        <div class="prompt-tip">生成した本文に実際の写真を1〜2枚追加するとさらに効果的</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          プロンプトをコピー
+        </button>
+      </div>
+    </div>
+
+    <div class="prompt-card reveal">
+      <div class="prompt-card__head">
+        <div class="prompt-card__title">施術事例レポート記事の生成</div>
+        <span class="prompt-card__use">事例紹介</span>
+      </div>
+      <div class="prompt-text">美容サロンの施術事例をブログ記事にしてください。
+
+【施術情報】
+・メニュー名：<span class="fill">【◯◯カラー+カット / etc】</span>
+・お客様の悩み（Before）：<span class="fill">【例：白髪が気になる・パサついている・etc】</span>
+・施術内容：<span class="fill">【使用薬剤・技法・ポイント】</span>
+・仕上がり（After）：<span class="fill">【例：艶感が出て若々しく / etc】</span>
+・お客様の声：<span class="fill">【例：「こんなに変わるとは思わなかった！」（任意）】</span>
+
+【サロン情報】
+・サロン名：<span class="fill">【◯◯サロン】</span>
+・エリア：<span class="fill">【◯◯駅周辺】</span>
+
+【条件】
+・300〜400文字
+・「お客様の悩み→施術→仕上がり」の流れで構成
+・読んだ人が「自分もこうなりたい」と思えるような描写
+・プライバシーに配慮した表現（「お客様」「◯◯代の方」などに留める）
+・最後にそのメニューのクーポンへの誘導文を入れる</div>
+      <div class="prompt-card__foot">
+        <div class="prompt-tip">施術後写真を撮影する習慣と組み合わせると強力なブログコンテンツになる</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          プロンプトをコピー
+        </button>
+      </div>
+    </div>
+
+    <div class="notice notice-r reveal">
+      <span class="notice__icon">⚠️</span>
+      <div>
+        <strong style="color:var(--red)">投稿前に必ず確認：</strong>
+        AI生成文はそのまま使わず、<strong style="color:var(--text)">①実際のサロン情報と相違がないか ②薬剤・価格が正確か ③自然な日本語になっているか</strong>を確認してください。事実と異なる記載はHPBのガイドライン違反になる場合があります。
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<nav class="page-nav">
+  <a href="07.html" class="page-nav__btn">← 前：クーポンプロンプト</a>
+  <a href="09.html" class="page-nav__btn">次：Google×HPB攻略マップ →</a>
+</nav>
+
+<section class="cta-section">
+  <div class="gold-div"></div>
+  <div class="cta-section__title">ブログ運用を仕組み化したい方へ</div>
+  <div class="cta-section__desc">月間ブログ計画の立て方・投稿の効率化をLINEでサポートします</div>
+  <a href="#" class="btn-line">
+    <svg width="19" height="19" viewBox="0 0 24 24" fill="white"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+    RAIに相談する（無料）
+  </a>
+</section>
+
+<footer class="site-footer">
+  <div class="site-footer__logo">RAI</div>
+  <div class="site-footer__text">HPB集客コンサルタント｜美容サロン専門</div>
+</footer>
+
+<script>
+const io = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting){x.target.classList.add('in-view');io.unobserve(x.target);} }), {threshold:.1,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+function copyPrompt(btn) {
+  const card = btn.closest('.prompt-card');
+  const text = card.querySelector('.prompt-text').innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    const orig = btn.innerHTML;
+    btn.classList.add('ok');
+    btn.innerHTML = '✓ コピーしました';
+    setTimeout(() => { btn.classList.remove('ok'); btn.innerHTML = orig; }, 2000);
+  });
+}
+</script>
+</body>
+</html>

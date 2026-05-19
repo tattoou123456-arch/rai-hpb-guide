@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>07｜クーポン文・キャッチコピー生成プロンプト集 — RAI</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="index.html" class="back-btn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      一覧に戻る
+    </a>
+    <div class="header-pager">
+      <div class="header-pager__label">Present</div>
+      <div class="header-pager__num">07 / 10</div>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <span class="page-hero__tag">AI Prompts</span>
+  <h1 class="page-hero__title">クーポン文・キャッチコピー<br>生成プロンプト集</h1>
+  <p class="page-hero__desc">AIを使って瞬時に高品質なクーポン文とキャッチコピーを量産するプロンプト集。ChatGPT・Claude両対応。</p>
+</section>
+
+<div class="content">
+  <div class="wrap">
+
+    <div class="notice notice-g reveal">
+      <span class="notice__icon">🤖</span>
+      <div>
+        <strong class="gold">使い方：</strong>
+        <span style="color:var(--gold2)">【　】</span>の部分をあなたのサロン情報に書き換えて、ChatGPTまたはClaudeに貼り付けるだけ。出力をそのまま使うか、微調整してHPBに登録してください。
+      </div>
+    </div>
+
+    <!-- プロンプト 1 -->
+    <div class="prompt-card reveal">
+      <div class="prompt-card__head">
+        <div class="prompt-card__title">新規向けクーポンタイトル 5案生成</div>
+        <span class="prompt-card__use">新規集客</span>
+      </div>
+      <div class="prompt-text">あなたは美容サロンの集客に詳しいコピーライターです。
+
+以下の条件でHPB（ホットペッパービューティー）のクーポンタイトルを5案作成してください。
+
+【サロン情報】
+・業種：<span class="fill">【ヘアサロン / ネイル / etc】</span>
+・エリア：<span class="fill">【最寄り駅名・地域名】</span>
+・主力メニュー：<span class="fill">【カット+カラー / ジェルネイル / etc】</span>
+・強み：<span class="fill">【ダメージレス / 時短 / リーズナブル / etc】</span>
+・ターゲット：<span class="fill">【20代OL / 主婦 / 学生 / etc】</span>
+
+【条件】
+・40文字以内
+・「初回限定」「新規様」などの言葉を含める
+・お客様が検索しそうなキーワードを自然に含む
+・価格または割引率を明示する
+・5案は方向性を変えてバリエーションを出す</div>
+      <div class="output-box">
+        <div class="output-box__label">Output Sample</div>
+        ① 【渋谷】初回限定◆カット+イルミナカラー 通常¥12,000→¥6,600<br>
+        ② 新規様限定◆ダメージレスカラー+トリートメント 45%OFF<br>
+        ③ 初来店の方へ◆白髪ぼかしハイライト お試し¥5,500〜<br>
+        ④ 【口コミ★4.8】初回限定フルカラー+カット 学割あり<br>
+        ⑤ 初めての方限定◆時短90分カット+カラー 平日¥5,800
+      </div>
+      <div class="prompt-card__foot">
+        <div class="prompt-tip">▲ あくまでサンプル出力。実際のAI出力はより詳細です</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          プロンプトをコピー
+        </button>
+      </div>
+    </div>
+
+    <!-- プロンプト 2 -->
+    <div class="prompt-card reveal">
+      <div class="prompt-card__head">
+        <div class="prompt-card__title">クーポン説明文（本文）の生成</div>
+        <span class="prompt-card__use">説明文強化</span>
+      </div>
+      <div class="prompt-text">HPBのクーポン説明文を書いてください。
+
+【クーポン名】
+<span class="fill">【タイトルを入力】</span>
+
+【施術詳細】
+・メニュー内容：<span class="fill">【カット＋カラー＋トリートメント / etc】</span>
+・所要時間：<span class="fill">【約◯分】</span>
+・通常価格：<span class="fill">【¥◯,◯◯◯】</span>
+・クーポン価格：<span class="fill">【¥◯,◯◯◯】</span>
+・有効期限：<span class="fill">【◯年◯月◯日まで】</span>
+・使用条件：<span class="fill">【新規様のみ / 1回限り / etc】</span>
+
+【伝えたいこと】
+<span class="fill">【使用薬剤の特徴・施術後の状態・担当者のこだわり等を自由記述】</span>
+
+【条件】
+・200〜300文字
+・お客様が予約ボタンを押したくなるような文章
+・体験後のベネフィットを具体的に描写する
+・最後にCTAで予約を促す一文を入れる</div>
+      <div class="prompt-card__foot">
+        <div class="prompt-tip">所要時間・価格の記載は予約離脱防止に効果的</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          プロンプトをコピー
+        </button>
+      </div>
+    </div>
+
+    <!-- プロンプト 3 -->
+    <div class="prompt-card reveal">
+      <div class="prompt-card__head">
+        <div class="prompt-card__title">競合差別化キャッチコピー生成</div>
+        <span class="prompt-card__use">差別化</span>
+      </div>
+      <div class="prompt-text">美容サロンのHPBページのキャッチコピーを作ってください。
+
+【サロンの強み・特徴】（思いつくだけ箇条書き）
+<span class="fill">・使用薬剤：【◯◯カラー / ◯◯ケア】
+・技術：【◯◯認定 / ◯◯歴◯年】
+・環境：【完全個室 / 駐車場有 / 子連れOK】
+・価格帯：【リーズナブル / プレミアム】
+・その他：【自由記述】</span>
+
+【ターゲット客層】
+<span class="fill">【例：30代〜40代、産後ケアを求めるママ】</span>
+
+【生成条件】
+・30〜40文字の短いキャッチコピーを5案
+・1案は感情に訴えるもの
+・1案は数字・実績を使ったもの
+・1案はターゲットに呼びかけるもの
+・HPBのサロン名横に表示されることを想定した文体</div>
+      <div class="prompt-card__foot">
+        <div class="prompt-tip">5案出して一番クリック率が高そうなものを使う</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          プロンプトをコピー
+        </button>
+      </div>
+    </div>
+
+    <!-- プロンプト 4 -->
+    <div class="prompt-card reveal">
+      <div class="prompt-card__head">
+        <div class="prompt-card__title">口コミ返信文の自動生成</div>
+        <span class="prompt-card__use">口コミ管理</span>
+      </div>
+      <div class="prompt-text">HPBの口コミへの返信文を書いてください。
+
+【口コミの内容】
+<span class="fill">【実際の口コミをそのまま貼り付け】</span>
+
+【口コミの評価】
+<span class="fill">【★5 / ★4 / ★3 / 低評価（★1〜2）】</span>
+
+【サロン名・担当スタッフ名】
+<span class="fill">【◯◯サロン / スタッフ◯◯】</span>
+
+【条件】
+・150〜200文字
+・口コミに書かれた具体的なメニュー・感想に言及する（テンプレ感をなくす）
+・温かみのある文体
+・次回来店を自然に促す一文を入れる
+・低評価の場合：謝罪→原因説明（可能なら）→改善策→再来店の期待の流れで</div>
+      <div class="prompt-card__foot">
+        <div class="prompt-tip">口コミに言及する返信は他の閲覧者への強力なアピールになる</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          プロンプトをコピー
+        </button>
+      </div>
+    </div>
+
+    <!-- プロンプト 5 -->
+    <div class="prompt-card reveal">
+      <div class="prompt-card__head">
+        <div class="prompt-card__title">季節限定クーポン一括生成</div>
+        <span class="prompt-card__use">季節施策</span>
+      </div>
+      <div class="prompt-text">季節に合わせたHPBクーポンのタイトルと説明文を作ってください。
+
+【サロン情報】
+・業種：<span class="fill">【業種】</span>
+・主力メニュー：<span class="fill">【メニュー名】</span>
+・価格帯：<span class="fill">【◯,◯◯◯円〜】</span>
+
+【季節・イベント】
+<span class="fill">【例：梅雨対策 / 夏の日焼けケア / 年末年始 / バレンタイン etc】</span>
+
+【生成してほしいもの】
+1. クーポンタイトル（40文字以内）× 3案
+2. 各タイトルに対応するクーポン説明文（200文字）× 3案
+3. 季節感を活かしたキャッチコピー × 1案
+
+【注意点】
+・季節ワードを自然に含める（検索に引っかかるように）
+・緊急性・期間限定感を出す
+・ターゲット：<span class="fill">【想定するお客様像】</span></div>
+      <div class="prompt-card__foot">
+        <div class="prompt-tip">季節クーポンは1〜2ヶ月前から準備すると検索ヒットが増える</div>
+        <button class="copy-btn" onclick="copyPrompt(this)">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          プロンプトをコピー
+        </button>
+      </div>
+    </div>
+
+    <div class="card reveal">
+      <div class="card__title">AIコピー活用のコツ</div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div class="action-row">
+          <div class="action-row__icon">🔄</div>
+          <div class="action-row__body"><strong>出力は必ず微調整する</strong><div class="action-row__kpi">AI出力をそのまま使うのではなく、サロンの言葉遣い・実態に合わせて微調整することで「手書き感」が出ます</div></div>
+        </div>
+        <div class="action-row">
+          <div class="action-row__icon">📊</div>
+          <div class="action-row__body"><strong>A/Bテストで検証する</strong><div class="action-row__kpi">複数案を生成し、クリック率の高いものを残す。HPBのアクセス解析で効果を計測しましょう</div></div>
+        </div>
+        <div class="action-row">
+          <div class="action-row__icon">🗓</div>
+          <div class="action-row__body"><strong>月1回は更新する</strong><div class="action-row__kpi">クーポンの更新頻度が高いサロンほどHPBのアルゴリズムに評価されやすい傾向があります</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<nav class="page-nav">
+  <a href="06.html" class="page-nav__btn">← 前：リピートトーク集</a>
+  <a href="08.html" class="page-nav__btn">次：ブログ生成プロンプト →</a>
+</nav>
+
+<section class="cta-section">
+  <div class="gold-div"></div>
+  <div class="cta-section__title">AIとHPB集客をもっと使いこなしたい方へ</div>
+  <div class="cta-section__desc">個別サロンに合わせたプロンプトカスタマイズをLINEでサポート</div>
+  <a href="#" class="btn-line">
+    <svg width="19" height="19" viewBox="0 0 24 24" fill="white"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+    RAIに相談する（無料）
+  </a>
+</section>
+
+<footer class="site-footer">
+  <div class="site-footer__logo">RAI</div>
+  <div class="site-footer__text">HPB集客コンサルタント｜美容サロン専門</div>
+</footer>
+
+<script>
+const io = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting){x.target.classList.add('in-view');io.unobserve(x.target);} }), {threshold:.1,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+function copyPrompt(btn) {
+  const card = btn.closest('.prompt-card');
+  const text = card.querySelector('.prompt-text').innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    const orig = btn.innerHTML;
+    btn.classList.add('ok');
+    btn.innerHTML = '✓ コピーしました';
+    setTimeout(() => { btn.classList.remove('ok'); btn.innerHTML = orig; }, 2000);
+  });
+}
+</script>
+</body>
+</html>

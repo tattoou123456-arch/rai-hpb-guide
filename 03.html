@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>03｜HPBクーポン設計50選 — RAI</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="index.html" class="back-btn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      一覧に戻る
+    </a>
+    <div class="header-pager">
+      <div class="header-pager__label">Present</div>
+      <div class="header-pager__num">03 / 10</div>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <span class="page-hero__tag">Coupon Design</span>
+  <h1 class="page-hero__title">HPBクーポン設計<br><span class="g-text-subtle">50選</span></h1>
+  <p class="page-hero__desc">新規・リピート・ターゲット別・季節別に使い分ける50パターン。タイトル例付きですぐ使えます。</p>
+</section>
+
+<div class="content">
+  <div class="wrap">
+
+    <div class="filter-bar reveal">
+      <button class="filter-btn active" onclick="filterCoupons('all',this)">すべて（50）</button>
+      <button class="filter-btn" onclick="filterCoupons('new',this)">新規獲得</button>
+      <button class="filter-btn" onclick="filterCoupons('repeat',this)">リピート</button>
+      <button class="filter-btn" onclick="filterCoupons('target',this)">ターゲット特化</button>
+      <button class="filter-btn" onclick="filterCoupons('season',this)">季節・時期</button>
+    </div>
+
+    <div class="coupon-grid" id="couponGrid">
+
+      <!-- 新規 1-15 -->
+      <div class="coupon-item reveal" data-type="new">
+        <div class="coupon-item__no bebas">01</div>
+        <div class="coupon-item__title">初回限定・価格破壊オファー</div>
+        <div class="coupon-item__desc">通常価格の50〜60%OFFで提供。来店ハードルを下げて「まず体験」を促す王道パターン。</div>
+        <div class="coupon-item__ex">例：【初回限定】カット＋カラー ¥8,800→¥3,980（55%OFF）</div>
+        <div class="tag-row"><span class="ctag ctag-r">新規</span><span class="ctag">高クリック</span></div>
+      </div>
+
+      <div class="coupon-item reveal" data-type="new">
+        <div class="coupon-item__no bebas">02</div>
+        <div class="coupon-item__title">悩み解決型タイトルクーポン</div>
+        <div class="coupon-item__desc">「〇〇が気になる方へ」と悩みを先出し。検索キーワードと一致しやすく発見率が上がる。</div>
+        <div class="coupon-item__ex">例：【髪のパサつきが気になる方へ】集中トリートメント初回体験 ¥2,200</div>
+        <div class="tag-row"><span class="ctag ctag-r">新規</span><span class="ctag">SEO強</span></div>
+      </div>
+
+      <div class="coupon-item reveal" data-type="new">
+        <div class="coupon-item__no bebas">03</div>
+        <div class="coupon-item__title">所要時間明記の安心クーポン</div>
+        <div class="coupon-item__desc">「何分かかるかわからない不安」を解消。忙しいお客様に刺さる。</div>
+        <div class="coupon-item__ex">例：【60分でできる】カット＋ヘッドスパ 初回 ¥4,400</div>
+        <div class="tag-row"><span class="ctag ctag-r">新規</span><span class="ctag">時間訴求</span></div>
+      </div>
+
+      <div class="coupon-item reveal" data-type="new">
+        <div class="coupon-item__no bebas">04</div>
+        <div class="coupon-item__title">地域名×施術名の最強組み合わせ</div>
+        <div class="coupon-item__desc">地名を入れるだけで「近くのサロン」検索に引っかかる。絶対入れるべきワード。</div>
+        <div class="coupon-item__ex">例：【渋谷・初回限定】縮毛矯正＋カット ¥12,000（通常¥22,000）</div>
+        <div class="tag-row"><span class="ctag ctag-r">新規</span><span class="ctag">SEO強</span><span class="ctag">地域</span></div>
+      </div>
+
+      <div class="coupon-item reveal" data-type="new">
+        <div class="coupon-item__no bebas">05</div>
+        <div class="coupon-item__title">学生・20代向け価格訴求</div>
+        <div class="coupon-item__desc">年齢・ライフスタイルを絞り込んだクーポン。競合が少なく穴場の集客経路になる。</div>
+        <div class="coupon-item__ex">例：【学生限定】カット ¥1,980（要学生証提示）</div>
+        <div class="tag-row"><span class="ctag ctag-r">新規</span><span class="ctag ctag-p">ターゲット</span></div>
+      </div>
+
+      <div class="coupon-item reveal" data-type="new">
+        <div class="coupon-item__no bebas">06</div>
+        <div class="coupon-item__title">セット売り・お得感演出</div>
+        <div class="coupon-item__desc">単品より「セットで得」と感じさせることで高単価に誘導しながら来店ハードルを下げる。</div>
+        <div class="coupon-item__ex">例：【初回特別】カット＋カラー＋トリートメント 3点セット ¥9,900</div>
+        <div class="tag-row"><span class="ctag ctag-r">新規</span><span class="ctag">高単価</span></div>
+      </div>
+
+      <div class="coupon-item reveal" data-type="new">
+        <div class="coupon-item__no bebas">07</div>
+        <div class="coupon-item__title">平日昼限定・空き枠活用</div>
+        <div class="coupon-item__desc">集客が弱い時間帯に集中投下。客単価を下げても来店数を確保できる。</div>
+        <div class="coupon-item__ex">例：【平日13時まで限定】カット＋カラー ¥5,500（通常¥9,900）</div>
+        <div class="tag-row"><span class="ctag ctag-r">新規</span><span class="ctag">平日</span></div>
+      </div>
+
+      <div class="coupon-item reveal" data-type="new">
+        <div class="coupon-item__no bebas">08</div>
+        <div class="coupon-item__title">ビフォーアフター訴求型</div>
+        <div class="coupon-item__desc">写真と組み合わせることで「こうなれる」イメージを強化。予約決断率が上がる。</div>
+        <div class="coupon-item__ex">例：【Before→After保証】うねり改善ストレート 初回体験 ¥6,600</div>
+        <div class="tag-row"><span class="ctag ctag-r">新規</span><span class="ctag">結果訴求</span></div>
+      </div>
+
+      <div class="coupon-item reveal" data-type="new">
+        <div class="coupon-item__no bebas">09</div>
+        <div class="coupon-item__title">お試し体験型・低価格エントリー</div>
+        <div class="coupon-item__desc">単品メニューを超低価格で提供。まず来てもらうことに特化したクーポン。</div>
+        <div class="coupon-item__ex">例：【お試し体験】ヘッドスパ30分 初回 ¥1,100</div>
+        <div class="tag-row"><span class="ctag ctag-r">新規</span><span class="ctag">体験</span></div>
+      </div>
+
+      <div class="coupon-item reveal" data-type="new">
+        <div class="coupon-item__no bebas">10</div>
+        <div class="coupon-item__title">指名なしOK・初めて安心クーポン</div>
+        <div class="coupon-item__desc">「指名しなくていい」とわかれば予約ハードルが下がる。初来店者に優しい設計。</div>
+        <div class="coupon-item__ex">例：【指名不要・初めての方歓迎】カット ¥3,300（スタッフおまかせ）</div>
+        <div class="tag-row"><span class="ctag ctag-r">新規</span><span class="ctag">安心感</span></div>
+      </div>
+
+      <div class="coupon-item reveal" data-type="new">
+        <div class="coupon-item__no bebas">11</div>
+        <div class="coupon-item__title">口コミ件数訴求型</div>
+        <div class="coupon-item__desc">「口コミ〇〇件」と実績を数字で示すことで信頼感を演出。</div>
+        <div class="coupon-item__ex">例：【口コミ150件超】人気No.1カラー＋カット 初回 ¥6,600</div>
+        <div class="tag-row"><span class="ctag ctag-r">新規</span><span class="ctag">信頼</span></div>
+      </div>
+
+      <div class="coupon-item reveal" data-type="new">
+        <div class="coupon-item__no bebas">12</div>
+        <div class="coupon-item__title">施術名を詳しく書くクーポン</div>
+        <div class="coupon-item__desc">「カラー」より「ダメージレスグレイカバーカラー」のように詳細に。検索流入が増える。</div>
+        <div class="coupon-item__ex">例：【初回】ダメージレス・白髪ぼかしハイライトカラー ¥8,800</div>
+        <div class="tag-row"><span class="ctag ctag-r">新規</span><span class="ctag">SEO強</span></div>
+      </div>
+
+      <div class="coupon-item reveal" data-type="new">
+        <div class="coupon-item__no bebas">13</div>
+        <div class="coupon-item__title">スタッフ指名初回割引</div>
+        <div class="coupon-item__desc">特定スタッフへの指名を促しつつ、初回割引で来店を後押し。リピート率も高い。</div>
+        <div class="coupon-item__ex">例：【〇〇指名限定・初回】カット＋カラー ¥7,700</div>
+        <div class="tag-row"><span class="ctag ctag-r">新規</span><span class="ctag">指名</span></div>
+      </div>
+
+      <div class="coupon-item reveal" data-type="new">
+        <div class="coupon-item__no bebas">14</div>
+        <div class="coupon-item__title">当日予約OK・即対応アピール</div>
+        <div class="coupon-item__desc">「今日美容院行きたい」という衝動需要を取り込む。当日予約可能な枠を設けることが前提。</div>
+        <div class="coupon-item__ex">例：【当日OK】カット ¥3,800（空き枠あり次第終了）</div>
+        <div class="tag-row"><span class="ctag ctag-r">新規</span><span class="ctag">緊急</span></div>
+      </div>
+
+      <div class="coupon-item reveal" data-type="new">
+        <div class="coupon-item__no bebas">15</div>
+        <div class="coupon-item__title">価値訴求・専門性アピール型</div>
+        <div class="coupon-item__desc">安さではなく「なぜここが良いか」を前面に。客質が上がり価格競争を避けられる。</div>
+        <div class="coupon-item__ex">例：【髪質改善専門】酸熱トリートメント 初回カウンセリング込み ¥11,000</div>
+        <div class="tag-row"><span class="ctag ctag-r">新規</span><span class="ctag">高単価</span><span class="ctag">専門性</span></div>
+      </div>
+
+      <!-- リピート 16-30 -->
+      <div class="coupon-item reveal" data-type="repeat">
+        <div class="coupon-item__no bebas">16</div>
+        <div class="coupon-item__title">2回目来店専用クーポン</div>
+        <div class="coupon-item__desc">初回来店後に必ず案内。「次回も割引がある」と知ることでリピート率が大幅UP。</div>
+        <div class="coupon-item__ex">例：【2回目限定】カット＋カラー 10%OFF ¥8,910</div>
+        <div class="tag-row"><span class="ctag ctag-g">リピート</span><span class="ctag">継続</span></div>
+      </div>
+
+      <div class="coupon-item reveal" data-type="repeat">
+        <div class="coupon-item__no bebas">17</div>
+        <div class="coupon-item__title">定期来店パターン固定クーポン</div>
+        <div class="coupon-item__desc">「毎月」「2ヶ月に1回」と来店サイクルを習慣化させるクーポン。</div>
+        <div class="coupon-item__ex">例：【月1来店の方へ】リタッチカラー ¥4,400（通常¥5,500）</div>
+        <div class="tag-row"><span class="ctag ctag-g">リピート</span><span class="ctag">習慣化</span></div>
+      </div>
+
+      <div class="coupon-item reveal" data-type="repeat">
+        <div class="coupon-item__no bebas">18</div>
+        <div class="coupon-item__title">誕生月割引クーポン</div>
+        <div class="coupon-item__desc">誕生月に特別対応することで感情的なつながりが生まれ、ロイヤル客化しやすい。</div>
+        <div class="coupon-item__ex">例：【お誕生月限定】全メニュー15%OFF（要誕生日確認）</div>
+        <div class="tag-row"><span class="ctag ctag-g">リピート</span><span class="ctag">特別感</span></div>
+      </div>
+
+      <div class="coupon-item reveal" data-type="repeat">
+        <div class="coupon-item__no bebas">19</div>
+        <div class="coupon-item__title">まとめ予約特典クーポン</div>
+        <div class="coupon-item__desc">次回分も先に予約してもらうことでキャンセル防止＆稼働率安定につながる。</div>
+        <div class="coupon-item__ex">例：【2回分まとめ予約】カット2回 ¥5,800（通常¥7,260）</div>
+        <div class="tag-row"><span class="ctag ctag-g">リピート</span><span class="ctag">先予約</span></div>
+      </div>
+
+      <div class="coupon-item reveal" data-type="repeat">
+        <div class="coupon-item__no bebas">20</div>
+        <div class="coupon-item__title">友達紹介クーポン</div>
+        <div class="coupon-item__desc">既存客が紹介した友人と既存客の両方を優遇。口コミ獲得にもつながる。</div>
+        <div class="coupon-item__ex">例：【お友達紹介】ご紹介者様¥1,000OFF・ご紹介の方初回割引</div>
+        <div class="tag-row"><span class="ctag ctag-g">リピート</span><span class="ctag ctag-r">新規</span><span class="ctag">紹介</span></div>
+      </div>
+
+      <div class="coupon-item reveal" data-type="repeat">
+        <div class="coupon-item__no bebas">21</div>
+        <div class="coupon-item__title">アップグレードオファー型</div>
+        <div class="coupon-item__desc">次回来店時に上位メニューを割引提供。単価UPと継続来店を同時に狙う。</div>
+        <div class="coupon-item__ex">例：【次回のみ】通常¥5,500のトリートメント ¥2,750で追加可能</div>
+        <div class="tag-row"><span class="ctag ctag-g">リピート</span><span class="ctag">高単価</span></div>
+      </div>
+
+      <div class="coupon-item reveal" data-type="repeat">
+        <div class="coupon-item__no bebas">22</div>
+        <div class="coupon-item__title">季節ごとのケア提案クーポン</div>
+        <div class="coupon-item__desc">「夏前に紫外線対策」など季節の悩みにリンクさせてリピートを促す。</div>
+        <div class="coupon-item__ex">例：【夏前限定】UVダメージ補修トリートメント＋カット ¥7,700</div>
+        <div class="tag-row"><span class="ctag ctag-g">リピート</span><span class="ctag ctag-b">季節</span></div>
+      </div>
+
+      <div class="coupon-item reveal" data-type="repeat">
+        <div class="coupon-item__no bebas">23</div>
+        <div class="coupon-item__title">休眠客復帰クーポン</div>
+        <div class="coupon-item__desc">3ヶ月以上来店のない客向け。「また来てほしい」気持ちを伝えることで来店を再促進。</div>
+        <div class="coupon-item__ex">例：【お久しぶりの方へ】カット＋集中ケア ¥4,950（3ヶ月以上ぶりの方）</div>
+        <div class="tag-row"><span class="ctag ctag-g">リピート</span><span class="ctag">復帰</span></div>
+      </div>
+
+      <div class="coupon-item reveal" data-type="repeat">
+        <div class="coupon-item__no bebas">24</div>
+        <div class="coupon-item__title">常連様限定・価格据え置き</div>
+        <div class="coupon-item__desc">値上げ時に既存客だけ旧価格で継続。「大切にされている」感がロイヤル化を加速。</div>
+        <div class="coupon-item__ex">例：【常連様限定】価格改定後も旧価格でご提供（期間限定）</div>
+        <div class="tag-row"><span class="ctag ctag-g">リピート</span><span class="ctag">特別感</span></div>
+      </div>
+
+      <div class="coupon-item reveal" data-type="repeat">
+        <div class="coupon-item__no bebas">25</div>
+        <div class="coupon-item__title">平日レイト限定リピート割</div>
+        <div class="coupon-item__desc">混雑しない時間帯をリピート客で埋める。稼働率最大化とリピート促進の一石二鳥。</div>
+        <div class="coupon-item__ex">例：【平日20時以降限定】リピーター様 全メニュー10%OFF</div>
+        <div class="tag-row"><span class="ctag ctag-g">リピート</span><span class="ctag">時間限定</span></div>
+      </div>
+
+      <!-- ターゲット 31-42 -->
+      <div class="coupon-item reveal" data-type="target">
+        <div class="coupon-item__no bebas">31</div>
+        <div class="coupon-item__title">産後ケア・ママ向けクーポン</div>
+        <div class="coupon-item__desc">産後抜け毛・頭皮ケアのニーズに特化。競合が少なく刺さりやすい。</div>
+        <div class="coupon-item__ex">例：【産後のお悩み専門】頭皮ケア＋カット 初回 ¥4,400</div>
+        <div class="tag-row"><span class="ctag ctag-p">ターゲット</span><span class="ctag ctag-r">新規</span></div>
+      </div>
+
+      <div class="coupon-item reveal" data-type="target">
+        <div class="coupon-item__no bebas">32</div>
+        <div class="coupon-item__title">50代・白髪悩み特化クーポン</div>
+        <div class="coupon-item__desc">「白髪を活かす」訴求で単価UP。シニア層は高LTV。</div>
+        <div class="coupon-item__ex">例：【白髪でお悩みの50代へ】グレイカバー＋艶感カラー 初回 ¥8,800</div>
+        <div class="tag-row"><span class="ctag ctag-p">ターゲット</span><span class="ctag">50代</span></div>
+      </div>
+
+      <div class="coupon-item reveal" data-type="target">
+        <div class="coupon-item__no bebas">33</div>
+        <div class="coupon-item__title">男性客専用クーポン</div>
+        <div class="coupon-item__desc">メンズ専門or対応可を明示。男性は美容院に行きなれていない層も多く、安心感訴求が鍵。</div>
+        <div class="coupon-item__ex">例：【メンズ歓迎】カット＋眉カット ¥3,300（所要45分）</div>
+        <div class="tag-row"><span class="ctag ctag-p">ターゲット</span><span class="ctag">メンズ</span></div>
+      </div>
+
+      <div class="coupon-item reveal" data-type="target">
+        <div class="coupon-item__no bebas">34</div>
+        <div class="coupon-item__title">くせ毛・うねり専門クーポン</div>
+        <div class="coupon-item__desc">「くせ毛で悩んでいる方」を明記すると検索ヒット率大幅UP。悩み名でタイトルを作る。</div>
+        <div class="coupon-item__ex">例：【くせ毛専門】うねり改善ストレートパーマ 初回 ¥9,900</div>
+        <div class="tag-row"><span class="ctag ctag-p">ターゲット</span><span class="ctag">悩み</span></div>
+      </div>
+
+      <div class="coupon-item reveal" data-type="target">
+        <div class="coupon-item__no bebas">35</div>
+        <div class="coupon-item__title">敏感肌・アレルギー対応クーポン</div>
+        <div class="coupon-item__desc">アレルギー対応薬剤を明示。ニッチだが忠実なファン層を獲得できる。</div>
+        <div class="coupon-item__ex">例：【ジアミンアレルギー対応】ノンジアミンカラー 初回 ¥7,700</div>
+        <div class="tag-row"><span class="ctag ctag-p">ターゲット</span><span class="ctag">専門</span></div>
+      </div>
+
+      <div class="coupon-item reveal" data-type="target">
+        <div class="coupon-item__no bebas">36</div>
+        <div class="coupon-item__title">ブリーチ経験者向けクーポン</div>
+        <div class="coupon-item__desc">「ブリーチ毛OK」と明示するだけで他店で断られた経験がある層が流れ込む。</div>
+        <div class="coupon-item__ex">例：【ブリーチ毛大歓迎】ケアカラー＋カット 初回 ¥8,800</div>
+        <div class="tag-row"><span class="ctag ctag-p">ターゲット</span><span class="ctag">ハイトーン</span></div>
+      </div>
+
+      <!-- 季節 43-50 -->
+      <div class="coupon-item reveal" data-type="season">
+        <div class="coupon-item__no bebas">43</div>
+        <div class="coupon-item__title">入学・就職シーズンクーポン</div>
+        <div class="coupon-item__desc">3〜4月のライフイベントに合わせたイメチェン需要を狙う。早め告知が重要。</div>
+        <div class="coupon-item__ex">例：【新生活応援】イメチェンカット＋カラー ¥6,600（3月限定）</div>
+        <div class="tag-row"><span class="ctag ctag-b">季節</span><span class="ctag ctag-r">新規</span></div>
+      </div>
+
+      <div class="coupon-item reveal" data-type="season">
+        <div class="coupon-item__no bebas">44</div>
+        <div class="coupon-item__title">梅雨・湿気対策クーポン</div>
+        <div class="coupon-item__desc">梅雨前の縮毛矯正・ストレートパーマ需要。「梅雨前に」というキーワードで検索流入。</div>
+        <div class="coupon-item__ex">例：【梅雨前限定】縮毛矯正＋カット ¥12,000（5〜6月限定）</div>
+        <div class="tag-row"><span class="ctag ctag-b">季節</span><span class="ctag">梅雨</span></div>
+      </div>
+
+      <div class="coupon-item reveal" data-type="season">
+        <div class="coupon-item__no bebas">45</div>
+        <div class="coupon-item__title">夏・プール・海対策クーポン</div>
+        <div class="coupon-item__desc">夏前のカラーリタッチ＋UVケアセット。「夏前に」という行動動機に合わせた設計。</div>
+        <div class="coupon-item__ex">例：【夏前限定】カラー＋UV補修トリートメント ¥9,900</div>
+        <div class="tag-row"><span class="ctag ctag-b">季節</span><span class="ctag">夏</span></div>
+      </div>
+
+      <div class="coupon-item reveal" data-type="season">
+        <div class="coupon-item__no bebas">46</div>
+        <div class="coupon-item__title">秋の乾燥ケア・イメチェン</div>
+        <div class="coupon-item__desc">夏ダメージのリカバリー需要と秋のイメチェン需要。9〜10月は集客チャンス月。</div>
+        <div class="coupon-item__ex">例：【秋のケア】夏ダメージ集中補修トリートメント＋カット ¥7,700</div>
+        <div class="tag-row"><span class="ctag ctag-b">季節</span><span class="ctag">秋</span></div>
+      </div>
+
+      <div class="coupon-item reveal" data-type="season">
+        <div class="coupon-item__no bebas">47</div>
+        <div class="coupon-item__title">年末・クリスマスイベント</div>
+        <div class="coupon-item__desc">年末のパーティー・忘年会シーズンに向けたスタイリングニーズ。11月から告知スタート。</div>
+        <div class="coupon-item__ex">例：【クリスマス限定】巻き髪セット＋ヘッドスパ ¥5,500</div>
+        <div class="tag-row"><span class="ctag ctag-b">季節</span><span class="ctag">年末</span></div>
+      </div>
+
+      <div class="coupon-item reveal" data-type="season">
+        <div class="coupon-item__no bebas">48</div>
+        <div class="coupon-item__title">成人式・卒業式・七五三</div>
+        <div class="coupon-item__desc">行事に合わせたヘアセット需要。早期予約割引で枠をあらかじめ確保できる。</div>
+        <div class="coupon-item__ex">例：【成人式早割】着付け＋ヘアセット ¥8,800（12月末まで予約）</div>
+        <div class="tag-row"><span class="ctag ctag-b">季節</span><span class="ctag">行事</span></div>
+      </div>
+
+      <div class="coupon-item reveal" data-type="season">
+        <div class="coupon-item__no bebas">49</div>
+        <div class="coupon-item__title">年始・1月の閑散期対策</div>
+        <div class="coupon-item__desc">1月は美容院の閑散期。限定特典をつけることで来店を引き出す。</div>
+        <div class="coupon-item__ex">例：【1月限定】カット＋カラー ¥7,700（通常¥11,000）今だけ！</div>
+        <div class="tag-row"><span class="ctag ctag-b">季節</span><span class="ctag">閑散期</span></div>
+      </div>
+
+      <div class="coupon-item reveal" data-type="season">
+        <div class="coupon-item__no bebas">50</div>
+        <div class="coupon-item__title">母の日・父の日ギフト型</div>
+        <div class="coupon-item__desc">プレゼント用途での予約需要を取り込む。家族単位での来店に発展することも。</div>
+        <div class="coupon-item__ex">例：【母の日ギフト】お母様へのヘッドスパ体験 ¥3,300（5月限定）</div>
+        <div class="tag-row"><span class="ctag ctag-b">季節</span><span class="ctag">ギフト</span></div>
+      </div>
+
+    </div>
+
+    <div class="notice notice-g reveal" style="margin-top:28px;">
+      <span class="notice__icon">💡</span>
+      <span><strong class="gold">黄金律：</strong>タイトル最初の15文字に「地域名」または「悩みワード」を入れること。HPBの検索結果では最初の15〜20文字しか表示されません。</span>
+    </div>
+
+  </div>
+</div>
+
+<nav class="page-nav">
+  <a href="02.html" class="page-nav__btn">← 02：PV別マップ</a>
+  <a href="04.html" class="page-nav__btn">次：文章テンプレ →</a>
+</nav>
+
+<section class="cta-section">
+  <div class="gold-div"></div>
+  <div class="cta-section__title">クーポン文を自動生成したい方へ</div>
+  <div class="cta-section__desc">07番「AIプロンプト集」でクーポン文を5秒で量産できます</div>
+  <a href="07.html" class="btn-gold" style="margin-right:12px;margin-bottom:12px;">07を見る →</a>
+  <a href="#" class="btn-line">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+    LINEで相談
+  </a>
+</section>
+
+<footer class="site-footer">
+  <div class="site-footer__logo">RAI</div>
+  <div class="site-footer__text">HPB集客コンサルタント｜美容サロン専門</div>
+</footer>
+
+<script>
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in-view');io.unobserve(x.target);}}),{threshold:.06,rootMargin:'0px 0px -20px 0px'});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3)*60+'ms';io.observe(el);});
+function filterCoupons(type,btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.coupon-item').forEach(item=>{
+    item.style.display=(type==='all'||item.dataset.type===type)?'block':'none';
+  });
+}
+</script>
+</body>
+</html>
