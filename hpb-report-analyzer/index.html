@@ -30,16 +30,27 @@
 
         .container { max-width: 860px; margin: 40px auto; padding: 0 20px; }
 
-        /* ---- UPLOAD AREA ---- */
+        /* ---- STEP CARDS ---- */
+        .step-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #C9A96E;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        /* ---- UPLOAD CARD ---- */
         .upload-card {
             background: white;
             border-radius: 16px;
-            padding: 48px 40px;
+            padding: 40px;
             text-align: center;
             box-shadow: 0 4px 24px rgba(0,0,0,0.06);
             border: 2px dashed #DDD;
             transition: all .3s;
             cursor: pointer;
+            margin-bottom: 16px;
         }
         .upload-card:hover, .upload-card.dragover {
             border-color: #C9A96E;
@@ -47,16 +58,16 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 32px rgba(201,169,110,.15);
         }
-        .upload-icon { font-size: 52px; margin-bottom: 20px; }
-        .upload-card h2 { font-size: 19px; color: #1a1a2e; margin-bottom: 8px; }
-        .upload-card .sub { font-size: 13px; color: #999; margin-bottom: 28px; line-height: 1.7; }
+        .upload-icon { font-size: 48px; margin-bottom: 16px; }
+        .upload-card h2 { font-size: 18px; color: #1a1a2e; margin-bottom: 6px; }
+        .upload-card .sub { font-size: 13px; color: #999; margin-bottom: 24px; line-height: 1.7; }
         .btn-gold {
             background: linear-gradient(135deg, #C9A96E, #E8D5A3);
             color: #1a1a2e;
             border: none;
-            padding: 13px 36px;
+            padding: 12px 32px;
             border-radius: 50px;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 700;
             cursor: pointer;
             transition: all .3s;
@@ -64,10 +75,9 @@
         }
         .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,169,110,.4); }
         #fileInput { display: none; }
-
         .file-badge {
             display: none;
-            margin-top: 20px;
+            margin-top: 16px;
             padding: 10px 18px;
             background: #F0F8F0;
             border-radius: 8px;
@@ -78,21 +88,84 @@
             justify-content: center;
         }
 
+        /* ---- URL CARD ---- */
+        .url-card {
+            background: white;
+            border-radius: 16px;
+            padding: 28px 32px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            margin-bottom: 24px;
+        }
+        .url-card h2 { font-size: 16px; color: #1a1a2e; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+        .optional-badge {
+            font-size: 10px;
+            background: #F0F4FF;
+            color: #5B73B7;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .url-card .desc { font-size: 12px; color: #999; margin-bottom: 16px; line-height: 1.6; }
+        .url-input-wrap {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #F8F8F8;
+            border: 1.5px solid #E5E5E5;
+            border-radius: 10px;
+            padding: 4px 4px 4px 14px;
+            transition: all .3s;
+        }
+        .url-input-wrap:focus-within {
+            border-color: #C9A96E;
+            background: #FFFEF9;
+            box-shadow: 0 0 0 3px rgba(201,169,110,.1);
+        }
+        .url-input-wrap span { font-size: 20px; flex-shrink: 0; }
+        .url-input-wrap input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            font-size: 13px;
+            color: #333;
+            outline: none;
+            padding: 10px 0;
+        }
+        .url-input-wrap input::placeholder { color: #BBB; }
+        .url-clear {
+            background: #EEE;
+            border: none;
+            border-radius: 6px;
+            padding: 6px 12px;
+            font-size: 12px;
+            color: #888;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .url-clear:hover { background: #DDD; color: #555; }
+        .url-status { margin-top: 10px; font-size: 12px; min-height: 18px; }
+        .url-status.ok    { color: #2E7D32; }
+        .url-status.error { color: #C0392B; }
+        .url-status.loading { color: #888; }
+
+        /* ---- ANALYZE BUTTON ---- */
         .btn-analyze {
             display: none;
-            margin: 28px auto 0;
+            width: 100%;
             background: linear-gradient(135deg, #1a1a2e, #0f3460);
             color: white;
             border: none;
-            padding: 16px 52px;
-            border-radius: 50px;
+            padding: 18px;
+            border-radius: 14px;
             font-size: 16px;
             font-weight: 700;
             cursor: pointer;
             transition: all .3s;
             letter-spacing: 2px;
+            margin-bottom: 40px;
         }
-        .btn-analyze:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(15,52,96,.4); }
+        .btn-analyze:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(15,52,96,.4); }
 
         /* ---- LOADING ---- */
         .loading { display: none; text-align: center; padding: 70px 20px; }
@@ -122,7 +195,7 @@
         .error-box strong { display: block; margin-bottom: 8px; }
 
         /* ---- RESULT ---- */
-        .result-section { display: none; margin-top: 32px; }
+        .result-section { display: none; margin-top: 8px; }
         .result-top {
             display: flex;
             justify-content: space-between;
@@ -172,6 +245,8 @@
         .result-body th { background: #1a1a2e; color: white; padding: 10px 14px; text-align: left; }
         .result-body td { padding: 10px 14px; border-bottom: 1px solid #F0F0F0; }
         .result-body tr:nth-child(even) td { background: #FAFAFA; }
+        /* 修正指示テーブルのハイライト */
+        .result-body tr td:first-child { font-weight: 700; color: #C9A96E; }
 
         .btn-reset {
             display: block;
@@ -190,13 +265,14 @@
         footer { text-align: center; padding: 48px 20px 32px; color: #CCC; font-size: 11px; }
 
         @media print {
-            header, .upload-card, .loading, .btn-analyze, .btn-reset, .btn-print, footer, .error-box { display: none !important; }
+            header, .upload-card, .url-card, .loading, .btn-analyze, .btn-reset, .btn-print, footer, .error-box, .step-label { display: none !important; }
             .result-section { display: block !important; }
             .result-body { box-shadow: none; padding: 0; }
         }
         @media (max-width: 600px) {
             .container { padding: 0 12px; margin: 20px auto; }
-            .upload-card { padding: 28px 16px; }
+            .upload-card { padding: 24px 16px; }
+            .url-card { padding: 20px 16px; }
             .result-body { padding: 24px 16px; }
         }
     </style>
@@ -211,18 +287,16 @@
     </div>
 </header>
 
-<div class="container">
+<div class="container" id="inputArea">
 
-    <!-- アップロードエリア -->
+    <!-- STEP 1: PDF -->
+    <div class="step-label">STEP 1 — サロンレポートPDF（必須）</div>
     <div class="upload-card" id="uploadCard"
          onclick="document.getElementById('fileInput').click()"
          ondragover="onDragOver(event)" ondragleave="onDragLeave(event)" ondrop="onDrop(event)">
         <div class="upload-icon">📊</div>
         <h2>サロンレポート PDF をアップロード</h2>
-        <p class="sub">
-            HOT PEPPER Beauty のサロンレポート（PDF）を選択してください<br>
-            クリック または ドラッグ＆ドロップ
-        </p>
+        <p class="sub">HOT PEPPER Beauty のサロンレポート（PDF）を選択してください<br>クリック または ドラッグ＆ドロップ</p>
         <button class="btn-gold" onclick="event.stopPropagation(); document.getElementById('fileInput').click()">
             PDF を選択する
         </button>
@@ -230,6 +304,27 @@
         <div class="file-badge" id="fileBadge">✅ <span id="fileName"></span></div>
     </div>
 
+    <!-- STEP 2: HPB URL -->
+    <div class="step-label">STEP 2 — HPB サロンページURL（任意・入力するとより具体的な改善指示が出ます）</div>
+    <div class="url-card">
+        <h2>
+            🔗 HPB サロンページのURL
+            <span class="optional-badge">OPTIONAL</span>
+        </h2>
+        <p class="desc">
+            入力すると「実際のページのどこを・どう変えるか」まで具体的に指摘します。<br>
+            例：beauty.hotpepper.jp/slnH000XXXXXX/
+        </p>
+        <div class="url-input-wrap">
+            <span>🌐</span>
+            <input type="url" id="hpbUrl" placeholder="https://beauty.hotpepper.jp/slnH000XXXXXX/"
+                   oninput="onUrlInput()" />
+            <button class="url-clear" onclick="clearUrl()">クリア</button>
+        </div>
+        <div class="url-status" id="urlStatus"></div>
+    </div>
+
+    <!-- 分析ボタン -->
     <button class="btn-analyze" id="btnAnalyze" onclick="startAnalysis()">
         ✨ 分析を開始する
     </button>
@@ -248,28 +343,31 @@
         <button class="btn-reset" onclick="reset()" style="margin-top:12px">やり直す</button>
     </div>
 
-    <!-- 結果 -->
+</div>
+
+<!-- 結果 -->
+<div class="container">
     <div class="result-section" id="resultSection">
         <div class="result-top">
-            <h2>📋 分析レポート</h2>
+            <h2>📋 分析・改善指示レポート</h2>
             <button class="btn-print" onclick="window.print()">🖨️ 印刷する</button>
         </div>
         <div class="result-body" id="resultBody"></div>
         <button class="btn-reset" onclick="reset()">別のレポートを分析する</button>
     </div>
-
 </div>
 
 <footer>Powered by Google Gemini AI &nbsp;|&nbsp; HOT PEPPER Beauty サロンレポート分析ツール</footer>
 
 <script>
 // ============================================================
-// ⚙️  ここに取得した Gemini API キーを貼り付けてください
+// ⚙️  Gemini API キー
 // ============================================================
 const GEMINI_API_KEY = 'AIzaSyDElFB6nTJMUqlubfN-Rbd74j2hMHdJ-hs';
 // ============================================================
 
-const PROMPT = `あなたは美容サロン専門の経営コンサルタントです。
+// --- 分析プロンプト（PDFのみ） ---
+const PROMPT_PDF_ONLY = `あなたは美容サロン専門の経営コンサルタントです。
 添付の HOT PEPPER Beauty サロンレポート（PDF）を詳細に分析し、以下の構成で日本語レポートを作成してください。
 
 ## ■ 基本情報
@@ -281,46 +379,76 @@ const PROMPT = `あなたは美容サロン専門の経営コンサルタント�
 （✅ 良好 / ⚠️ 注意 / ❌ 要改善 で評価。対象：総PV数・CVR・ACR・客単価・新規リピート率・スタイル詳細PV）
 
 ## ■ 集客・売上トレンド
-- 直近13ヶ月の来店人数・売上・客単価の変化を分析
+- 直近13ヶ月の来店人数・売上・客単価の変化
 - 最高月・最低月とその要因
 - 新規 vs リピーターの比率と傾向
 
 ## ■ 最重要課題：ACR（予約転換率）の分析
-ACR＝クーポンメニューを見た人が予約する率。最も改善効果が大きい指標です。
+ACR＝クーポンメニューを見た人が予約する率。
 - 直近数ヶ月のACRとエリア平均を数値で比較
 - ACRがエリア平均になった場合の予約数シミュレーション（具体的な人数で示す）
-- 低ACRの主な原因（クーポン数過多・価格不明瞭など）
+- 低ACRの主な原因分析
 
-## ■ CVR（クーポンメニュー遷移率）の分析
-- エリア平均との比較と改善ポイント
-
-## ■ 新規リピート率の分析
-- 13ヶ月の推移を記載し、特に低い月を指摘
-- リピート率が低い月の原因推察
-- 目標リピート率の提案
-
-## ■ スタイリスト状況
-- スタイリスト別予約数の推移（最新3ヶ月）
-- 伸びているスタイリスト・課題のあるスタイリスト
-
-## ■ クーポン・特集の状況
-- 予約数上位クーポン
-- 特集参画状況と改善機会
+## ■ CVR・新規リピート率・スタイリスト状況
+各指標のエリア平均比較と傾向分析
 
 ## ■ 今すぐ取り組む改善アクション（優先度順）
-| 優先度 | アクション | 期待効果 | 難易度 |
-|--------|-----------|---------|--------|
-5〜7つの具体的なアクション。「明日からできる」レベルの具体性で記載すること。
+| 優先度 | 変更箇所 | 現状の問題 | 具体的な改善アクション | 期待効果 |
+|--------|---------|-----------|----------------------|---------|
+5〜7つ。「明日からできる」レベルの具体的なアクションを記載すること。
 
 ---
 【分析ルール】
 - 必ず数値を使い「貴店 vs エリア平均」を比較する
-- PDFに記載されたデータに基づいて分析する（推測は最小限）
-- ACRとCVRの改善を最優先課題として強調する
-- 改善策は美容サロンの実務に即した現実的なものにする`;
+- ACRとCVRの改善を最優先課題として強調する`;
+
+// --- 分析プロンプト（PDF + HPBページ） ---
+const PROMPT_WITH_PAGE = `あなたは美容サロン専門の経営コンサルタントです。
+以下の2つのデータを組み合わせて分析してください：
+① HOT PEPPER Beauty サロンレポート（PDF）→ 数値パフォーマンスデータ
+② HPB サロンページの実際のコンテンツ（後述）→ 現在の掲載内容
+
+## ■ 基本情報
+サロン名・掲載プラン・エリア・席数・レポート月号
+
+## ■ 総合評価サマリー
+| 指標 | 貴店の数値 | エリア平均 | 評価 |
+|------|-----------|-----------|------|
+（✅ 良好 / ⚠️ 注意 / ❌ 要改善）
+
+## ■ 現在のHPBページの状態分析
+実際のページコンテンツを見て以下を記述：
+- トップ写真・メイン画像の内容と問題点
+- クーポンの本数・構成・タイトルの問題点
+- サロン説明文の訴求力
+- スタイル写真の特徴
+
+## ■ 数値パフォーマンス分析
+- ACR・CVR・新規リピート率をエリア平均と比較
+- ACRがエリア平均になった場合の予約数シミュレーション
+
+## ■ 【最重要】具体的な修正指示一覧
+数値の問題点とページの問題点を紐付けて、「どこを・どう変えるか」を具体的に指示してください。
+
+| # | 変更箇所 | 現在の状態 | この様に変更する（具体的に） | 期待効果 | 優先度 |
+|---|---------|-----------|--------------------------|---------|--------|
+
+※クーポンタイトル・写真の内容・説明文の文言など、実際に変更できる粒度で記載すること。
+※「クーポンを整理する」ではなく「クーポン①〜⑤を削除し、新規向けは『縮毛矯正でうねり改善 ○○円〜』に統一する」のように具体的に。
+
+## ■ 優先アクションTOP3（今週やること）
+最も効果が大きい3つに絞って、手順付きで説明する。
+
+---
+【分析ルール】
+- ページコンテンツとPDF数値を必ず紐付けて分析する
+- 推測ではなく実際のページ内容に基づく指摘をする
+- ACRとCVRの改善を最優先とする`;
 
 // --- State ---
 let selectedFile = null;
+let hpbPageText = null;
+let urlFetchTimer = null;
 
 // --- File Selection ---
 function onFileChange(e) {
@@ -334,8 +462,6 @@ function setFile(f) {
     document.getElementById('fileBadge').style.display = 'flex';
     document.getElementById('btnAnalyze').style.display = 'block';
 }
-
-// --- Drag & Drop ---
 function onDragOver(e) { e.preventDefault(); document.getElementById('uploadCard').classList.add('dragover'); }
 function onDragLeave()  { document.getElementById('uploadCard').classList.remove('dragover'); }
 function onDrop(e) {
@@ -343,6 +469,78 @@ function onDrop(e) {
     document.getElementById('uploadCard').classList.remove('dragover');
     const f = e.dataTransfer.files[0];
     if (f && f.type === 'application/pdf') setFile(f);
+}
+
+// --- URL Input ---
+function onUrlInput() {
+    clearTimeout(urlFetchTimer);
+    const url = document.getElementById('hpbUrl').value.trim();
+    if (!url) { setUrlStatus('', ''); hpbPageText = null; return; }
+    if (!url.includes('hotpepper.jp')) {
+        setUrlStatus('error', '⚠️ HOT PEPPER BeautyのURLを入力してください');
+        hpbPageText = null;
+        return;
+    }
+    setUrlStatus('loading', '🔄 ページを取得中...');
+    urlFetchTimer = setTimeout(() => fetchHPBPage(url), 800);
+}
+
+function clearUrl() {
+    document.getElementById('hpbUrl').value = '';
+    setUrlStatus('', '');
+    hpbPageText = null;
+}
+
+function setUrlStatus(type, msg) {
+    const el = document.getElementById('urlStatus');
+    el.className = 'url-status ' + type;
+    el.textContent = msg;
+}
+
+async function fetchHPBPage(url) {
+    try {
+        const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
+        const res = await fetch(proxyUrl, { signal: AbortSignal.timeout(15000) });
+        if (!res.ok) throw new Error('取得失敗');
+        const data = await res.json();
+        const html = data.contents || '';
+        if (!html) throw new Error('コンテンツなし');
+
+        // DOMパース → 不要要素を削除してテキスト抽出
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        doc.querySelectorAll('script,style,nav,footer,iframe,noscript,svg,img').forEach(el => el.remove());
+
+        // HPBの主要セクションを優先取得
+        const sections = [
+            doc.querySelector('.slnHeader'),
+            doc.querySelector('.slnCoupon'),
+            doc.querySelector('.slnMenu'),
+            doc.querySelector('.slnFeature'),
+            doc.querySelector('.slnInfo'),
+            doc.querySelector('#coupon'),
+            doc.querySelector('#menu'),
+            doc.querySelector('.couponList'),
+            doc.querySelector('.pr-body'),
+            doc.body
+        ].filter(Boolean);
+
+        let text = '';
+        for (const el of sections) {
+            const t = el.innerText || el.textContent || '';
+            text += t + '\n';
+            if (text.length > 12000) break;
+        }
+        text = text.replace(/\s{3,}/g, '\n').substring(0, 12000);
+
+        if (text.length < 100) throw new Error('ページ内容を取得できませんでした');
+
+        hpbPageText = text;
+        setUrlStatus('ok', `✅ ページ取得完了（${text.length.toLocaleString()}文字）`);
+    } catch (err) {
+        hpbPageText = null;
+        setUrlStatus('error', `❌ 取得失敗：${err.message}。URLを確認してください。`);
+    }
 }
 
 // --- Helpers ---
@@ -357,33 +555,31 @@ function fileToBase64(f) {
 }
 function showError(msg) {
     document.getElementById('loading').style.display = 'none';
-    document.getElementById('uploadCard').style.display = 'block';
-    document.getElementById('btnAnalyze').style.display = 'block';
+    document.getElementById('inputArea').style.display = 'block';
     document.getElementById('errorBox').style.display = 'block';
     document.getElementById('errorMsg').textContent = msg;
 }
+
 function reset() {
     selectedFile = null;
-    document.getElementById('uploadCard').style.display = 'block';
+    hpbPageText = null;
+    document.getElementById('inputArea').style.display = 'block';
+    document.getElementById('uploadCard').classList.remove('dragover');
     document.getElementById('fileBadge').style.display = 'none';
     document.getElementById('btnAnalyze').style.display = 'none';
     document.getElementById('loading').style.display = 'none';
     document.getElementById('resultSection').style.display = 'none';
     document.getElementById('errorBox').style.display = 'none';
     document.getElementById('fileInput').value = '';
+    document.getElementById('hpbUrl').value = '';
+    setUrlStatus('', '');
 }
 
 // --- Main Analysis ---
 async function startAnalysis() {
     if (!selectedFile) return;
 
-    if (GEMINI_API_KEY === 'YOUR_GEMINI_API_KEY_HERE') {
-        showError('APIキーが設定されていません。index.html 内の GEMINI_API_KEY にキーを貼り付けてください。');
-        return;
-    }
-
-    document.getElementById('uploadCard').style.display = 'none';
-    document.getElementById('btnAnalyze').style.display = 'none';
+    document.getElementById('inputArea').style.display = 'none';
     document.getElementById('errorBox').style.display = 'none';
     document.getElementById('loading').style.display = 'block';
 
@@ -391,7 +587,16 @@ async function startAnalysis() {
         setLoading('PDF を読み込んでいます...');
         const b64 = await fileToBase64(selectedFile);
 
-        setLoading('AI に送信中... （30〜60秒かかります）');
+        // プロンプト決定
+        const usePageData = !!hpbPageText;
+        let prompt = usePageData ? PROMPT_WITH_PAGE : PROMPT_PDF_ONLY;
+
+        if (usePageData) {
+            prompt += `\n\n---\n## HPBサロンページ コンテンツ（②のデータ）\n\`\`\`\n${hpbPageText}\n\`\`\``;
+            setLoading('PDF + HPBページを組み合わせて分析中... （30〜90秒かかります）');
+        } else {
+            setLoading('AI に送信中... （30〜60秒かかります）');
+        }
 
         const res = await fetch(
             `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`,
@@ -401,7 +606,7 @@ async function startAnalysis() {
                 body: JSON.stringify({
                     contents: [{
                         parts: [
-                            { text: PROMPT },
+                            { text: prompt },
                             { inline_data: { mime_type: 'application/pdf', data: b64 } }
                         ]
                     }],
