@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HPB サロンレポート分析ツール</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+            background: #F5F4F0;
+            color: #333;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+            color: white;
+            padding: 20px 32px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+        .accent-bar { width: 3px; height: 44px; background: linear-gradient(to bottom, #C9A96E, #E8D5A3); border-radius: 2px; }
+        header h1 { font-size: 20px; font-weight: 700; letter-spacing: 1px; }
+        header p  { font-size: 11px; opacity: 0.6; margin-top: 2px; letter-spacing: 1px; }
+
+        .container { max-width: 860px; margin: 40px auto; padding: 0 20px; }
+
+        /* ---- UPLOAD AREA ---- */
+        .upload-card {
+            background: white;
+            border-radius: 16px;
+            padding: 48px 40px;
+            text-align: center;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            border: 2px dashed #DDD;
+            transition: all .3s;
+            cursor: pointer;
+        }
+        .upload-card:hover, .upload-card.dragover {
+            border-color: #C9A96E;
+            background: #FFFEF9;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 32px rgba(201,169,110,.15);
+        }
+        .upload-icon { font-size: 52px; margin-bottom: 20px; }
+        .upload-card h2 { font-size: 19px; color: #1a1a2e; margin-bottom: 8px; }
+        .upload-card .sub { font-size: 13px; color: #999; margin-bottom: 28px; line-height: 1.7; }
+        .btn-gold {
+            background: linear-gradient(135deg, #C9A96E, #E8D5A3);
+            color: #1a1a2e;
+            border: none;
+            padding: 13px 36px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all .3s;
+            letter-spacing: 1px;
+        }
+        .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,169,110,.4); }
+        #fileInput { display: none; }
+
+        .file-badge {
+            display: none;
+            margin-top: 20px;
+            padding: 10px 18px;
+            background: #F0F8F0;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #2E7D32;
+            align-items: center;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .btn-analyze {
+            display: none;
+            margin: 28px auto 0;
+            background: linear-gradient(135deg, #1a1a2e, #0f3460);
+            color: white;
+            border: none;
+            padding: 16px 52px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all .3s;
+            letter-spacing: 2px;
+        }
+        .btn-analyze:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(15,52,96,.4); }
+
+        /* ---- LOADING ---- */
+        .loading { display: none; text-align: center; padding: 70px 20px; }
+        .spinner {
+            width: 58px; height: 58px;
+            border: 4px solid #EEE;
+            border-top-color: #C9A96E;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 24px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .loading p { font-size: 15px; color: #666; }
+        .loading small { font-size: 12px; color: #AAA; margin-top: 8px; display: block; }
+
+        /* ---- ERROR ---- */
+        .error-box {
+            display: none;
+            background: #FFF5F5;
+            border: 1px solid #FFCCCC;
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            color: #C0392B;
+            margin-top: 24px;
+        }
+        .error-box strong { display: block; margin-bottom: 8px; }
+
+        /* ---- RESULT ---- */
+        .result-section { display: none; margin-top: 32px; }
+        .result-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        .result-top h2 { font-size: 17px; color: #1a1a2e; }
+        .btn-print {
+            background: white;
+            border: 2px solid #C9A96E;
+            color: #C9A96E;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all .3s;
+        }
+        .btn-print:hover { background: #C9A96E; color: white; }
+
+        .result-body {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            line-height: 1.85;
+        }
+        .result-body h1 {
+            font-size: 21px; color: #1a1a2e;
+            border-bottom: 3px solid #C9A96E;
+            padding-bottom: 8px; margin: 32px 0 16px;
+        }
+        .result-body h2 {
+            font-size: 17px; color: #1a1a2e;
+            background: linear-gradient(90deg, #F9F4EC, #FFF);
+            padding: 10px 16px;
+            border-left: 4px solid #C9A96E;
+            border-radius: 0 8px 8px 0;
+            margin: 28px 0 12px;
+        }
+        .result-body h3 { font-size: 15px; color: #444; margin: 20px 0 8px; }
+        .result-body p  { margin: 8px 0; color: #444; }
+        .result-body ul, .result-body ol { padding-left: 24px; margin: 8px 0; }
+        .result-body li { margin: 5px 0; color: #444; }
+        .result-body strong { color: #1a1a2e; }
+        .result-body table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+        .result-body th { background: #1a1a2e; color: white; padding: 10px 14px; text-align: left; }
+        .result-body td { padding: 10px 14px; border-bottom: 1px solid #F0F0F0; }
+        .result-body tr:nth-child(even) td { background: #FAFAFA; }
+
+        .btn-reset {
+            display: block;
+            margin: 24px auto 0;
+            background: transparent;
+            border: 2px solid #DDD;
+            color: #999;
+            padding: 10px 28px;
+            border-radius: 50px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all .3s;
+        }
+        .btn-reset:hover { border-color: #1a1a2e; color: #1a1a2e; }
+
+        footer { text-align: center; padding: 48px 20px 32px; color: #CCC; font-size: 11px; }
+
+        @media print {
+            header, .upload-card, .loading, .btn-analyze, .btn-reset, .btn-print, footer, .error-box { display: none !important; }
+            .result-section { display: block !important; }
+            .result-body { box-shadow: none; padding: 0; }
+        }
+        @media (max-width: 600px) {
+            .container { padding: 0 12px; margin: 20px auto; }
+            .upload-card { padding: 28px 16px; }
+            .result-body { padding: 24px 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="accent-bar"></div>
+    <div>
+        <h1>HPB サロンレポート分析ツール</h1>
+        <p>HOT PEPPER Beauty Salon Report Analyzer</p>
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- アップロードエリア -->
+    <div class="upload-card" id="uploadCard"
+         onclick="document.getElementById('fileInput').click()"
+         ondragover="onDragOver(event)" ondragleave="onDragLeave(event)" ondrop="onDrop(event)">
+        <div class="upload-icon">📊</div>
+        <h2>サロンレポート PDF をアップロード</h2>
+        <p class="sub">
+            HOT PEPPER Beauty のサロンレポート（PDF）を選択してください<br>
+            クリック または ドラッグ＆ドロップ
+        </p>
+        <button class="btn-gold" onclick="event.stopPropagation(); document.getElementById('fileInput').click()">
+            PDF を選択する
+        </button>
+        <input type="file" id="fileInput" accept=".pdf" onchange="onFileChange(event)">
+        <div class="file-badge" id="fileBadge">✅ <span id="fileName"></span></div>
+    </div>
+
+    <button class="btn-analyze" id="btnAnalyze" onclick="startAnalysis()">
+        ✨ 分析を開始する
+    </button>
+
+    <!-- ローディング -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <p>AI がレポートを分析中...</p>
+        <small id="loadingMsg">PDF を読み込んでいます...</small>
+    </div>
+
+    <!-- エラー -->
+    <div class="error-box" id="errorBox">
+        <strong>エラーが発生しました</strong>
+        <span id="errorMsg"></span>
+        <button class="btn-reset" onclick="reset()" style="margin-top:12px">やり直す</button>
+    </div>
+
+    <!-- 結果 -->
+    <div class="result-section" id="resultSection">
+        <div class="result-top">
+            <h2>📋 分析レポート</h2>
+            <button class="btn-print" onclick="window.print()">🖨️ 印刷する</button>
+        </div>
+        <div class="result-body" id="resultBody"></div>
+        <button class="btn-reset" onclick="reset()">別のレポートを分析する</button>
+    </div>
+
+</div>
+
+<footer>Powered by Google Gemini AI &nbsp;|&nbsp; HOT PEPPER Beauty サロンレポート分析ツール</footer>
+
+<script>
+// ============================================================
+// ⚙️  ここに取得した Gemini API キーを貼り付けてください
+// ============================================================
+const GEMINI_API_KEY = 'AIzaSyDElFB6nTJMUqlubfN-Rbd74j2hMHdJ-hs';
+// ============================================================
+
+const PROMPT = `あなたは美容サロン専門の経営コンサルタントです。
+添付の HOT PEPPER Beauty サロンレポート（PDF）を詳細に分析し、以下の構成で日本語レポートを作成してください。
+
+## ■ 基本情報
+サロン名・掲載プラン・エリア・席数・レポート月号
+
+## ■ 総合評価サマリー
+| 指標 | 貴店の数値 | エリア平均 | 評価 |
+|------|-----------|-----------|------|
+（✅ 良好 / ⚠️ 注意 / ❌ 要改善 で評価。対象：総PV数・CVR・ACR・客単価・新規リピート率・スタイル詳細PV）
+
+## ■ 集客・売上トレンド
+- 直近13ヶ月の来店人数・売上・客単価の変化を分析
+- 最高月・最低月とその要因
+- 新規 vs リピーターの比率と傾向
+
+## ■ 最重要課題：ACR（予約転換率）の分析
+ACR＝クーポンメニューを見た人が予約する率。最も改善効果が大きい指標です。
+- 直近数ヶ月のACRとエリア平均を数値で比較
+- ACRがエリア平均になった場合の予約数シミュレーション（具体的な人数で示す）
+- 低ACRの主な原因（クーポン数過多・価格不明瞭など）
+
+## ■ CVR（クーポンメニュー遷移率）の分析
+- エリア平均との比較と改善ポイント
+
+## ■ 新規リピート率の分析
+- 13ヶ月の推移を記載し、特に低い月を指摘
+- リピート率が低い月の原因推察
+- 目標リピート率の提案
+
+## ■ スタイリスト状況
+- スタイリスト別予約数の推移（最新3ヶ月）
+- 伸びているスタイリスト・課題のあるスタイリスト
+
+## ■ クーポン・特集の状況
+- 予約数上位クーポン
+- 特集参画状況と改善機会
+
+## ■ 今すぐ取り組む改善アクション（優先度順）
+| 優先度 | アクション | 期待効果 | 難易度 |
+|--------|-----------|---------|--------|
+5〜7つの具体的なアクション。「明日からできる」レベルの具体性で記載すること。
+
+---
+【分析ルール】
+- 必ず数値を使い「貴店 vs エリア平均」を比較する
+- PDFに記載されたデータに基づいて分析する（推測は最小限）
+- ACRとCVRの改善を最優先課題として強調する
+- 改善策は美容サロンの実務に即した現実的なものにする`;
+
+// --- State ---
+let selectedFile = null;
+
+// --- File Selection ---
+function onFileChange(e) {
+    const f = e.target.files[0];
+    if (!f || f.type !== 'application/pdf') { alert('PDFファイルを選択してください'); return; }
+    setFile(f);
+}
+function setFile(f) {
+    selectedFile = f;
+    document.getElementById('fileName').textContent = f.name;
+    document.getElementById('fileBadge').style.display = 'flex';
+    document.getElementById('btnAnalyze').style.display = 'block';
+}
+
+// --- Drag & Drop ---
+function onDragOver(e) { e.preventDefault(); document.getElementById('uploadCard').classList.add('dragover'); }
+function onDragLeave()  { document.getElementById('uploadCard').classList.remove('dragover'); }
+function onDrop(e) {
+    e.preventDefault();
+    document.getElementById('uploadCard').classList.remove('dragover');
+    const f = e.dataTransfer.files[0];
+    if (f && f.type === 'application/pdf') setFile(f);
+}
+
+// --- Helpers ---
+function setLoading(msg) { document.getElementById('loadingMsg').textContent = msg; }
+function fileToBase64(f) {
+    return new Promise((ok, ng) => {
+        const r = new FileReader();
+        r.onload = () => ok(r.result.split(',')[1]);
+        r.onerror = ng;
+        r.readAsDataURL(f);
+    });
+}
+function showError(msg) {
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('uploadCard').style.display = 'block';
+    document.getElementById('btnAnalyze').style.display = 'block';
+    document.getElementById('errorBox').style.display = 'block';
+    document.getElementById('errorMsg').textContent = msg;
+}
+function reset() {
+    selectedFile = null;
+    document.getElementById('uploadCard').style.display = 'block';
+    document.getElementById('fileBadge').style.display = 'none';
+    document.getElementById('btnAnalyze').style.display = 'none';
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('resultSection').style.display = 'none';
+    document.getElementById('errorBox').style.display = 'none';
+    document.getElementById('fileInput').value = '';
+}
+
+// --- Main Analysis ---
+async function startAnalysis() {
+    if (!selectedFile) return;
+
+    if (GEMINI_API_KEY === 'YOUR_GEMINI_API_KEY_HERE') {
+        showError('APIキーが設定されていません。index.html 内の GEMINI_API_KEY にキーを貼り付けてください。');
+        return;
+    }
+
+    document.getElementById('uploadCard').style.display = 'none';
+    document.getElementById('btnAnalyze').style.display = 'none';
+    document.getElementById('errorBox').style.display = 'none';
+    document.getElementById('loading').style.display = 'block';
+
+    try {
+        setLoading('PDF を読み込んでいます...');
+        const b64 = await fileToBase64(selectedFile);
+
+        setLoading('AI に送信中... （30〜60秒かかります）');
+
+        const res = await fetch(
+            `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`,
+            {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    contents: [{
+                        parts: [
+                            { text: PROMPT },
+                            { inline_data: { mime_type: 'application/pdf', data: b64 } }
+                        ]
+                    }],
+                    generationConfig: { temperature: 0.2, maxOutputTokens: 8192 }
+                })
+            }
+        );
+
+        if (!res.ok) {
+            const err = await res.json();
+            throw new Error(err.error?.message || `API エラー: ${res.status}`);
+        }
+
+        setLoading('分析結果を整形中...');
+        const data = await res.json();
+        const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+        if (!text) throw new Error('分析結果を取得できませんでした');
+
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('resultSection').style.display = 'block';
+        document.getElementById('resultBody').innerHTML = marked.parse(text);
+
+    } catch (err) {
+        showError(err.message);
+    }
+}
+</script>
+</body>
+</html>
