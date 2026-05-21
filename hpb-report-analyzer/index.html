@@ -264,6 +264,60 @@
 
         footer { text-align: center; padding: 48px 20px 32px; color: #CCC; font-size: 11px; }
 
+        /* ---- API KEY SETUP ---- */
+        .setup-overlay {
+            display: none;
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,.55);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .setup-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 36px;
+            max-width: 480px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,.25);
+        }
+        .setup-card h2 { font-size: 18px; color: #1a1a2e; margin-bottom: 6px; }
+        .setup-card .desc { font-size: 13px; color: #888; line-height: 1.7; margin-bottom: 20px; }
+        .setup-card .desc a { color: #C9A96E; }
+        .key-input-wrap {
+            display: flex; gap: 8px; margin-bottom: 12px;
+        }
+        .key-input-wrap input {
+            flex: 1;
+            border: 1.5px solid #DDD;
+            border-radius: 8px;
+            padding: 11px 14px;
+            font-size: 13px;
+            font-family: monospace;
+            outline: none;
+            transition: border-color .2s;
+        }
+        .key-input-wrap input:focus { border-color: #C9A96E; }
+        .btn-save-key {
+            background: linear-gradient(135deg, #1a1a2e, #0f3460);
+            color: white; border: none;
+            padding: 11px 20px; border-radius: 8px;
+            font-size: 13px; font-weight: 700;
+            cursor: pointer; white-space: nowrap;
+        }
+        .key-hint { font-size: 11px; color: #AAA; }
+        .key-status-bar {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 6px 0; margin-bottom: 4px;
+        }
+        .key-status-bar span { font-size: 12px; color: #888; }
+        .btn-change-key {
+            font-size: 11px; color: #C9A96E; background: none;
+            border: 1px solid #C9A96E; border-radius: 20px;
+            padding: 3px 10px; cursor: pointer;
+        }
+
         @media print {
             header, .upload-card, .url-card, .loading, .btn-analyze, .btn-reset, .btn-print, footer, .error-box, .step-label { display: none !important; }
             .result-section { display: block !important; }
@@ -279,11 +333,32 @@
 </head>
 <body>
 
+<!-- APIキー設定モーダル -->
+<div class="setup-overlay" id="setupOverlay" style="display:flex">
+    <div class="setup-card">
+        <h2>🔑 Gemini APIキーを設定</h2>
+        <p class="desc">
+            このツールの利用には Google Gemini API キーが必要です（<strong>無料</strong>）。<br>
+            <a href="https://aistudio.google.com/apikey" target="_blank">aistudio.google.com/apikey</a> で取得してここに貼り付けてください。<br>
+            キーはこのブラウザにのみ保存され、外部に送信されません。
+        </p>
+        <div class="key-input-wrap">
+            <input type="password" id="keyInput" placeholder="AIzaSy..." />
+            <button class="btn-save-key" onclick="saveKeyAndStart()">保存して開始</button>
+        </div>
+        <p class="key-hint">※ 取得したキーを貼り付けるだけでOKです</p>
+    </div>
+</div>
+
 <header>
     <div class="accent-bar"></div>
-    <div>
+    <div style="flex:1">
         <h1>HPB サロンレポート分析ツール</h1>
         <p>HOT PEPPER Beauty Salon Report Analyzer</p>
+    </div>
+    <div id="keyStatusBar" style="display:none">
+        <span style="font-size:12px;opacity:.7">APIキー設定済み</span>
+        <button class="btn-change-key" onclick="showSetup()" style="margin-left:10px;color:#C9A96E;border-color:#C9A96E">変更</button>
     </div>
 </header>
 
@@ -360,11 +435,28 @@
 <footer>Powered by Google Gemini AI &nbsp;|&nbsp; HOT PEPPER Beauty サロンレポート分析ツール</footer>
 
 <script>
-// ============================================================
-// ⚙️  Gemini API キー
-// ============================================================
-const GEMINI_API_KEY = 'AIzaSyDElFB6nTJMUqlubfN-Rbd74j2hMHdJ-hs';
-// ============================================================
+// APIキーはlocalStorageから取得（コードに書かない）
+function getApiKey() { return localStorage.getItem('gemini_api_key') || ''; }
+function saveApiKey(k) { localStorage.setItem('gemini_api_key', k); }
+
+function saveKeyAndStart() {
+    const k = document.getElementById('keyInput').value.trim();
+    if (!k.startsWith('AIza')) { alert('正しいAPIキーを入力してください（AIzaSy... で始まるキー）'); return; }
+    saveApiKey(k);
+    document.getElementById('setupOverlay').style.display = 'none';
+    document.getElementById('keyStatusBar').style.display = 'flex';
+}
+
+function showSetup() {
+    document.getElementById('setupOverlay').style.display = 'flex';
+}
+
+window.addEventListener('load', () => {
+    if (getApiKey()) {
+        document.getElementById('setupOverlay').style.display = 'none';
+        document.getElementById('keyStatusBar').style.display = 'flex';
+    }
+});
 
 // --- 分析プロンプト（PDFのみ） ---
 const PROMPT_PDF_ONLY = `あなたは美容サロン専門の経営コンサルタントです。
@@ -638,7 +730,7 @@ async function startAnalysis() {
         }
 
         const res = await fetch(
-            `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${GEMINI_API_KEY}`,
+            `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${getApiKey()}`,
             {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -684,7 +776,7 @@ async function startAnalysis() {
 
 async function runGemini(prompt, b64) {
     const res = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${GEMINI_API_KEY}`,
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${getApiKey()}`,
         {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
