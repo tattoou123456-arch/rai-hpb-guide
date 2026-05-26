@@ -10,36 +10,33 @@
       --bg: #f6f7f8;
       --panel: #ffffff;
       --text: #17191c;
-      --muted: #6b7280;
-      --line: #d9dee7;
+      --muted: #667085;
+      --line: #d7dde7;
       --accent: #111827;
-      --accent-soft: #eef2ff;
       --ok: #0f766e;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
       background: var(--bg);
       color: var(--text);
       font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
-      line-height: 1.65;
+      line-height: 1.68;
     }
 
     header {
       position: sticky;
       top: 0;
       z-index: 10;
-      background: rgba(246, 247, 248, 0.92);
+      background: rgba(246, 247, 248, 0.94);
       border-bottom: 1px solid var(--line);
       backdrop-filter: blur(14px);
     }
 
     .bar {
-      max-width: 980px;
+      max-width: 1040px;
       margin: 0 auto;
       padding: 14px 18px;
       display: flex;
@@ -55,7 +52,7 @@
     }
 
     main {
-      max-width: 980px;
+      max-width: 1040px;
       margin: 0 auto;
       padding: 22px 18px 56px;
     }
@@ -90,19 +87,12 @@
       letter-spacing: 0;
     }
 
-    .posts {
-      display: grid;
-      gap: 0;
-    }
-
     .post {
       padding: 16px;
       border-bottom: 1px solid var(--line);
     }
 
-    .post:last-child {
-      border-bottom: 0;
-    }
+    .post:last-child { border-bottom: 0; }
 
     .post-top {
       display: flex;
@@ -156,352 +146,102 @@
         flex-direction: column;
       }
 
-      button {
-        width: 100%;
-      }
+      button { width: 100%; }
     }
   </style>
 </head>
 <body>
   <header>
     <div class="bar">
-      <h1>2026/5/26 Threads投稿</h1>
+      <h1>2026/5/26 Threads投稿 改訂版</h1>
       <button id="copyAll">全部コピー</button>
     </div>
   </header>
 
   <main>
-    <p class="intro">1投稿目は短く、2・3投稿目で具体解説、4投稿目でフォロー・無料相談・コメントCTAにつなげる型です。</p>
-
-    <section class="thread" data-thread>
-      <div class="thread-head">
-        <h2>スレッド1｜HPBはまだ強い</h2>
-        <button class="secondary" data-copy-thread>このスレッドをコピー</button>
-      </div>
-      <div class="posts">
-        <article class="post">
-          <div class="post-top"><span class="label">1投稿目</span><button data-copy-post>コピー</button></div>
-          <div class="body">HPB、まだ全然強いです。</div>
-        </article>
-        <article class="post">
-          <div class="post-top"><span class="label">2投稿目</span><button data-copy-post>コピー</button></div>
-          <div class="body">「ホットペッパーはもう古い」って言われることあるけど、美容サロンの集客導線としてはまだ普通に強い。
-
-ただし、昔みたいに掲載しておけば予約が入る状態ではなくなってる。
-
-今見られてるのは、クーポン価格だけじゃなくて、
-
-・写真の雰囲気
-・ブログの更新頻度
-・口コミ返信の丁寧さ
-・スタッフページ
-・メニュー名の分かりやすさ
-・自分の悩みに合ってそうか
-
-このあたり。
-
-つまり、HPBで勝つには「掲載する」じゃなくて「選ばれる状態に整える」ことが必要。</div>
-        </article>
-        <article class="post">
-          <div class="post-top"><span class="label">3投稿目</span><button data-copy-post>コピー</button></div>
-          <div class="body">特にもったいないのが、ブログと口コミ返信。
-
-ブログが「本日空きあります」だけになってるサロンは多いけど、それだと検索にも刺さりにくいし、予約前の不安も消えない。
-
-本当は、
-
-・どんな悩みの人向けか
-・どんな仕上がりになるか
-・なぜこのメニューが合うのか
-・他のメニューと何が違うのか
-・予約前に知っておくべきこと
-
-を書くべき。
-
-口コミ返信も同じで、ただ「ありがとうございます」だけだと弱い。
-
-返信文も新規のお客様に見られてる。
-ここをちゃんと整えてるサロンは、HPB上での信頼感がかなり変わる。</div>
-        </article>
-        <article class="post">
-          <div class="post-top"><span class="label">4投稿目</span><button data-copy-post>コピー</button></div>
-          <div class="body">美容サロンのHPB集客やAI活用について毎日発信してます。
-
-よかったらフォローしてください。
-HPBの改善を具体的に相談したい方は、プロフィールのリンクから無料相談できます。</div>
-        </article>
-      </div>
-    </section>
-
-    <section class="thread" data-thread>
-      <div class="thread-head">
-        <h2>スレッド2｜ブログで予約は変わる</h2>
-        <button class="secondary" data-copy-thread>このスレッドをコピー</button>
-      </div>
-      <div class="posts">
-        <article class="post">
-          <div class="post-top"><span class="label">1投稿目</span><button data-copy-post>コピー</button></div>
-          <div class="body">HPBブログ、適当に書くのはもったいない。</div>
-        </article>
-        <article class="post">
-          <div class="post-top"><span class="label">2投稿目</span><button data-copy-post>コピー</button></div>
-          <div class="body">HPBブログって、ただの日記じゃない。
-
-ちゃんと使えば、検索対策にもなるし、予約前の不安を消すページにもなる。
-
-でも多くのサロンは、
-
-「本日空きあります」
-「新メニュー出ました」
-「ご予約お待ちしてます」
-
-で終わってる。
-
-これだと読まれないし、選ばれる理由にもならない。
-
-ブログで書くべきなのは、お客様が検索しそうな悩み。
-
-たとえば美容室なら、
-「梅雨 うねり」
-「髪質改善 持ち」
-「白髪ぼかし 30代」
-「縮毛矯正 ダメージ」
-
-こういう言葉を自然に入れる。</div>
-        </article>
-        <article class="post">
-          <div class="post-top"><span class="label">3投稿目</span><button data-copy-post>コピー</button></div>
-          <div class="body">ブログの型はシンプルでいい。
-
-1. 誰の悩みかを書く
-2. その悩みが起きる理由を書く
-3. おすすめメニューを紹介する
-4. 仕上がりのイメージを書く
-5. 予約につなげる
-
-これだけ。
-
-たとえば、
-
-「梅雨になると髪が広がる方へ」
-「原因は湿気だけじゃなく、髪内部の水分バランスが崩れている可能性があります」
-「そんな方には髪質改善トリートメントがおすすめです」
-
-みたいな流れ。
-
-ただ投稿数を増やすより、検索される言葉と予約したくなる理由を入れた方が強い。</div>
-        </article>
-        <article class="post">
-          <div class="post-top"><span class="label">4投稿目</span><button data-copy-post>コピー</button></div>
-          <div class="body">HPBブログの書き方やAIで時短する方法を発信してます。
-
-よかったらフォローしてください。
-自分のサロンのブログ改善を相談したい方は、プロフィールのリンクから無料相談できます。</div>
-        </article>
-      </div>
-    </section>
-
-    <section class="thread" data-thread>
-      <div class="thread-head">
-        <h2>スレッド3｜AI活用</h2>
-        <button class="secondary" data-copy-thread>このスレッドをコピー</button>
-      </div>
-      <div class="posts">
-        <article class="post">
-          <div class="post-top"><span class="label">1投稿目</span><button data-copy-post>コピー</button></div>
-          <div class="body">AIは、サロン業務にかなり使えます。</div>
-        </article>
-        <article class="post">
-          <div class="post-top"><span class="label">2投稿目</span><button data-copy-post>コピー</button></div>
-          <div class="body">美容サロンでAIを使うなら、最初から難しいことをしなくていい。
-
-まずはこのあたりで十分。
-
-・口コミ返信
-・HPBブログ作成
-・Instagram投稿文
-・メニュー説明文
-・カウンセリングシート
-・スタッフ教育マニュアル
-・お客様への提案文
-
-この辺は、ChatGPTに任せるだけでかなり時短できる。
-
-大事なのは「AIを使うこと」じゃなくて、
-売上や予約につながる作業に使うこと。
-
-ただ遊びで触るだけだと続かない。
-毎日やってる面倒な作業からAI化するのが一番いい。</div>
-        </article>
-        <article class="post">
-          <div class="post-top"><span class="label">3投稿目</span><button data-copy-post>コピー</button></div>
-          <div class="body">特におすすめは口コミ返信。
-
-口コミって、新規のお客様が予約前にかなり見てる。
-
-そこで返信が雑だと、サロンの印象も少し下がる。
-
-逆に、丁寧に返信されてると、
-「ちゃんとお客様を見てるサロンなんだな」
-って伝わる。
-
-でも毎回考えるのは大変。
-
-だからAIに、
-
-・感謝
-・来店内容への一言
-・サロンの強み
-・次回提案
-・自然な締め
-
-この型で作らせる。
-
-これだけで返信の質が上がって、作業時間もかなり減る。</div>
-        </article>
-        <article class="post">
-          <div class="post-top"><span class="label">4投稿目</span><button data-copy-post>コピー</button></div>
-          <div class="body">美容サロンで使えるAI活用やHPB集客の話を毎日発信してます。
-
-よかったらフォローしてください。
-口コミ返信プロンプトが欲しい方は、この投稿に「口コミ」とコメントしてください。DMでお送りします。</div>
-        </article>
-      </div>
-    </section>
-
-    <section class="thread" data-thread>
-      <div class="thread-head">
-        <h2>スレッド4｜写真の重要性</h2>
-        <button class="secondary" data-copy-thread>このスレッドをコピー</button>
-      </div>
-      <div class="posts">
-        <article class="post">
-          <div class="post-top"><span class="label">1投稿目</span><button data-copy-post>コピー</button></div>
-          <div class="body">HPBは写真でかなり決まります。</div>
-        </article>
-        <article class="post">
-          <div class="post-top"><span class="label">2投稿目</span><button data-copy-post>コピー</button></div>
-          <div class="body">お客様は、HPBを見たときに文章を全部読んでから予約するわけじゃない。
-
-最初に見るのは写真。
-
-写真の雰囲気で、
-
-「ここ良さそう」
-「自分に合いそう」
-「ちょっと違うかも」
-
-を一瞬で判断してる。
-
-だから写真が弱いと、どれだけメニューが良くてもクリックされにくい。
-
-特に大事なのは、
-
-・仕上がり写真
-・店内の雰囲気
-・スタッフの人柄
-・施術中の安心感
-・悩みが改善したイメージ
-
-この5つ。
-
-写真はただ綺麗ならいいわけじゃなくて、予約する理由が伝わる写真が強い。</div>
-        </article>
-        <article class="post">
-          <div class="post-top"><span class="label">3投稿目</span><button data-copy-post>コピー</button></div>
-          <div class="body">よくあるのが、写真はあるのに使い方がもったいないパターン。
-
-たとえば髪質改善なら、ただ後ろ姿を載せるだけじゃ弱い。
-
-「広がりやすい髪がまとまりやすくなった」
-「梅雨前に扱いやすい髪にしたい方へ」
-「朝のセットを楽にしたい方におすすめ」
-
-みたいに、写真と言葉をセットにする。
-
-写真は証拠。
-文章は意味づけ。
-
-この2つが揃うと、HPB上でかなり伝わりやすくなる。</div>
-        </article>
-        <article class="post">
-          <div class="post-top"><span class="label">4投稿目</span><button data-copy-post>コピー</button></div>
-          <div class="body">HPBの写真・ブログ・口コミ改善について発信してます。
-
-よかったらフォローしてください。
-自分のサロンのHPBをどう直せばいいか知りたい方は、プロフィールのリンクから無料相談できます。</div>
-        </article>
-      </div>
-    </section>
-
-    <section class="thread" data-thread>
-      <div class="thread-head">
-        <h2>スレッド5｜プロンプト配布</h2>
-        <button class="secondary" data-copy-thread>このスレッドをコピー</button>
-      </div>
-      <div class="posts">
-        <article class="post">
-          <div class="post-top"><span class="label">1投稿目</span><button data-copy-post>コピー</button></div>
-          <div class="body">口コミ返信、毎回考えるのしんどくないですか。</div>
-        </article>
-        <article class="post">
-          <div class="post-top"><span class="label">2投稿目</span><button data-copy-post>コピー</button></div>
-          <div class="body">美容サロンの口コミ返信って、地味に大事です。
-
-既存のお客様に向けた返信でもあるし、これから予約する新規のお客様にも見られてる。
-
-でも実際は、
-
-「嬉しい口コミありがとうございます」
-「またのご来店お待ちしております」
-
-で終わってるサロンも多い。
-
-悪いわけじゃないけど、少しもったいない。
-
-口コミ返信には、
-
-・感謝
-・施術内容への具体的な一言
-・お客様の変化
-・サロンの強み
-・次回来店の提案
-
-を自然に入れると、かなり印象が変わる。</div>
-        </article>
-        <article class="post">
-          <div class="post-top"><span class="label">3投稿目</span><button data-copy-post>コピー</button></div>
-          <div class="body">ただ、毎回それを考えるのは大変。
-
-だからChatGPTに型を渡して作らせるのが早い。
-
-口コミ文を貼るだけで、
-
-・丁寧だけど硬すぎない
-・定型文っぽくない
-・サロンの強みが自然に入る
-・次回来店にもつながる
-・新規のお客様にも印象がいい
-
-返信文を作れるようにしておく。
-
-口コミ返信は、ただの作業じゃなくてHPB上の接客。
-ここを整えるだけでも、サロンの見え方は変わる。</div>
-        </article>
-        <article class="post">
-          <div class="post-top"><span class="label">4投稿目</span><button data-copy-post>コピー</button></div>
-          <div class="body">美容サロン向けに、口コミ返信で使えるChatGPTプロンプトを作りました。
-
-欲しい方は、この投稿に「口コミ」とコメントしてください。
-送ってくださった方にはDMでお送りします。
-
-フォローしておくと、美容サロンで使えるAI活用やHPB集客の改善ネタを毎日見られます。</div>
-        </article>
-      </div>
-    </section>
+    <p class="intro">業界データを噛み砕いて、サロンオーナーがHPBを今すぐ直せる内容に寄せた版。1投稿目は短く、2・3投稿目は濃い解説、4投稿目で導線です。</p>
+    <div id="threads"></div>
   </main>
 
   <script>
+    const threads = [
+      {
+        title: "スレッド1｜値下げより価値設計",
+        posts: [
+          "美容室、安売りしなくても選ばれてます。",
+          "ホットペッパービューティーアカデミーの美容センサス2025を見ると、美容室の市場規模はここ5年で最大。しかも1回あたりの利用金額は女性7,668円、男性4,879円で、これも過去5年で高い水準。\n\nつまり今起きてるのは「お客様がお金を使わなくなった」ではなく、「価値が分かるものには払うけど、何となくのメニューには払わない」という変化。\n\nだからHPBでやるべきことは、ただ安いクーポンを前に出すことじゃない。\n\n高単価メニューの価値を、予約前に伝わる形に変えること。",
+          "今すぐ見直すなら、まずクーポン名。\n\n「カット＋カラー＋TR」だけだと、何が良いのか分かりにくい。\n\nたとえば、\n\n「梅雨前の広がり対策｜まとまりカラー＋集中補修TR」\n「白髪ぼかし初めての方へ｜自然になじむ大人カラー」\n「朝のセットを楽にしたい方へ｜髪質改善ケアコース」\n\nみたいに、メニュー名に“悩み”と“得られる未来”を入れる。\n\nお客様は施術名を買ってるんじゃなくて、悩みが解決する期待を買ってる。\n\nHPBはここを言語化できてるサロンが強い。",
+          "美容サロンのHPB改善やAI活用を毎日発信してます。\n\nよかったらフォローしてください。\n自分のサロンのクーポン名やメニュー設計を直したい方は、プロフィールのリンクから無料相談できます。"
+        ]
+      },
+      {
+        title: "スレッド2｜リピートは来店前から決まる",
+        posts: [
+          "リピートって、来店後だけの話じゃないです。",
+          "リクルートの顧客満足調査で面白いのが、女性は来店中の施術や仕上がり、カウンセリングでリピート・変更を判断しやすい一方、男性は来店前の「サロンを知る」段階で変更を判断しやすいという点。\n\nこれ、HPB改善にそのまま使える。\n\n女性向けなら、来店後に満足される理由を予約前に伝える。\n男性向けなら、予約前の情報量を増やして不安を消す。\n\nつまり同じHPBでも、狙う客層によって見せ方を変えないといけない。",
+          "たとえば女性向けなら、ブログやこだわり欄で、\n\n・カウンセリングで何を聞くか\n・施術前にどんな確認をするか\n・仕上がりのどこを大事にしているか\n・髪質や悩みに合わせて何を変えるか\n\nを入れる。\n\n男性向けなら、\n\n・料金が分かりやすい\n・写真で仕上がりが想像できる\n・所要時間が分かる\n・初めてでも入りやすい\n・どのスタッフを選べばいいか分かる\n\nこの情報がかなり大事。\n\nHPBは“載せる”場所じゃなくて、予約前の不安を潰す場所。ここを作り込むだけで反応は変わる。",
+          "HPBの写真・ブログ・クーポン改善を毎日発信してます。\n\nよかったらフォローしてください。\n自分のサロンのHPBで何を直すべきか知りたい方は、プロフィールのリンクから無料相談できます。"
+        ]
+      },
+      {
+        title: "スレッド3｜ブログはSEO資産",
+        posts: [
+          "HPBブログは、日記じゃなくてSEO資産です。",
+          "HPBブログでよくある失敗が、「本日空きあります」「ご予約お待ちしてます」だけで終わる投稿。\n\nもちろん空き枠訴求も必要だけど、そればかりだと検索にも残りにくいし、初めて見るお客様の不安も消えない。\n\nブログは本来、サロンの中に検索入口を増やすために使える。\n\nたとえば美容室なら、\n\n・梅雨 うねり\n・髪質改善 持ち\n・白髪ぼかし 30代\n・縮毛矯正 ダメージ\n・ショート 似合わせ\n\nこういう悩みワードを自然に入れる。",
+          "ブログを書くときの型はこれでいい。\n\n1. 誰の悩みか\n2. その悩みが起きる理由\n3. 放置するとどうなるか\n4. おすすめメニュー\n5. どんな仕上がりになるか\n6. 予約前の不安への回答\n7. 最後に予約導線\n\n例を出すと、\n\n「梅雨になると髪が広がる方へ」\n「原因は湿気だけでなく、髪内部の水分バランスが崩れている可能性があります」\n「まとまりを出したい方には髪質改善トリートメントがおすすめです」\n\nここまで書くと、ただの空き枠投稿より予約理由が強くなる。",
+          "HPBブログの書き方や、AIでブログを時短する方法を発信してます。\n\nよかったらフォローしてください。\nブログを集客導線に変えたい方は、プロフィールのリンクから無料相談できます。"
+        ]
+      },
+      {
+        title: "スレッド4｜写真は予約前の接客",
+        posts: [
+          "HPBの写真は、予約前の接客です。",
+          "顧客満足調査では、若い男性ほどネット上の写真や料金など、来店前の情報に影響を受けやすい傾向が出ている。\n\nこれは男性向けサロンだけの話じゃない。\n\nお客様はHPBを開いた瞬間に、写真でかなり判断してる。\n\n文章を読む前に、\n\n「ここ良さそう」\n「自分に合いそう」\n「ちょっと違うかも」\n\nを一瞬で決める。\n\nだから写真は、ただ綺麗ならいいわけじゃない。\n予約する理由が伝わる写真になってるかが大事。",
+          "写真で最低限そろえたいのはこの5つ。\n\n・仕上がり写真\n・悩みが改善した写真\n・店内の雰囲気\n・スタッフの人柄\n・施術中の安心感\n\nさらに強くするなら、写真に意味づけをする。\n\n髪質改善の写真なら、ただ後ろ姿を載せるだけじゃなく、ブログやキャプションで、\n\n「梅雨前に広がりを抑えたい方へ」\n「朝のセットを楽にしたい方におすすめ」\n「パサつきが気になる30代女性に人気」\n\nと書く。\n\n写真は証拠。文章は意味づけ。この2つが揃うとHPBの説得力が上がる。",
+          "HPBの写真改善やブログ設計を毎日発信してます。\n\nよかったらフォローしてください。\n自分のサロン写真をどう使えば予約につながるか相談したい方は、プロフィールのリンクから無料相談できます。"
+        ]
+      },
+      {
+        title: "スレッド5｜口コミ返信プロンプト配布",
+        posts: [
+          "口コミ返信、定型文で終わってませんか。",
+          "口コミ返信って、既存のお客様へのお礼でありながら、新規のお客様に見られる“公開接客”でもある。\n\nだから、ただ\n\n「嬉しい口コミありがとうございます」\n「またのご来店お待ちしております」\n\nで終わるのは少しもったいない。\n\n口コミ返信で入れたいのは、\n\n・来店への感謝\n・施術内容への具体的な一言\n・お客様の変化\n・サロンの強み\n・次回来店の提案\n\nこの5つ。\n\nこれが入ると、返信文がただのお礼じゃなくて、次の予約を後押しする文章になる。",
+          "たとえば、髪質改善の口コミなら、\n\n「仕上がりを喜んでいただけて嬉しいです」だけで終わらせない。\n\n「今回は広がりやすさを抑えながら、毛先のまとまりが出るように薬剤とトリートメントを調整しました」\n\nここまで書くと、新規のお客様にも技術の意図が伝わる。\n\nさらに、\n\n「次回は1ヶ月半〜2ヶ月を目安にメンテナンスしていただくと、扱いやすい状態を保ちやすいです」\n\nと入れると、自然に再来導線にもなる。\n\nこれを毎回手書きするのは大変だから、AIに型を渡して作らせるのが早い。",
+          "美容サロン向けに、口コミ返信で使えるChatGPTプロンプトを作りました。\n\n欲しい方は、この投稿に「口コミ」とコメントしてください。\n送ってくださった方にはDMでお送りします。\n\nフォローしておくと、美容サロンで使えるAI活用やHPB集客の改善ネタを毎日見られます。"
+        ]
+      }
+    ];
+
+    const threadsRoot = document.querySelector("#threads");
+
+    threads.forEach((thread) => {
+      const section = document.createElement("section");
+      section.className = "thread";
+      section.dataset.thread = "";
+
+      const head = document.createElement("div");
+      head.className = "thread-head";
+      head.innerHTML = `<h2></h2><button class="secondary" data-copy-thread>このスレッドをコピー</button>`;
+      head.querySelector("h2").textContent = thread.title;
+      section.append(head);
+
+      thread.posts.forEach((post, index) => {
+        const article = document.createElement("article");
+        article.className = "post";
+        article.innerHTML = `
+          <div class="post-top">
+            <span class="label">${index + 1}投稿目</span>
+            <button data-copy-post>コピー</button>
+          </div>
+          <div class="body"></div>
+        `;
+        article.querySelector(".body").textContent = post;
+        section.append(article);
+      });
+
+      threadsRoot.append(section);
+    });
+
     const getPostText = (post) => post.querySelector(".body").innerText.trim();
     const getThreadText = (thread) => [...thread.querySelectorAll(".post")]
       .map((post) => getPostText(post))
