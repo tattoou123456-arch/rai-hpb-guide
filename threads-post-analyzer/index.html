@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Threads 投稿分析ツール</title>
+  <style>
+    :root {
+      --bg: #f6f4ef;
+      --panel: #ffffff;
+      --ink: #202124;
+      --muted: #69707a;
+      --line: #ded9cf;
+      --accent: #0f5f6f;
+      --accent-2: #b88a44;
+      --danger: #b63b3b;
+      --ok: #227a45;
+      --shadow: 0 10px 30px rgba(32, 33, 36, .08);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "YuGothic", "Meiryo", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+
+    header {
+      padding: 28px 24px;
+      background: #172126;
+      color: #fff;
+      border-bottom: 4px solid var(--accent-2);
+    }
+    header .inner, main { max-width: 1180px; margin: 0 auto; }
+    h1 { margin: 0; font-size: 24px; letter-spacing: .02em; }
+    header p { margin: 6px 0 0; color: rgba(255,255,255,.72); font-size: 14px; }
+
+    main { padding: 28px 20px 60px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: start; }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+    .card h2 { margin: 0 0 10px; font-size: 17px; }
+    .hint { margin: 0 0 12px; color: var(--muted); font-size: 13px; }
+    textarea {
+      width: 100%;
+      min-height: 440px;
+      resize: vertical;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      font: 13px/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      color: var(--ink);
+      background: #fffdfa;
+    }
+    .actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+    button {
+      border: 0;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-weight: 700;
+      cursor: pointer;
+      background: var(--accent);
+      color: #fff;
+    }
+    button.secondary { background: #e9e4da; color: #222; }
+    button.ghost { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      background: #fbfaf7;
+    }
+    .metric b { display: block; font-size: 22px; line-height: 1.2; }
+    .metric span { display: block; color: var(--muted); font-size: 12px; margin-top: 3px; }
+
+    .result {
+      white-space: pre-wrap;
+      background: #fbfaf7;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      min-height: 440px;
+      font-size: 14px;
+    }
+
+    .table-wrap { overflow-x: auto; margin-top: 14px; border: 1px solid var(--line); border-radius: 8px; }
+    table { width: 100%; border-collapse: collapse; min-width: 850px; background: #fff; }
+    th, td { padding: 9px 10px; border-bottom: 1px solid var(--line); text-align: left; font-size: 12px; vertical-align: top; }
+    th { background: #f0ede6; font-weight: 700; white-space: nowrap; }
+    td.num { text-align: right; font-variant-numeric: tabular-nums; }
+    .badge { display: inline-block; border-radius: 999px; padding: 2px 8px; font-size: 11px; font-weight: 700; }
+    .good { background: #dff3e7; color: var(--ok); }
+    .bad { background: #f7dddd; color: var(--danger); }
+    .mid { background: #eee8d7; color: #7c5a16; }
+
+    footer { color: var(--muted); font-size: 12px; margin-top: 18px; }
+
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+      .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="inner">
+      <h1>Threads 投稿分析ツール</h1>
+      <p>スプレッドシートのデータを貼るだけ。伸びた投稿、弱い投稿、改善案、翌週の打ち手を出します。</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="grid">
+      <section class="card">
+        <h2>1. 投稿データを貼り付け</h2>
+        <p class="hint">Googleスプレッドシートから範囲選択してコピー。そのままここに貼れます。TSV/CSV対応。</p>
+        <textarea id="input" placeholder="日付	カテゴリ	投稿本文	インプレッション	いいね	コメント	保存	リポスト	プロフィールクリック	LINE登録	無料相談	成約"></textarea>
+        <div class="actions">
+          <button id="analyze">分析する</button>
+          <button class="secondary" id="sample">サンプルを入れる</button>
+          <button class="ghost" id="clear">クリア</button>
+        </div>
+        <footer>
+          推奨：インプレッション、いいね、コメント、保存、リポスト、プロフィールクリック、LINE登録、無料相談、成約を入れると精度が上がります。
+        </footer>
+      </section>
+
+      <section class="card">
+        <h2>2. 分析結果</h2>
+        <div class="metrics" id="metrics"></div>
+        <div class="result" id="result">ここに分析結果が出ます。</div>
+        <div class="actions">
+          <button class="secondary" id="copy">分析結果をコピー</button>
+        </div>
+      </section>
+    </div>
+
+    <section class="card" style="margin-top:18px;">
+      <h2>投稿別スコア</h2>
+      <p class="hint">反応率、CTA率、LINE転換、相談転換を見て、次に伸ばす投稿の型を判断します。</p>
+      <div class="table-wrap" id="tableWrap"></div>
+    </section>
+  </main>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+
+    const aliases = {
+      date: ["日付", "投稿日", "date"],
+      category: ["カテゴリ", "カテゴリー", "分類", "category"],
+      goal: ["狙い", "目的", "goal"],
+      body: ["投稿本文", "本文", "投稿", "content", "body"],
+      cta: ["CTA/導線", "CTA", "導線", "cta"],
+      impressions: ["インプレッション", "表示回数", "閲覧数", "imp", "impressions"],
+      likes: ["いいね", "いいね数", "likes"],
+      comments: ["コメント", "コメント数", "comments"],
+      saves: ["保存", "保存数", "saves"],
+      reposts: ["リポスト", "シェア", "shares", "reposts"],
+      profileClicks: ["プロフィールクリック", "プロフクリック", "profile clicks", "profileClicks"],
+      lineAdds: ["LINE登録", "LINE追加", "ライン登録", "line", "lineAdds"],
+      consults: ["無料相談", "相談", "相談数", "consults"],
+      contracts: ["成約", "契約", "contracts"]
+    };
+
+    function splitLine(line, delimiter) {
+      const out = [];
+      let cur = "";
+      let quote = false;
+      for (let i = 0; i < line.length; i++) {
+        const ch = line[i];
+        if (ch === '"') {
+          if (quote && line[i + 1] === '"') { cur += '"'; i++; }
+          else quote = !quote;
+        } else if (ch === delimiter && !quote) {
+          out.push(cur);
+          cur = "";
+        } else {
+          cur += ch;
+        }
+      }
+      out.push(cur);
+      return out;
+    }
+
+    function parseTable(text) {
+      const clean = text.trim().replace(/\r\n/g, "\n").replace(/\r/g, "\n");
+      if (!clean) return [];
+      const delimiter = clean.includes("\t") ? "\t" : ",";
+      const lines = clean.split("\n").filter(Boolean);
+      const headers = splitLine(lines[0], delimiter).map(h => h.trim());
+      const rows = lines.slice(1).map(line => {
+        const cells = splitLine(line, delimiter);
+        const row = {};
+        headers.forEach((h, i) => row[h] = (cells[i] || "").trim());
+        return row;
+      });
+      return normalizeRows(rows, headers);
+    }
+
+    function findHeader(headers, key) {
+      const candidates = aliases[key].map(v => v.toLowerCase());
+      return headers.find(h => candidates.includes(h.trim().toLowerCase())) || null;
+    }
+
+    function num(value) {
+      if (value == null) return 0;
+      const n = Number(String(value).replace(/[,%，]/g, "").trim());
+      return Number.isFinite(n) ? n : 0;
+    }
+
+    function normalizeRows(rows, headers) {
+      const map = {};
+      Object.keys(aliases).forEach(key => map[key] = findHeader(headers, key));
+      return rows.map((row, index) => {
+        const get = (key) => map[key] ? row[map[key]] : "";
+        const impressions = num(get("impressions"));
+        const likes = num(get("likes"));
+        const comments = num(get("comments"));
+        const saves = num(get("saves"));
+        const reposts = num(get("reposts"));
+        const profileClicks = num(get("profileClicks"));
+        const lineAdds = num(get("lineAdds"));
+        const consults = num(get("consults"));
+        const contracts = num(get("contracts"));
+        const reactions = likes + comments + saves + reposts;
+        return {
+          index: index + 1,
+          date: get("date"),
+          category: get("category") || "未分類",
+          goal: get("goal"),
+          body: get("body"),
+          cta: get("cta"),
+          impressions, likes, comments, saves, reposts, profileClicks, lineAdds, consults, contracts,
+          reactions,
+          engagementRate: impressions ? reactions / impressions : 0,
+          ctaRate: impressions ? profileClicks / impressions : 0,
+          lineRate: profileClicks ? lineAdds / profileClicks : 0,
+          consultRate: lineAdds ? consults / lineAdds : 0,
+          contractRate: consults ? contracts / consults : 0
+        };
+      });
+    }
+
+    function pct(v) {
+      return `${(v * 100).toFixed(v >= .1 ? 1 : 2)}%`;
+    }
+
+    function sum(rows, key) {
+      return rows.reduce((a, r) => a + (r[key] || 0), 0);
+    }
+
+    function avg(rows, key) {
+      if (!rows.length) return 0;
+      return rows.reduce((a, r) => a + (r[key] || 0), 0) / rows.length;
+    }
+
+    function byCategory(rows) {
+      const groups = {};
+      rows.forEach(r => {
+        groups[r.category] ||= [];
+        groups[r.category].push(r);
+      });
+      return Object.entries(groups).map(([category, items]) => ({
+        category,
+        count: items.length,
+        impressions: sum(items, "impressions"),
+        engagementRate: avg(items, "engagementRate"),
+        ctaRate: avg(items, "ctaRate"),
+        lineAdds: sum(items, "lineAdds"),
+        consults: sum(items, "consults")
+      })).sort((a, b) => b.engagementRate - a.engagementRate);
+    }
+
+    function getHook(body) {
+      const text = (body || "").trim();
+      return text.split(/\n|。/)[0].slice(0, 80) || "本文なし";
+    }
+
+    function classify(row, avgEngagement, avgCta) {
+      if (row.engagementRate >= avgEngagement * 1.25 && row.ctaRate >= avgCta) return "伸び投稿";
+      if (row.engagementRate < avgEngagement * 0.7 && row.ctaRate < avgCta * 0.8) return "改善対象";
+      return "普通";
+    }
+
+    function improvement(row) {
+      const body = row.body || "";
+      const cta = row.cta || "";
+      const tips = [];
+      if (body.length < 80) tips.push("本文が短め。1行フックの後に、具体例・数字・失敗例を足す。");
+      if (!/[0-9０-９]/.test(body)) tips.push("数字がない。件数・時間・割合・金額のどれかを入れる。");
+      if (!/(コメント|プロフ|LINE|無料相談|診断|DM)/i.test(body + cta)) tips.push("導線が弱い。コメント・LINE・無料相談のどれかを明確に書く。");
+      if (!/(なぜ|理由|原因|具体的|例えば|まず|次に)/.test(body)) tips.push("解説が抽象的。理由と具体例を1つ追加する。");
+      return tips.slice(0, 2).join(" / ") || "この型は悪くない。テーマを変えて横展開する。";
+    }
+
+    function analyze(rows) {
+      if (!rows.length) return { text: "データがありません。", metrics: [], table: "" };
+      const totalImp = sum(rows, "impressions");
+      const totalReactions = sum(rows, "reactions");
+      const totalProfile = sum(rows, "profileClicks");
+      const totalLine = sum(rows, "lineAdds");
+      const totalConsults = sum(rows, "consults");
+      const totalContracts = sum(rows, "contracts");
+      const avgEng = avg(rows, "engagementRate");
+      const avgCta = avg(rows, "ctaRate");
+      const sortedEng = [...rows].sort((a, b) => b.engagementRate - a.engagementRate);
+      const sortedCta = [...rows].sort((a, b) => b.ctaRate - a.ctaRate);
+      const categories = byCategory(rows);
+
+      const metrics = [
+        ["投稿数", `${rows.length}本`],
+        ["総インプレッション", totalImp ? totalImp.toLocaleString() : "未入力"],
+        ["平均反応率", totalImp ? pct(totalReactions / totalImp) : "未入力"],
+        ["無料相談", totalConsults ? `${totalConsults}件` : "未入力"]
+      ];
+
+      const best = sortedEng.slice(0, 3);
+      const weak = [...rows].sort((a, b) => a.engagementRate - b.engagementRate).slice(0, 3);
+      const ctaBest = sortedCta.slice(0, 3);
+      const catLines = categories.slice(0, 5).map(c => `- ${c.category}: ${c.count}本 / 平均反応率 ${pct(c.engagementRate)} / 平均CTA率 ${pct(c.ctaRate)} / 相談 ${c.consults}件`).join("\n");
+
+      const text = `# Threads投稿分析レポート
+
+## 全体サマリー
+- 投稿数: ${rows.length}本
+- 総インプレッション: ${totalImp ? totalImp.toLocaleString() : "未入力"}
+- 総反応数: ${totalReactions ? totalReactions.toLocaleString() : "未入力"}
+- 平均反応率: ${totalImp ? pct(totalReactions / totalImp) : "未入力"}
+- プロフィールクリック: ${totalProfile ? totalProfile.toLocaleString() : "未入力"}
+- LINE登録: ${totalLine ? totalLine.toLocaleString() : "未入力"}
+- 無料相談: ${totalConsults ? totalConsults.toLocaleString() : "未入力"}
+- 成約: ${totalContracts ? totalContracts.toLocaleString() : "未入力"}
+
+## 伸びた投稿 TOP3
+${best.map((r, i) => `${i + 1}. ${getHook(r.body)}
+   - カテゴリ: ${r.category}
+   - 反応率: ${pct(r.engagementRate)}
+   - CTA率: ${pct(r.ctaRate)}
+   - 勝ち要因: ${winReason(r)}`).join("\n")}
+
+## CTAが強い投稿 TOP3
+${ctaBest.map((r, i) => `${i + 1}. ${getHook(r.body)}
+   - CTA率: ${pct(r.ctaRate)}
+   - LINE登録: ${r.lineAdds || 0}
+   - 相談: ${r.consults || 0}`).join("\n")}
+
+## 改善対象 TOP3
+${weak.map((r, i) => `${i + 1}. ${getHook(r.body)}
+   - 反応率: ${pct(r.engagementRate)}
+   - 改善案: ${improvement(r)}`).join("\n")}
+
+## カテゴリ別の傾向
+${catLines || "- カテゴリ情報が不足しています。"}
+
+## 次の改善アクション
+1. 伸びた上位カテゴリを翌週の投稿比率で2倍にする。
+2. 反応率が低い投稿は、1行目に数字・危機感・具体的な悩みを入れて作り直す。
+3. CTAは「無料相談」より先に「コメントで○○」「無料特典」「HPB診断」の軽い行動を置く。
+4. LINE登録はあるのに相談が少ない場合、LINE内で「診断」と送ってもらう導線を強くする。
+5. 相談はあるのに成約が少ない場合、提案資料とクロージングトークを見直す。
+
+## 翌週の投稿方針
+- 業界ニュース系: 2本/日
+- ChatGPTプロンプト配布: 1本/日
+- HPB具体ノウハウ: 1本/日
+- 無料診断/特典訴求: 1本/日
+
+この配分で、認知・保存・コメント・LINE登録を全部取りにいく。`;
+
+      return { text, metrics, table: renderTable(rows, avgEng, avgCta) };
+    }
+
+    function winReason(row) {
+      const body = row.body || "";
+      const reasons = [];
+      if (/[0-9０-９]/.test(body)) reasons.push("数字が入っていて具体的");
+      if (/危険|やば|損|もったいない|悩|困/.test(body)) reasons.push("痛み・危機感がある");
+      if (/プロンプト|無料|コメント/.test(body + row.cta)) reasons.push("行動ハードルが低いCTA");
+      if (/HPB|口コミ|クーポン|LINE|Instagram/.test(body)) reasons.push("サロン業務に直結");
+      return reasons.slice(0, 2).join(" / ") || "テーマと導線が明確";
+    }
+
+    function renderTable(rows, avgEng, avgCta) {
+      const head = `<table><thead><tr>
+        <th>#</th><th>日付</th><th>カテゴリ</th><th>冒頭</th><th>判定</th>
+        <th>Imp</th><th>反応率</th><th>CTA率</th><th>LINE</th><th>相談</th><th>改善案</th>
+      </tr></thead><tbody>`;
+      const body = rows.map(r => {
+        const label = classify(r, avgEng, avgCta);
+        const klass = label === "伸び投稿" ? "good" : label === "改善対象" ? "bad" : "mid";
+        return `<tr>
+          <td class="num">${r.index}</td>
+          <td>${escapeHtml(r.date)}</td>
+          <td>${escapeHtml(r.category)}</td>
+          <td>${escapeHtml(getHook(r.body))}</td>
+          <td><span class="badge ${klass}">${label}</span></td>
+          <td class="num">${r.impressions ? r.impressions.toLocaleString() : "-"}</td>
+          <td class="num">${r.impressions ? pct(r.engagementRate) : "-"}</td>
+          <td class="num">${r.impressions ? pct(r.ctaRate) : "-"}</td>
+          <td class="num">${r.lineAdds || "-"}</td>
+          <td class="num">${r.consults || "-"}</td>
+          <td>${escapeHtml(improvement(r))}</td>
+        </tr>`;
+      }).join("");
+      return head + body + "</tbody></table>";
+    }
+
+    function escapeHtml(text) {
+      return String(text || "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    }
+
+    $("analyze").addEventListener("click", () => {
+      try {
+        const rows = parseTable($("input").value);
+        const out = analyze(rows);
+        $("metrics").innerHTML = out.metrics.map(([k, v]) => `<div class="metric"><b>${escapeHtml(v)}</b><span>${escapeHtml(k)}</span></div>`).join("");
+        $("result").textContent = out.text;
+        $("tableWrap").innerHTML = out.table;
+      } catch (error) {
+        $("result").textContent = `読み込みでエラーが出ました。\n${error.message}`;
+      }
+    });
+
+    $("sample").addEventListener("click", () => {
+      $("input").value = `日付\tカテゴリ\t投稿本文\tCTA/導線\tインプレッション\tいいね\tコメント\t保存\tリポスト\tプロフィールクリック\tLINE登録\t無料相談\t成約
+2026-05-26\tChatGPTプロンプト配布\t口コミ返信、毎回何書けばいいか悩んでない？口コミ内容を貼るだけで返信文を作れるChatGPTプロンプトを作った。\tコメントに「口コミ」と送ってください\t12000\t340\t42\t91\t18\t210\t46\t5\t1
+2026-05-26\tHPBノウハウ/クーポン\tクーポン名が「新規限定クーポン」だけのサロン、けっこう多い。悩み解決型にするだけでクリック率が変わる。\t無料相談できます\t8000\t120\t9\t22\t4\t60\t8\t1\t0
+2026-05-27\t業界ニュース/AI活用\t美容室のAI導入、もう大手だけの話じゃなくなってきた。面倒な下準備をAIにやらせて、人は接客と施術に集中する。\tフォローしてください\t15000\t410\t25\t80\t30\t120\t18\t2\t0`;
+    });
+
+    $("clear").addEventListener("click", () => {
+      $("input").value = "";
+      $("metrics").innerHTML = "";
+      $("result").textContent = "ここに分析結果が出ます。";
+      $("tableWrap").innerHTML = "";
+    });
+
+    $("copy").addEventListener("click", async () => {
+      await navigator.clipboard.writeText($("result").textContent);
+      $("copy").textContent = "コピーしました";
+      setTimeout(() => $("copy").textContent = "分析結果をコピー", 1200);
+    });
+  </script>
+</body>
+</html>
