@@ -5,711 +5,313 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>美容サロン集客 7大特典 | Salon Result Lab</title>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;800;900&display=swap');
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
-  font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif;
-  background: #FFF8F0;
-  color: #3D2B1F;
+  font-family: 'Noto Sans JP', sans-serif;
+  background: #FFFAF5;
+  color: #2D2117;
   line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
 }
+
+/* ===== HERO ===== */
 .hero {
-  background: linear-gradient(135deg, #FF8C42, #FF6B1A);
+  background: linear-gradient(145deg, #FF8C42 0%, #FF6B1A 50%, #E85D10 100%);
   color: #fff;
   text-align: center;
-  padding: 60px 20px 50px;
+  padding: 70px 24px 60px;
+  position: relative;
+  overflow: hidden;
 }
-.hero h1 {
-  font-size: 28px;
-  font-weight: 800;
-  line-height: 1.4;
-  margin-bottom: 16px;
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 140%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.12) 0%, transparent 50%);
 }
-.hero p {
-  font-size: 16px;
-  opacity: 0.9;
-  line-height: 1.6;
-}
-.hero .badge {
+.hero-badge {
   display: inline-block;
   background: rgba(255,255,255,0.2);
-  padding: 6px 20px;
+  backdrop-filter: blur(10px);
+  padding: 8px 24px;
   border-radius: 30px;
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  letter-spacing: 1px;
+  position: relative;
 }
-.container { max-width: 600px; margin: 0 auto; padding: 0 16px; }
+.hero h1 {
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1.4;
+  margin-bottom: 16px;
+  position: relative;
+}
+.hero p {
+  font-size: 15px;
+  opacity: 0.9;
+  line-height: 1.7;
+  position: relative;
+}
+
+/* ===== CONTAINER ===== */
+.container { max-width: 640px; margin: 0 auto; padding: 0 20px; }
+
+/* ===== INTRO ===== */
+.intro {
+  text-align: center;
+  padding: 40px 20px 20px;
+}
+.intro p {
+  font-size: 15px;
+  color: #6B5B4F;
+  line-height: 1.9;
+}
+.intro strong {
+  color: #FF8C42;
+}
+
+/* ===== GIFT GRID ===== */
+.gift-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 0 40px;
+}
+.gift-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.gift-link:active {
+  transform: scale(0.98);
+}
 .gift-card {
   background: #fff;
-  border-radius: 16px;
-  margin: 24px 0;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 2px 12px rgba(61,43,31,0.08);
+  box-shadow: 0 2px 16px rgba(61,43,31,0.06);
+  border: 1px solid rgba(255,140,66,0.08);
 }
-.gift-header {
-  background: linear-gradient(135deg, #FF8C42, #FF6B1A);
-  color: #fff;
-  padding: 20px 24px;
+.gift-card-inner {
   display: flex;
-  align-items: center;
-  gap: 14px;
+  align-items: stretch;
 }
-.gift-number {
-  background: rgba(255,255,255,0.25);
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
+.gift-num-bar {
+  background: linear-gradient(180deg, #FF8C42, #FF6B1A);
+  width: 64px;
+  min-height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
-  font-weight: 800;
   flex-shrink: 0;
 }
-.gift-header h2 {
-  font-size: 17px;
-  font-weight: 700;
-  line-height: 1.4;
-}
-.gift-body { padding: 24px; }
-.gift-body h3 {
-  font-size: 15px;
-  font-weight: 700;
-  color: #FF8C42;
-  margin: 20px 0 10px;
-  padding-bottom: 6px;
-  border-bottom: 2px solid #FFF0E0;
-}
-.gift-body h3:first-child { margin-top: 0; }
-.gift-body p { font-size: 14px; margin-bottom: 12px; }
-.gift-body ul { font-size: 14px; padding-left: 20px; margin-bottom: 12px; }
-.gift-body li { margin-bottom: 6px; }
-.checklist { list-style: none; padding-left: 0; }
-.checklist li {
-  padding: 8px 0 8px 28px;
-  position: relative;
-  border-bottom: 1px solid #f5f0eb;
-  font-size: 14px;
-}
-.checklist li::before {
-  content: "\2610";
-  position: absolute;
-  left: 0;
-  color: #FF8C42;
-  font-size: 18px;
-}
-.prompt-box {
-  background: #F8F4F0;
-  border-left: 4px solid #FF8C42;
-  padding: 16px;
-  border-radius: 0 8px 8px 0;
-  margin: 12px 0;
-  font-size: 13px;
-  line-height: 1.7;
-  white-space: pre-wrap;
-}
-.template-box {
-  background: #fff;
-  border: 2px solid #FFE0C0;
-  border-radius: 12px;
-  padding: 16px;
-  margin: 12px 0;
-  font-size: 13px;
-  line-height: 1.7;
-}
-.score-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 12px 0;
-  font-size: 14px;
-}
-.score-table td {
-  padding: 10px 12px;
-  border-bottom: 1px solid #f0ebe6;
-}
-.score-table td:first-child {
-  font-weight: 700;
-  color: #FF8C42;
-  white-space: nowrap;
-}
-.section-divider {
-  text-align: center;
-  padding: 30px 0 10px;
-}
-.section-divider span {
-  background: #FF8C42;
+.gift-num {
   color: #fff;
-  padding: 6px 24px;
-  border-radius: 30px;
+  font-size: 28px;
+  font-weight: 900;
+}
+.gift-info {
+  padding: 22px 20px;
+  flex: 1;
+}
+.gift-info h3 {
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.5;
+  margin-bottom: 6px;
+  color: #2D2117;
+}
+.gift-info p {
   font-size: 13px;
+  color: #8B7B6F;
+  line-height: 1.6;
+}
+.gift-arrow {
+  display: flex;
+  align-items: center;
+  padding-right: 20px;
+  color: #FFB380;
+  font-size: 20px;
+}
+.gift-tags {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+.gift-tag {
+  background: #FFF3E8;
+  color: #E07020;
+  padding: 2px 10px;
+  border-radius: 4px;
+  font-size: 11px;
   font-weight: 600;
 }
-.cta-section {
-  background: linear-gradient(135deg, #FF8C42, #FF6B1A);
-  color: #fff;
-  text-align: center;
-  padding: 50px 20px;
-  margin-top: 40px;
-}
-.cta-section h2 {
-  font-size: 22px;
-  font-weight: 800;
-  margin-bottom: 16px;
-  line-height: 1.5;
-}
-.cta-section p {
-  font-size: 15px;
-  opacity: 0.9;
-  margin-bottom: 24px;
-}
-.cta-btn {
-  display: inline-block;
-  background: #fff;
-  color: #FF8C42;
-  padding: 16px 48px;
-  border-radius: 50px;
-  font-size: 18px;
-  font-weight: 800;
-  text-decoration: none;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-  transition: transform 0.2s;
-}
-.cta-btn:active { transform: scale(0.97); }
+
+/* ===== FOOTER ===== */
 .footer {
   text-align: center;
-  padding: 30px 20px;
+  padding: 40px 20px;
   font-size: 12px;
-  color: #999;
+  color: #B0A090;
+  border-top: 1px solid #F0E8E0;
 }
-.tag {
-  display: inline-block;
-  background: #FFF0E0;
-  color: #FF8C42;
-  padding: 3px 10px;
-  border-radius: 4px;
-  font-size: 12px;
-  font-weight: 600;
-  margin-right: 4px;
-  margin-bottom: 4px;
-}
-.highlight {
-  background: linear-gradient(transparent 60%, #FFE0B2 60%);
-  font-weight: 700;
+
+/* ===== RESPONSIVE ===== */
+@media (min-width: 500px) {
+  .hero h1 { font-size: 36px; }
+  .gift-num-bar { width: 80px; }
+  .gift-num { font-size: 32px; }
+  .gift-info { padding: 26px 24px; }
+  .gift-info h3 { font-size: 18px; }
 }
 </style>
 </head>
 <body>
 
-<!-- HERO -->
 <div class="hero">
-  <div class="badge">LINE登録で全部無料</div>
+  <div class="hero-badge">LINE登録特典</div>
   <h1>美容サロンの集客が<br>変わる7大特典</h1>
-  <p>HPB・minimo・Google・Instagram<br>全部まとめて改善できます</p>
+  <p>HPB・minimo・Google・Instagram<br>すべてまとめて改善できる<br>完全保存版パッケージ</p>
 </div>
 
 <div class="container">
 
-<!-- ========== 特典① ========== -->
-<div class="gift-card">
-  <div class="gift-header">
-    <div class="gift-number">1</div>
-    <h2>HPB集客改善<br>チェックリスト（30項目）</h2>
-  </div>
-  <div class="gift-body">
-    <p>あなたのHPBページ、何項目クリアできてる？<br><span class="highlight">30項目のチェックで改善点が一目でわかる</span></p>
-
-    <h3>基本情報</h3>
-    <ul class="checklist">
-      <li>サロン名にエリア名が入っている</li>
-      <li>住所・電話番号がGoogle・Instagramと統一されている</li>
-      <li>営業時間が最新の情報に更新されている</li>
-      <li>アクセス情報に最寄駅からの徒歩分数が書いてある</li>
-      <li>サロンの外観写真が掲載されている</li>
-    </ul>
-
-    <h3>こだわり条件</h3>
-    <ul class="checklist">
-      <li>「当日予約OK」にチェックが入っている</li>
-      <li>「クレジットカード可」にチェックが入っている</li>
-      <li>「駐車場あり/近隣あり」にチェックが入っている</li>
-      <li>「朝10時前 / 夜20時以降受付OK」にチェックが入っている</li>
-      <li>「メンズ歓迎」にチェックが入っている</li>
-    </ul>
-
-    <h3>クーポン設計</h3>
-    <ul class="checklist">
-      <li>クーポン名が40文字ギリギリまで使われている</li>
-      <li>クーポン名に検索されやすいキーワードが入っている</li>
-      <li>クーポン説明文に「お客様の悩み」が書かれている</li>
-      <li>セットメニューのクーポンが最低1つある</li>
-      <li>一番売りたいクーポンが一覧の一番上にある</li>
-    </ul>
-
-    <h3>写真</h3>
-    <ul class="checklist">
-      <li>スタイル写真が30枚以上掲載されている</li>
-      <li>写真が3ヶ月以内に更新されている</li>
-      <li>自然光で撮影された写真が使われている</li>
-      <li>背景がシンプルで統一されている</li>
-      <li>縦長（3:4）で撮影されている</li>
-    </ul>
-
-    <h3>口コミ</h3>
-    <ul class="checklist">
-      <li>口コミが30件以上ある</li>
-      <li>口コミの返信率が100%</li>
-      <li>口コミの返信が24時間以内にされている</li>
-      <li>返信がコピペではなく口コミ内容に触れている</li>
-      <li>低評価の口コミにも丁寧に返信している</li>
-    </ul>
-
-    <h3>ブログ・更新</h3>
-    <ul class="checklist">
-      <li>ブログが月4回以上更新されている</li>
-      <li>ブログタイトルにエリア名が入っている</li>
-      <li>ブログにビフォーアフター写真が使われている</li>
-      <li>スタッフ紹介文に「得意な施術」が書かれている</li>
-      <li>スタッフ紹介文に「よく来るお客様の悩み」が書かれている</li>
-    </ul>
-
-    <h3>判定</h3>
-    <table class="score-table">
-      <tr><td>25〜30個</td><td>優秀。細かい最適化で更に伸びる</td></tr>
-      <tr><td>18〜24個</td><td>惜しい。埋めるだけで予約数が変わる</td></tr>
-      <tr><td>12〜17個</td><td>改善の余地大。まず赤字の項目から</td></tr>
-      <tr><td>11個以下</td><td>要相談。根本から見直したほうがいい</td></tr>
-    </table>
-  </div>
+<div class="intro">
+  <p>タップすると各特典の<strong>詳細ページ</strong>が開きます。<br>すべて無料でご利用いただけます。</p>
 </div>
 
-<!-- ========== 特典② ========== -->
-<div class="gift-card">
-  <div class="gift-header">
-    <div class="gift-number">2</div>
-    <h2>minimo集客<br>スタートガイド</h2>
-  </div>
-  <div class="gift-body">
-    <p><span class="highlight">月10件予約を取るための初期設定マニュアル</span></p>
+<div class="gift-grid">
 
-    <h3>STEP1｜プロフィール設計</h3>
-    <p><span class="tag">名前の設定</span></p>
-    <p>悪い例：田中<br>良い例：<strong>田中｜くせ毛カット専門｜渋谷</strong></p>
-    <p>名前に「得意な施術」と「エリア名」を入れる。検索に引っかかりやすくなる。</p>
-
-    <div class="template-box">
-      <strong>自己紹介文テンプレ</strong><br><br>
-      （1行目）○○でお悩みの方、お任せください<br>
-      （2行目）○○エリアで○年、○○を専門にしています<br>
-      （3行目）得意な施術：○○ / ○○ / ○○<br>
-      （4行目）こんな方におすすめ：○○で悩んでいる方<br>
-      （5行目）ご予約お待ちしております
+  <a href="gifts/01-hpb-checklist.html" class="gift-link">
+    <div class="gift-card">
+      <div class="gift-card-inner">
+        <div class="gift-num-bar"><span class="gift-num">1</span></div>
+        <div class="gift-info">
+          <h3>HPB集客改善チェックリスト</h3>
+          <p>30項目のチェックであなたのHPBページの改善点が一目でわかる</p>
+          <div class="gift-tags">
+            <span class="gift-tag">30項目</span>
+            <span class="gift-tag">自己診断</span>
+          </div>
+        </div>
+        <div class="gift-arrow">&rsaquo;</div>
+      </div>
     </div>
+  </a>
 
-    <h3>STEP2｜価格設定</h3>
-    <ul>
-      <li>HPB価格の<strong>60〜70%</strong>に設定する</li>
-      <li>「minimo限定価格」と明記する</li>
-      <li>初回限定クーポンを1つ作る</li>
-      <li>2回目以降はHPB or LINE予約に誘導する</li>
-    </ul>
-    <p>minimoは「新規客の入口」として使う。リピートは別チャネルで囲い込む。</p>
-
-    <h3>STEP3｜写真の撮り方</h3>
-    <ul>
-      <li>ビフォーアフター写真 5枚以上</li>
-      <li>施術中の写真 2枚</li>
-      <li>サロン内の雰囲気写真 2枚</li>
-    </ul>
-    <p>自然光（窓際）で撮る。背景は白い壁。加工は明るさ調整のみ。正面より斜め45度から撮ると立体感が出る。</p>
-
-    <h3>STEP4｜メニューは3〜5個に絞る</h3>
-    <ul>
-      <li>一番の得意メニュー（最安値・集客用）</li>
-      <li>得意メニュー＋αのセット（客単価UP用）</li>
-      <li>高単価メニュー（利益確保用）</li>
-    </ul>
-    <p>松竹梅の3段階。一番売りたいのは真ん中。</p>
-
-    <h3>STEP5｜口コミを増やす</h3>
-    <ul>
-      <li>施術後に「口コミ書いてもらえると嬉しいです」</li>
-      <li>口コミ返信は全件、24時間以内</li>
-      <li>最初の10件は友人・知人にお願いしてもOK</li>
-    </ul>
-
-    <h3>STEP6｜リピート導線</h3>
-    <p>minimoで来たお客さんを、2回目からLINEに移す。</p>
-    <p>退店時：「次回からLINEで予約できます。LINE限定クーポンもあるので追加してください」</p>
-  </div>
-</div>
-
-<!-- ========== 特典③ ========== -->
-<div class="gift-card">
-  <div class="gift-header">
-    <div class="gift-number">3</div>
-    <h2>Googleマップ集客<br>セットアップシート</h2>
-  </div>
-  <div class="gift-body">
-    <p><span class="highlight">埋めるだけでMEO対策が完了するシート</span></p>
-
-    <h3>基本情報の設定</h3>
-    <ul class="checklist">
-      <li>ビジネス名 → サロン名をそのまま入力（エリア名を入れない）</li>
-      <li>カテゴリ → メイン：美容院 / サブ：ヘアサロン等（全て追加）</li>
-      <li>住所 → HPB・Instagram・HPと完全一致させる</li>
-      <li>電話番号 → 全媒体で同じ番号を使う</li>
-      <li>営業時間 → 祝日・臨時休業も必ず更新する</li>
-      <li>ウェブサイトURL → HPBのサロンページ or LINE公式のURL</li>
-    </ul>
-
-    <h3>紹介文のテンプレ（750文字まで）</h3>
-    <div class="template-box">
-      ○○駅徒歩○分の美容サロンです。<br>
-      ○○（得意な施術）を専門としています。<br>
-      こんなお悩みの方に選ばれています：○○、○○、○○<br>
-      スタッフ○名、○席の○○な雰囲気のサロンです。<br>
-      ご予約はお電話またはホットペッパービューティーから。
+  <a href="gifts/02-minimo-guide.html" class="gift-link">
+    <div class="gift-card">
+      <div class="gift-card-inner">
+        <div class="gift-num-bar"><span class="gift-num">2</span></div>
+        <div class="gift-info">
+          <h3>minimo集客スタートガイド</h3>
+          <p>月10件予約を取るための初期設定マニュアル</p>
+          <div class="gift-tags">
+            <span class="gift-tag">6ステップ</span>
+            <span class="gift-tag">テンプレ付き</span>
+          </div>
+        </div>
+        <div class="gift-arrow">&rsaquo;</div>
+      </div>
     </div>
-    <p>検索キーワード（エリア名・施術名）を自然に含める。</p>
+  </a>
 
-    <h3>写真の追加（月10〜20枚ペース）</h3>
-    <ul class="checklist">
-      <li>外観写真（入口がわかるもの）2枚</li>
-      <li>内観写真（席・シャンプー台）3枚</li>
-      <li>スタイル写真（ビフォーアフター）10枚以上</li>
-      <li>スタッフ写真（人数分）</li>
-    </ul>
-    <p>HPBに載せた写真をGoogleにも転載するだけでOK。</p>
-
-    <h3>口コミ対策</h3>
-    <p>Googleの口コミは<strong>4つの要素</strong>で評価される：</p>
-    <ul>
-      <li>件数</li>
-      <li>平均評価</li>
-      <li>返信率</li>
-      <li>新着性（毎月増えてるかどうか）</li>
-    </ul>
-    <p>退店時に「Google口コミもお願いします」と一言。全件返信する。毎月2〜3件ずつ増やし続ける。</p>
-
-    <h3>投稿機能（週1回更新）</h3>
-    <p>HPBのブログと同じ内容を転載するだけでOK。</p>
-    <ul>
-      <li>今月のおすすめメニュー</li>
-      <li>ビフォーアフター紹介</li>
-      <li>季節のヘアケア情報</li>
-      <li>キャンペーン告知</li>
-    </ul>
-  </div>
-</div>
-
-<!-- ========== 特典④ ========== -->
-<div class="gift-card">
-  <div class="gift-header">
-    <div class="gift-number">4</div>
-    <h2>Instagram投稿<br>テンプレ7日分</h2>
-  </div>
-  <div class="gift-body">
-    <p><span class="highlight">曜日別ネタ＋キャプション雛形で迷わない</span></p>
-
-    <h3>月曜日｜ビフォーアフター</h3>
-    <div class="template-box">
-      ○○でお悩みだったお客様。<br><br>
-      今回は○○で○○な仕上がりに。<br>
-      ○○することで、○○が改善されます。<br><br>
-      同じお悩みの方、お気軽にご相談ください。<br><br>
-      #エリア名美容室 #ビフォーアフター #○○カット
+  <a href="gifts/03-google-map.html" class="gift-link">
+    <div class="gift-card">
+      <div class="gift-card-inner">
+        <div class="gift-num-bar"><span class="gift-num">3</span></div>
+        <div class="gift-info">
+          <h3>Googleマップ集客セットアップシート</h3>
+          <p>埋めるだけでMEO対策が完了するシート</p>
+          <div class="gift-tags">
+            <span class="gift-tag">MEO対策</span>
+            <span class="gift-tag">無料集客</span>
+          </div>
+        </div>
+        <div class="gift-arrow">&rsaquo;</div>
+      </div>
     </div>
+  </a>
 
-    <h3>火曜日｜ヘアケア豆知識</h3>
-    <div class="template-box">
-      知ってましたか？<br><br>
-      ○○すると、○○になります。<br>
-      おすすめは○○。<br>
-      自宅でも簡単にできるので試してみてください。<br><br>
-      #ヘアケア #美髪 #美容師が教える
+  <a href="gifts/04-instagram-template.html" class="gift-link">
+    <div class="gift-card">
+      <div class="gift-card-inner">
+        <div class="gift-num-bar"><span class="gift-num">4</span></div>
+        <div class="gift-info">
+          <h3>Instagram投稿テンプレ7日分</h3>
+          <p>曜日別ネタ＋キャプション雛形で迷わない</p>
+          <div class="gift-tags">
+            <span class="gift-tag">7日分</span>
+            <span class="gift-tag">コピペOK</span>
+          </div>
+        </div>
+        <div class="gift-arrow">&rsaquo;</div>
+      </div>
     </div>
+  </a>
 
-    <h3>水曜日｜お客様の声</h3>
-    <div class="template-box">
-      嬉しい口コミをいただきました。<br><br>
-      「○○○○○○」<br><br>
-      ○○でお悩みだったお客様。<br>
-      喜んでいただけて嬉しいです。<br><br>
-      #お客様の声 #口コミ #○○美容室
+  <a href="gifts/05-chatgpt-prompts.html" class="gift-link">
+    <div class="gift-card">
+      <div class="gift-card-inner">
+        <div class="gift-num-bar"><span class="gift-num">5</span></div>
+        <div class="gift-info">
+          <h3>ChatGPTプロンプト集（10個入り）</h3>
+          <p>口コミ返信・クーポン文・ブログなど全部入り</p>
+          <div class="gift-tags">
+            <span class="gift-tag">10種類</span>
+            <span class="gift-tag">AI活用</span>
+          </div>
+        </div>
+        <div class="gift-arrow">&rsaquo;</div>
+      </div>
     </div>
+  </a>
 
-    <h3>木曜日｜スタッフ紹介・日常</h3>
-    <div class="template-box">
-      スタッフ紹介。○○担当の○○です。<br>
-      得意な施術は○○。<br><br>
-      ○○でお悩みのお客様を多く担当しています。<br>
-      お気軽にご指名ください。<br><br>
-      #美容師紹介 #スタッフ紹介
+  <a href="gifts/06-set-menu.html" class="gift-link">
+    <div class="gift-card">
+      <div class="gift-card-inner">
+        <div class="gift-num-bar"><span class="gift-num">6</span></div>
+        <div class="gift-info">
+          <h3>客単価UP セットメニュー設計テンプレート</h3>
+          <p>松竹梅の価格設計・クーポン名の型</p>
+          <div class="gift-tags">
+            <span class="gift-tag">単価UP</span>
+            <span class="gift-tag">記入式</span>
+          </div>
+        </div>
+        <div class="gift-arrow">&rsaquo;</div>
+      </div>
     </div>
+  </a>
 
-    <h3>金曜日｜メニュー・クーポン紹介</h3>
-    <div class="template-box">
-      ○月のおすすめメニュー。<br><br>
-      ○○＋○○＋○○がセットで○○円。<br>
-      通常○○円のところ、○○円お得です。<br><br>
-      ご予約はプロフィールのリンクから。<br><br>
-      #クーポン #お得 #○○エリア
+  <a href="gifts/07-counseling-sheet.html" class="gift-link">
+    <div class="gift-card">
+      <div class="gift-card-inner">
+        <div class="gift-num-bar"><span class="gift-num">7</span></div>
+        <div class="gift-info">
+          <h3>新規リピート率UP カウンセリングシート</h3>
+          <p>メニュー別の質問リスト付き</p>
+          <div class="gift-tags">
+            <span class="gift-tag">印刷OK</span>
+            <span class="gift-tag">研修にも</span>
+          </div>
+        </div>
+        <div class="gift-arrow">&rsaquo;</div>
+      </div>
     </div>
+  </a>
 
-    <h3>土曜日｜トレンド・季節ネタ</h3>
-    <div class="template-box">
-      今季おすすめの○○スタイル。<br><br>
-      ○○な方に特におすすめ。<br>
-      「こんな感じにしたい」って写真を<br>
-      見せてもらうだけで大丈夫です。<br><br>
-      #2026トレンド #○○カラー
-    </div>
-
-    <h3>日曜日｜空き状況・予約案内</h3>
-    <div class="template-box">
-      来週の空き状況です。<br><br>
-      ○曜日：○時〜○時<br>
-      ○曜日：○時〜○時<br><br>
-      ご予約はプロフィールのリンクから。<br>
-      当日予約もOKです。<br><br>
-      #予約受付中 #当日予約OK
-    </div>
-
-    <p>毎日投稿しなくてOK。<strong>週3〜4回</strong>、この中から選んで投稿するだけ。</p>
-  </div>
-</div>
-
-<!-- ========== 特典⑤ ========== -->
-<div class="gift-card">
-  <div class="gift-header">
-    <div class="gift-number">5</div>
-    <h2>サロン向けChatGPT<br>プロンプト集（10個入り）</h2>
-  </div>
-  <div class="gift-body">
-    <p><span class="highlight">コピペでそのまま使える10種類</span></p>
-
-    <h3>1. 口コミ返信</h3>
-    <div class="prompt-box">以下の口コミへの返信を書いてください。丁寧でフレンドリーな口調。80〜120文字。口コミの具体的な内容に触れること。「ご来店ありがとうございました」から始めないこと。
-
-口コミ内容：「（ここに貼る）」</div>
-
-    <h3>2. クーポン説明文</h3>
-    <div class="prompt-box">美容サロンのHPBクーポン説明文を作成してください。70〜90文字厳守。最初に悩みへの共感、次に施術後の変化を具体的に。専門用語は使わない。
-
-■ 施術名：□□
-■ 対象の悩み：□□
-■ 仕上がりイメージ：□□</div>
-
-    <h3>3. HPBブログ記事</h3>
-    <div class="prompt-box">美容サロンのHPBブログ記事を1本作成してください。
-
-■ テーマ：□□
-■ ターゲット：□□エリアで□□に悩んでいる□□代女性
-
-構成：共感タイトル（25文字以内）→悩み共感3行→原因→解決法→予約導線
-トーン：友達に話す感じ。300〜500文字。</div>
-
-    <h3>4. メニュー名改善</h3>
-    <div class="prompt-box">以下のメニューを「予約したくなる名前」にリネームし、HPB用キャッチコピーも作成してください。
-
-■ 現在のメニュー名：□□
-■ ターゲット層：□□
-■ サロンの強み：□□
-
-リネーム案3パターン、キャッチコピー（40文字以内）、クーポン説明文（70〜90文字）を出してください。</div>
-
-    <h3>5. スタッフ紹介文</h3>
-    <div class="prompt-box">HPBのスタッフ紹介文を作成してください。100〜150文字。
-
-■ スタッフ名：□□
-■ 得意な施術：□□
-■ よく来るお客様の悩み：□□
-■ 本人の性格・雰囲気：□□
-
-最初にお客様の悩みに触れ、次に解決できるスキル、最後に人柄が伝わる一言。</div>
-
-    <h3>6. 再来店促進LINE</h3>
-    <div class="prompt-box">お客様への再来店促進LINEメッセージを作成してください。80〜120文字。押し売り感ゼロ。
-
-■ 施術内容：□□
-■ お客様の悩み：□□
-■ 施術からの経過日数：□□日後
-■ 次回おすすめ施術：□□
-
-「髪の調子どうですか？」的な自然な入りで。</div>
-
-    <h3>7. カウンセリング質問リスト</h3>
-    <div class="prompt-box">初回カウンセリングの質問リストを作成してください。質問5〜8個。
-
-■ 施術メニュー：□□
-■ 想定される悩み：□□
-■ カウンセリング時間：□□分
-
-最初は「今一番気になっていること」から。各質問に意図メモを1行添える。</div>
-
-    <h3>8. Instagramキャプション</h3>
-    <div class="prompt-box">美容サロンのInstagram投稿キャプションを作成してください。
-
-■ 投稿内容：□□
-■ 施術名：□□
-■ お客様の悩み：□□
-■ エリア名：□□
-
-150〜200文字。共感→変化→来店誘導。ハッシュタグ15個付き。</div>
-
-    <h3>9. 値上げ告知メッセージ</h3>
-    <div class="prompt-box">美容サロンの値上げ告知メッセージを作成してください。
-
-■ 値上げ時期：□□月から
-■ 値上げ幅：□□円
-■ 理由：□□
-■ 配信先：□□（LINE / 店内POP / HPBお知らせ）
-
-200文字以内。謝罪ではなく前向きなトーン。</div>
-
-    <h3>10. フィード画像作成</h3>
-    <div class="prompt-box">美容サロンのInstagramフィード投稿用の画像を1枚作成してください。
-
-■ 投稿テーマ：□□
-■ メインコピー：□□
-■ サブコピー：□□
-■ サロンの雰囲気：□□
-■ カラートーン：□□
-
-正方形（1:1）。文字は大きく読みやすく。メインコピーが一番目立つデザイン。</div>
-  </div>
-</div>
-
-<!-- ========== 特典⑥ ========== -->
-<div class="gift-card">
-  <div class="gift-header">
-    <div class="gift-number">6</div>
-    <h2>客単価UP<br>セットメニュー設計テンプレート</h2>
-  </div>
-  <div class="gift-body">
-    <p><span class="highlight">埋めるだけでHPBのクーポンが完成する</span></p>
-
-    <h3>松竹梅の3段階設計</h3>
-
-    <div class="template-box">
-      <strong>【梅】集客用メニュー</strong><br>
-      メニュー名：________<br>
-      内容：________<br>
-      通常価格：________ 円<br>
-      クーポン価格：________ 円<br>
-      目的：新規獲得
-    </div>
-
-    <div class="template-box">
-      <strong>【竹】本命メニュー（一番売りたい）</strong><br>
-      メニュー名：________<br>
-      内容：________<br>
-      通常価格：________ 円<br>
-      クーポン価格：________ 円<br>
-      目的：客単価UP
-    </div>
-
-    <div class="template-box">
-      <strong>【松】高単価メニュー</strong><br>
-      メニュー名：________<br>
-      内容：________<br>
-      通常価格：________ 円<br>
-      クーポン価格：________ 円<br>
-      目的：利益確保
-    </div>
-
-    <h3>設計のルール</h3>
-    <ul>
-      <li>竹をクーポン一覧の<strong>一番上</strong>に置く</li>
-      <li>セット価格は単品合計より<strong>1,000〜2,000円安く</strong>する</li>
-      <li>梅に「おまけ」を入れない（竹に誘導するため）</li>
-      <li>松にはヘッドスパ or トリートメントを含める</li>
-      <li>全メニューに「所要時間」を明記する</li>
-    </ul>
-
-    <h3>クーポン名の型</h3>
-    <p><span class="tag">悩み訴求型</span></p>
-    <p>「○○でお悩みの方に｜○○＋○○コース」</p>
-    <p><span class="tag">変化訴求型</span></p>
-    <p>「○○な髪へ｜○○＋○○セット」</p>
-    <p><span class="tag">限定感型</span></p>
-    <p>「○月限定｜○○まるごとセット」</p>
-
-    <h3>記入例</h3>
-    <table class="score-table">
-      <tr><td>梅</td><td>カット＋プチトリートメント 5,500円</td></tr>
-      <tr><td>竹</td><td>カット＋カラー＋トリートメント 12,000円（単品計14,500円）</td></tr>
-      <tr><td>松</td><td>カット＋カラー＋髪質改善＋ヘッドスパ 18,000円（単品計22,000円）</td></tr>
-    </table>
-    <p>竹を選ぶ人が一番多くなる設計。松を見た後に竹を見ると「お得」に感じる。</p>
-  </div>
-</div>
-
-<!-- ========== 特典⑦ ========== -->
-<div class="gift-card">
-  <div class="gift-header">
-    <div class="gift-number">7</div>
-    <h2>新規リピート率UP<br>カウンセリングシート</h2>
-  </div>
-  <div class="gift-body">
-    <p><span class="highlight">メニュー別の質問リスト付き</span></p>
-
-    <h3>共通質問（全メニュー）</h3>
-    <ul>
-      <li>今、髪のことで一番気になっていることはありますか？</li>
-      <li>普段のスタイリングにかける時間はどれくらいですか？</li>
-      <li>過去にサロンで「これは嫌だった」という経験はありますか？</li>
-    </ul>
-
-    <h3>カット向け追加質問</h3>
-    <ul>
-      <li>どのくらいの長さにしたいですか？（参考画像があれば）</li>
-      <li>前回のカットで気になった点はありますか？</li>
-      <li>結ぶことが多いですか？下ろすことが多いですか？</li>
-    </ul>
-
-    <h3>カラー向け追加質問</h3>
-    <ul>
-      <li>明るさは暗め・中間・明るめどれがお好みですか？</li>
-      <li>前回のカラーはいつ頃でしたか？</li>
-      <li>職場や学校でカラーの制限はありますか？</li>
-      <li>アレルギーやかぶれの経験はありますか？</li>
-    </ul>
-
-    <h3>縮毛矯正向け追加質問</h3>
-    <ul>
-      <li>くせが気になる部分はどこですか？（前髪・顔周り・全体）</li>
-      <li>過去に縮毛矯正をかけたことはありますか？</li>
-      <li>自然なストレートとしっかりストレート、どちらがお好みですか？</li>
-    </ul>
-
-    <h3>ヘッドスパ・トリートメント向け</h3>
-    <ul>
-      <li>頭皮で気になることはありますか？（かゆみ・乾燥・べたつき）</li>
-      <li>肩こりや目の疲れは気になりますか？</li>
-      <li>香りの好みはありますか？（柑橘系・フローラル系・無香料）</li>
-    </ul>
-
-    <h3>施術後の確認</h3>
-    <ul class="checklist">
-      <li>仕上がりは気に入っていただけましたか？</li>
-      <li>自宅でのスタイリング方法をお伝えしました</li>
-      <li>次回の来店目安をお伝えしました</li>
-      <li>次回予約のご案内をしました</li>
-    </ul>
-
-    <p><strong>使い方：</strong>印刷してカルテに挟む。新人スタッフの研修資料にも。「会話メモ」欄を設けて施術中の雑談も残す（例：旅行→ハワイ→7月）</p>
-  </div>
-</div>
+</div><!-- /gift-grid -->
 
 </div><!-- /container -->
-
-<!-- CTA -->
-<div class="cta-section">
-  <h2>7つの特典を<br>すべて無料で受け取る</h2>
-  <p>LINE登録するだけで<br>今すぐ全部使えます</p>
-  <a href="https://tattoou123456-arch.github.io/rai-hpb-guide/" class="cta-btn">LINE登録はこちら</a>
-</div>
 
 <div class="footer">
   &copy; 2026 Salon Result Lab
