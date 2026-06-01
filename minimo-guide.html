@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>minimo集客 完全攻略ガイド｜Salon Result Lab</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;800;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans JP',sans-serif;background:#FFFAF5;color:#2D2117;line-height:1.8;-webkit-font-smoothing:antialiased}
+
+/* ===== HEADER ===== */
+.page-header{
+  background:linear-gradient(145deg,#FF8C42 0%,#FF6B1A 50%,#E85D10 100%);
+  color:#fff;padding:60px 24px 50px;position:relative;overflow:hidden;
+}
+.page-header::before{
+  content:'';position:absolute;top:-50%;left:-20%;width:140%;height:200%;
+  background:radial-gradient(circle at 30% 40%,rgba(255,255,255,0.12) 0%,transparent 50%);
+}
+.page-header .tag{
+  display:inline-block;background:rgba(255,255,255,0.2);
+  padding:5px 16px;border-radius:20px;font-size:12px;font-weight:700;
+  margin-bottom:12px;position:relative;
+}
+.page-header h1{font-size:26px;font-weight:900;line-height:1.4;position:relative}
+.page-header .subtitle{font-size:14px;opacity:0.85;margin-top:8px;position:relative}
+
+/* ===== CONTAINER ===== */
+.container{max-width:680px;margin:0 auto;padding:40px 20px 60px}
+
+/* ===== TOC ===== */
+.toc{
+  background:#fff;border:2px solid #FFE0C0;border-radius:16px;
+  padding:28px 24px;margin-bottom:40px;
+  box-shadow:0 2px 12px rgba(61,43,31,0.05);
+}
+.toc h2{font-size:16px;font-weight:800;color:#FF8C42;margin-bottom:14px}
+.toc ol{padding-left:20px}
+.toc li{font-size:14px;margin-bottom:8px}
+.toc li a{color:#4A3F35;text-decoration:none;font-weight:600}
+.toc li a:hover{color:#FF8C42;text-decoration:underline}
+
+/* ===== SECTION ===== */
+.section{margin-bottom:48px}
+.section-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:32px;height:32px;background:linear-gradient(135deg,#FF8C42,#FF6B1A);
+  border-radius:8px;color:#fff;font-size:15px;font-weight:900;margin-right:10px;
+}
+.section-title{
+  font-size:19px;font-weight:800;color:#2D2117;
+  padding-bottom:12px;border-bottom:3px solid #FFE8D0;
+  margin-bottom:18px;display:flex;align-items:center;
+}
+.section p{font-size:14px;margin-bottom:14px;color:#4A3F35}
+.section p strong{color:#2D2117}
+.section p .orange{color:#E07020;font-weight:700}
+
+/* ===== BOXES ===== */
+.point-box{
+  background:#FFF8F0;border:1px solid #FFE0C0;border-radius:12px;
+  padding:18px 20px;margin:16px 0;font-size:13px;line-height:1.8;
+}
+.point-box .label{
+  display:inline-block;background:#FF8C42;color:#fff;
+  padding:2px 10px;border-radius:4px;font-size:11px;font-weight:700;margin-bottom:8px;
+}
+.warn-box{
+  background:#FFF0F0;border:1px solid #FFD0D0;border-radius:12px;
+  padding:18px 20px;margin:16px 0;font-size:13px;line-height:1.8;color:#4A3F35;
+}
+.warn-box .label{
+  display:inline-block;background:#CC4444;color:#fff;
+  padding:2px 10px;border-radius:4px;font-size:11px;font-weight:700;margin-bottom:8px;
+}
+.template-box{
+  background:#fff;border:2px solid #FFE0C0;border-radius:14px;
+  padding:22px;margin:16px 0;font-size:14px;line-height:1.8;color:#4A3F35;
+}
+.template-box strong{color:#E07020}
+.example-box{
+  background:#F8F4F0;border-left:4px solid #FF8C42;
+  padding:16px 18px;border-radius:0 10px 10px 0;
+  margin:14px 0;font-size:13px;line-height:1.8;color:#4A3F35;
+}
+
+/* ===== TABLE ===== */
+.compare-table{
+  width:100%;border-collapse:collapse;margin:16px 0;font-size:14px;
+  background:#fff;border-radius:12px;overflow:hidden;
+  box-shadow:0 2px 8px rgba(61,43,31,0.05);
+}
+.compare-table th{
+  background:linear-gradient(135deg,#FF8C42,#FF6B1A);color:#fff;
+  padding:12px 14px;text-align:left;font-weight:700;font-size:13px;
+}
+.compare-table td{padding:12px 14px;border-bottom:1px solid #F0EBE6;color:#4A3F35}
+.compare-table td:first-child{font-weight:700;color:#FF8C42;white-space:nowrap;width:110px}
+.compare-table tr:last-child td{border-bottom:none}
+
+/* ===== LIST ===== */
+.num-list{list-style:none;padding:0;margin:14px 0}
+.num-list li{
+  padding:12px 14px 12px 44px;position:relative;
+  border-bottom:1px solid #F5F0EB;font-size:14px;color:#4A3F35;line-height:1.7;
+}
+.num-list li .num{
+  position:absolute;left:8px;top:12px;
+  width:26px;height:26px;background:#FFF3E8;border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:800;color:#FF8C42;
+}
+.check-list{list-style:none;padding:0;margin:14px 0}
+.check-list li{
+  padding:10px 12px 10px 34px;position:relative;
+  font-size:14px;color:#4A3F35;border-bottom:1px solid #F5F0EB;
+}
+.check-list li::before{
+  content:"\2713";position:absolute;left:8px;top:10px;
+  color:#FF8C42;font-size:16px;font-weight:700;
+}
+
+/* ===== CHECKLIST FINAL ===== */
+.final-checklist{
+  background:#fff;border:2px solid #FFD4A8;border-radius:20px;
+  padding:32px 24px;margin:40px 0;
+  box-shadow:0 4px 24px rgba(255,140,66,0.1);
+}
+.final-checklist h2{
+  font-size:20px;font-weight:900;color:#FF8C42;
+  text-align:center;margin-bottom:8px;
+}
+.final-checklist .final-sub{
+  font-size:13px;color:#8B7B6F;text-align:center;margin-bottom:24px;
+}
+.cl-category{
+  font-size:15px;font-weight:800;color:#2D2117;
+  padding:10px 0 8px;border-bottom:2px solid #FFE8D0;margin:20px 0 0;
+}
+.cl-items{list-style:none;padding:0;margin:0 0 8px}
+.cl-items li{
+  padding:10px 12px 10px 38px;position:relative;
+  border-bottom:1px solid #F5F0EB;font-size:14px;color:#4A3F35;
+}
+.cl-items li::before{
+  content:"\2610";position:absolute;left:8px;top:10px;
+  color:#FF8C42;font-size:18px;
+}
+.score-section{
+  background:#FFF8F2;border-radius:12px;padding:20px;margin-top:24px;
+}
+.score-section h3{font-size:15px;font-weight:800;color:#2D2117;margin-bottom:12px}
+.score-table{width:100%;border-collapse:collapse;font-size:14px}
+.score-table td{padding:10px 14px;border-bottom:1px solid #F0E8E0;color:#4A3F35}
+.score-table td:first-child{font-weight:700;color:#FF8C42;white-space:nowrap;width:100px}
+
+/* ===== CTA ===== */
+.cta-banner{
+  background:linear-gradient(145deg,#2D2117 0%,#1A130D 100%);
+  border-radius:16px;padding:30px 24px;margin:32px 0;
+  text-align:center;position:relative;overflow:hidden;
+}
+.cta-banner::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,#FF8C42,#FFB380,#FF8C42);
+}
+.cta-banner .cta-label{
+  display:inline-block;background:linear-gradient(135deg,#FF8C42,#FF6B1A);
+  color:#fff;padding:4px 16px;border-radius:16px;
+  font-size:11px;font-weight:700;letter-spacing:1px;margin-bottom:14px;
+}
+.cta-banner h3{color:#fff;font-size:18px;font-weight:800;margin-bottom:10px;line-height:1.5}
+.cta-banner p{color:rgba(255,255,255,0.7);font-size:13px;margin-bottom:18px}
+.cta-btn{
+  display:inline-block;background:linear-gradient(135deg,#FF8C42,#FF6B1A);
+  color:#fff;padding:14px 40px;border-radius:50px;
+  font-size:15px;font-weight:800;text-decoration:none;
+  box-shadow:0 4px 16px rgba(255,140,66,0.35);transition:transform 0.2s;
+}
+.cta-btn:active{transform:scale(0.97)}
+.cta-note{color:rgba(255,255,255,0.4);font-size:11px;margin-top:10px}
+
+/* ===== FOOTER ===== */
+.footer{text-align:center;padding:30px 20px;font-size:12px;color:#B0A090}
+
+@media(min-width:500px){
+  .page-header h1{font-size:30px}
+  .section-title{font-size:21px}
+}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="tag">クライアント向けノウハウ</div>
+  <h1>minimo集客 完全攻略ガイド</h1>
+  <p class="subtitle">月10件以上の予約を安定して取るための全知識</p>
+</header>
+
+<div class="container">
+
+<!-- 目次 -->
+<div class="toc">
+  <h2>目次</h2>
+  <ol>
+    <li><a href="#sec1">minimoの基本構造を理解する</a></li>
+    <li><a href="#sec2">プロフィール設計（名前が9割）</a></li>
+    <li><a href="#sec3">写真の撮り方・選び方</a></li>
+    <li><a href="#sec4">価格設定の考え方</a></li>
+    <li><a href="#sec5">メニュー構成（3〜5個に絞る）</a></li>
+    <li><a href="#sec6">口コミを増やす・活かす</a></li>
+    <li><a href="#sec7">返信速度と定型文</a></li>
+    <li><a href="#sec8">リピート導線（minimoからの卒業）</a></li>
+    <li><a href="#sec9">やってはいけないNG行動</a></li>
+    <li><a href="#sec10">チェックリスト（40項目）</a></li>
+  </ol>
+</div>
+
+<!-- SECTION 1 -->
+<div class="section" id="sec1">
+  <h2 class="section-title"><span class="section-num">1</span>minimoの基本構造を理解する</h2>
+
+  <p>minimoで集客する前に、まずHPBとの根本的な違いを理解してください。<strong>ここを間違えると、何をやっても予約は入りません。</strong></p>
+
+  <table class="compare-table">
+    <tr><th>項目</th><th>HPB</th><th>minimo</th></tr>
+    <tr><td>選ばれる単位</td><td>サロン（お店）</td><td>施術者（個人）</td></tr>
+    <tr><td>ユーザー層</td><td>20〜40代 幅広い</td><td>10〜20代 若年層中心</td></tr>
+    <tr><td>価格帯</td><td>通常〜やや安い</td><td>かなり安い（相場の60〜70%）</td></tr>
+    <tr><td>手数料</td><td>月額固定（プラン制）</td><td>1件ごと（440〜660円）</td></tr>
+    <tr><td>検索軸</td><td>エリア×メニュー×条件</td><td>エリア×施術者名×写真</td></tr>
+    <tr><td>集客の役割</td><td>利益を出す場所</td><td>新規客の入口</td></tr>
+  </table>
+
+  <div class="point-box">
+    <div class="label">最重要ポイント</div><br>
+    minimoは<strong>「利益を出す場所」ではなく「新規客と出会う入口」</strong>として割り切ること。minimoで利益を出そうとすると価格競争に巻き込まれて消耗します。minimoで出会ったお客さんを、2回目以降はLINE公式やHPBに移す。この導線設計がセットで必要です。
+  </div>
+
+  <p>minimoのアルゴリズム（検索順位の決まり方）は公式には非公開ですが、以下の要素が影響すると言われています。</p>
+
+  <ul class="check-list">
+    <li>口コミの件数と評価</li>
+    <li>プロフィールの充実度（写真枚数・自己紹介文の長さ）</li>
+    <li>返信速度（問い合わせへの応答時間）</li>
+    <li>予約の成約率（問い合わせ→予約の割合）</li>
+    <li>最終更新日（定期的にメニューや写真を更新しているか）</li>
+  </ul>
+
+  <p>つまり、<strong>「ちゃんと運用してる人が上に来る」</strong>仕組みです。放置していたら検索順位は下がり続けます。</p>
+</div>
+
+<!-- SECTION 2 -->
+<div class="section" id="sec2">
+  <h2 class="section-title"><span class="section-num">2</span>プロフィール設計（名前が9割）</h2>
+
+  <p>minimoでは、<strong>検索結果に表示されるのは「名前」「写真」「価格」の3つだけ</strong>です。この中で唯一テキストで差別化できるのが名前。ここで勝負が決まります。</p>
+
+  <div class="example-box">
+    <strong>❌ 悪い例</strong><br>
+    田中<br><br>
+    <strong>❌ まだ弱い例</strong><br>
+    田中｜渋谷の美容師<br><br>
+    <strong>✅ 良い例</strong><br>
+    田中｜くせ毛カット専門｜渋谷<br><br>
+    <strong>✅ さらに良い例</strong><br>
+    田中｜くせ毛・広がり解消｜渋谷駅3分
+  </div>
+
+  <p>名前に入れるべき要素は3つです。</p>
+  <ul class="num-list">
+    <li><span class="num">1</span><strong>得意ジャンル</strong>：くせ毛カット、透明感カラー、髪質改善、メンズカットなど。「なんでもできます」は誰にも刺さらない。</li>
+    <li><span class="num">2</span><strong>エリア名</strong>：駅名または地域名。「渋谷」「新宿」「梅田」など検索されるワードを入れる。</li>
+    <li><span class="num">3</span><strong>差別化ポイント</strong>：「駅3分」「当日OK」「22時まで」など、選ばれる理由を1つ。</li>
+  </ul>
+
+  <p>次に自己紹介文。<strong>5行構成のテンプレート</strong>で書きましょう。</p>
+
+  <div class="template-box">
+    <strong>自己紹介テンプレート</strong><br><br>
+    <strong>1行目：キャッチコピー</strong><br>
+    → お客さんの悩みを代弁する一言<br>
+    例：「くせ毛・広がりで毎朝アイロンに30分かけていませんか？」<br><br>
+    <strong>2行目：経歴・実績</strong><br>
+    → 信頼感を出す情報<br>
+    例：「美容師歴10年／くせ毛カット年間300名以上」<br><br>
+    <strong>3行目：得意な施術</strong><br>
+    → 具体的に何ができるのか<br>
+    例：「くせ毛を活かしたカット・縮毛矯正・髪質改善トリートメントが得意です」<br><br>
+    <strong>4行目：お客様への一言</strong><br>
+    → 人柄が伝わるメッセージ<br>
+    例：「髪質は一人ひとり違うので、あなたに合った方法を一緒に見つけましょう」<br><br>
+    <strong>5行目：予約について</strong><br>
+    → 行動を促す一言<br>
+    例：「当日予約OK！お気軽にメッセージください」
+  </div>
+
+  <div class="warn-box">
+    <div class="label">注意</div><br>
+    自己紹介文に「フォロワー募集中」「Instagram見てね」など、minimo外への誘導を書くとガイドライン違反になる可能性があります。外部リンクの誘導は施術後の対面で行いましょう。
+  </div>
+</div>
+
+<!-- SECTION 3 -->
+<div class="section" id="sec3">
+  <h2 class="section-title"><span class="section-num">3</span>写真の撮り方・選び方</h2>
+
+  <p>minimoでは<strong>写真が「技術の証明」</strong>になります。お客さんは写真を見て「この人に頼んだらどうなるか」を判断しています。</p>
+
+  <p><strong>必要な写真の構成：</strong></p>
+
+  <table class="compare-table">
+    <tr><th>種類</th><th>枚数</th><th>ポイント</th></tr>
+    <tr><td>ビフォーアフター</td><td>最低5枚</td><td>同じ角度・同じ背景で撮る。変化が一目でわかること</td></tr>
+    <tr><td>施術後スタイル</td><td>10枚以上</td><td>得意なスタイルに絞って統一感を出す</td></tr>
+    <tr><td>施術中の写真</td><td>2〜3枚</td><td>丁寧に施術している雰囲気が伝わるもの</td></tr>
+    <tr><td>サロン内観</td><td>2〜3枚</td><td>清潔感・雰囲気が伝わるもの</td></tr>
+  </table>
+
+  <p><strong>撮影のルール：</strong></p>
+  <ul class="num-list">
+    <li><span class="num">1</span><strong>自然光で撮る</strong>：窓際のセット面がベスト。蛍光灯の下で撮ると髪色が正確に写らない。午前中〜14時の光が理想的。</li>
+    <li><span class="num">2</span><strong>背景はシンプルに</strong>：白い壁、またはサロン内の統一された背景。ごちゃごちゃした棚や他のスタッフが映り込まないように。</li>
+    <li><span class="num">3</span><strong>縦長（3:4）で撮影</strong>：minimoのアプリ表示に最適化されるサイズ。横長だと見切れる。</li>
+    <li><span class="num">4</span><strong>加工は明るさ調整のみ</strong>：フィルターや過度な加工は「実物と違う」というクレームの原因になる。明るさ・コントラストを少し上げるだけでOK。</li>
+    <li><span class="num">5</span><strong>斜め45度から撮る</strong>：真正面よりも斜め45度のほうが立体感が出て、スタイルの動きが伝わりやすい。</li>
+    <li><span class="num">6</span><strong>得意なスタイルに特化する</strong>：カット・カラー・パーマ・縮毛矯正、全部載せると統一感がなくなる。「この人はくせ毛カットの専門家だ」と一目でわかるように。</li>
+  </ul>
+
+  <div class="point-box">
+    <div class="label">更新頻度</div><br>
+    写真は<strong>月に最低5枚は追加</strong>しましょう。施術するたびに撮る習慣をつけてください。3ヶ月以上更新がないと「この人まだやってるのかな？」と不安に思われます。写真の更新頻度は検索順位にも影響します。
+  </div>
+</div>
+
+<!-- SECTION 4 -->
+<div class="section" id="sec4">
+  <h2 class="section-title"><span class="section-num">4</span>価格設定の考え方</h2>
+
+  <p>minimoの価格設定は<strong>「HPBの60〜70%」が基本</strong>です。ただし、安ければいいわけではありません。</p>
+
+  <p><strong>価格設定の3原則：</strong></p>
+  <ul class="num-list">
+    <li><span class="num">1</span><strong>HPBより明確に安くする</strong>：minimoを使うお客さんは「お得に試したい」人。HPBと同じ価格だとminimoを選ぶ理由がない。HPBでカット¥6,000なら、minimoは¥3,800〜4,500が目安。</li>
+    <li><span class="num">2</span><strong>安すぎない</strong>：カット¥1,000のような破格は「技術が低いのでは？」という不安を与える。地域の相場を調べて、相場の下限は下回らないように。</li>
+    <li><span class="num">3</span><strong>「minimo限定価格」と明記する</strong>：通常価格との差額を見せることで、お得感を演出する。「通常¥8,000→minimo限定¥5,500」のように。</li>
+  </ul>
+
+  <div class="example-box">
+    <strong>価格設定の具体例（カット＋カラーの場合）</strong><br><br>
+    HPB通常価格：¥12,000<br>
+    minimo価格：¥7,800（35%OFF）<br><br>
+    メニュー説明に記載：<br>
+    「通常¥12,000のカット＋カラーを<br>
+    　minimo限定価格でご提供。<br>
+    　くせ毛・広がりにお悩みの方におすすめです。」
+  </div>
+
+  <div class="warn-box">
+    <div class="label">よくある失敗</div><br>
+    minimoで利益を出そうとして、HPBと同じ価格にするサロンがあります。これをやると、minimoでは全く予約が入りません。<strong>minimoは「利益を出す場所」ではなく「新規客を獲得する投資」</strong>と割り切ってください。1人あたりの獲得コストで考えると、minimoの手数料（440〜660円）＋価格の割引分が「広告費」です。
+  </div>
+</div>
+
+<!-- SECTION 5 -->
+<div class="section" id="sec5">
+  <h2 class="section-title"><span class="section-num">5</span>メニュー構成（3〜5個に絞る）</h2>
+
+  <p>メニューが多すぎると、お客さんは選べなくなって離脱します。<strong>3〜5個に絞る</strong>のが鉄則です。</p>
+
+  <p><strong>メニューの役割分担：</strong></p>
+
+  <table class="compare-table">
+    <tr><th>役割</th><th>内容</th><th>価格の目安</th></tr>
+    <tr><td>集客用</td><td>一番の得意メニュー（単品）。新規を呼び込む入口</td><td>最安値に設定</td></tr>
+    <tr><td>本命</td><td>得意メニュー＋αのセット。一番売りたいメニュー</td><td>集客用の1.5〜2倍</td></tr>
+    <tr><td>高単価</td><td>フルセットメニュー。利益を確保する</td><td>本命の1.5倍</td></tr>
+  </table>
+
+  <div class="template-box">
+    <strong>メニュー構成の具体例</strong><br><br>
+    <strong>① 集客用：似合わせカット ¥3,800</strong><br>
+    → 新規入口。最安値で「まず来てもらう」<br>
+    → メニュー説明：「くせ毛・広がりでお悩みの方へ。あなたの髪質に合わせたカットで毎朝のスタイリングが楽になります。minimo限定価格。」<br><br>
+    <strong>② 本命：カット＋透明感カラー ¥7,800</strong><br>
+    → 客単価の中心。一番売りたいメニュー<br>
+    → メニュー説明：「カットに加えて、肌なじみの良い透明感カラーで垢抜けた印象に。色持ちの良い薬剤を使用。」<br><br>
+    <strong>③ 高単価：カット＋カラー＋髪質改善TR ¥12,800</strong><br>
+    → 利益確保。「②がお得に見える」アンカー効果<br>
+    → メニュー説明：「ダメージが気になる方へ。カット＋カラーに髪質改善トリートメントをセット。ツヤとまとまりが1ヶ月持続します。」
+  </div>
+
+  <p><strong>メニュー説明文のルール：</strong></p>
+  <ul class="check-list">
+    <li>1行目は「お客様の悩み」から始める</li>
+    <li>施術内容と効果を簡潔に書く</li>
+    <li>「minimo限定」「当日予約OK」などの訴求ワードを入れる</li>
+    <li>所要時間を明記する（お客さんが予定を組みやすい）</li>
+  </ul>
+</div>
+
+<!-- SECTION 6 -->
+<div class="section" id="sec6">
+  <h2 class="section-title"><span class="section-num">6</span>口コミを増やす・活かす</h2>
+
+  <p>minimoでは<strong>口コミの件数が検索順位に直結</strong>します。口コミが少ないと、そもそも検索結果に表示されません。</p>
+
+  <p><strong>口コミを増やす方法：</strong></p>
+  <ul class="num-list">
+    <li><span class="num">1</span><strong>施術直後にその場でお願いする</strong>：仕上がりに満足しているタイミングがベスト。「もしよろしければ、minimoで口コミいただけると嬉しいです」と一言添えるだけ。帰宅後にお願いすると書いてもらえる確率が大幅に下がる。</li>
+    <li><span class="num">2</span><strong>最初の10件は友人・知人に依頼</strong>：ゼロの状態から始めるのは厳しい。知り合いに実際に施術して、口コミを書いてもらうのは問題ない。ただし「サクラ」ではなく、実際に施術した上での感想であること。</li>
+    <li><span class="num">3</span><strong>口コミを書きやすくする声かけ</strong>：「よかった点を一言だけでも書いていただけると助かります」と具体的にお願いする。「何を書けばいいかわからない」が一番の書かないハードル。</li>
+  </ul>
+
+  <p><strong>口コミ返信のルール：</strong></p>
+  <ul class="num-list">
+    <li><span class="num">1</span><strong>全件返信する</strong>：返信率100%が目標。返信しない口コミがあると「この人、口コミを気にしてないんだな」と思われる。</li>
+    <li><span class="num">2</span><strong>24時間以内に返信する</strong>：早いほど「ちゃんとした人」という印象になる。</li>
+    <li><span class="num">3</span><strong>コピペ禁止</strong>：口コミの内容に触れた個別返信をする。「カラーの色味を気に入っていただけて嬉しいです」など、具体的に。</li>
+    <li><span class="num">4</span><strong>次回の提案を添える</strong>：「次回はトリートメントもセットでいかがですか？」とさりげなくアップセル。</li>
+  </ul>
+
+  <div class="point-box">
+    <div class="label">目標件数</div><br>
+    <strong>最低30件</strong>を目指してください。30件を超えると検索結果での表示順位が安定し、口コミを読んだ新規客からの予約が入り始めます。月に3〜5件ずつ増やしていけば、半年〜1年で到達できます。
+  </div>
+</div>
+
+<!-- SECTION 7 -->
+<div class="section" id="sec7">
+  <h2 class="section-title"><span class="section-num">7</span>返信速度と定型文</h2>
+
+  <p>minimoでは<strong>問い合わせへの返信速度が予約率に直結</strong>します。お客さんは複数の施術者に同時に問い合わせていることが多い。最初に返信した人が予約を取れます。</p>
+
+  <p><strong>返信速度の目安：</strong></p>
+  <table class="compare-table">
+    <tr><th>速度</th><th>予約率の目安</th><th>評価</th></tr>
+    <tr><td>30分以内</td><td>70%以上</td><td>理想的</td></tr>
+    <tr><td>1時間以内</td><td>50%前後</td><td>合格ライン</td></tr>
+    <tr><td>2時間以内</td><td>30%前後</td><td>ギリギリ</td></tr>
+    <tr><td>翌日以降</td><td>10%以下</td><td>ほぼ取れない</td></tr>
+  </table>
+
+  <p>即レスするために、<strong>定型文を5パターン用意</strong>しておきましょう。</p>
+
+  <div class="template-box">
+    <strong>定型文① 初回問い合わせへの返信</strong><br><br>
+    お問い合わせありがとうございます！<br>
+    〇〇（名前）です。<br><br>
+    ◯月◯日（◯）◯時〜空きがございます。<br>
+    ご都合いかがでしょうか？<br><br>
+    ◯◯（メニュー名）のご希望ですね。<br>
+    当日はしっかりカウンセリングさせていただきますので、<br>
+    お気軽にお越しください！
+  </div>
+
+  <div class="template-box">
+    <strong>定型文② 予約確定時</strong><br><br>
+    ご予約ありがとうございます！<br><br>
+    ◯月◯日（◯）◯時〜<br>
+    ◯◯（メニュー名）<br>
+    で承りました。<br><br>
+    当日はお気をつけてお越しくださいね。<br>
+    お会いできるのを楽しみにしています！
+  </div>
+
+  <div class="template-box">
+    <strong>定型文③ 施術後のお礼</strong><br><br>
+    本日はありがとうございました！<br>
+    仕上がりはいかがですか？<br><br>
+    自宅でのスタイリングでわからないことがあれば<br>
+    お気軽にメッセージくださいね。<br><br>
+    またのご来店お待ちしております！<br>
+    もしよければ口コミもいただけると嬉しいです。
+  </div>
+
+  <div class="template-box">
+    <strong>定型文④ キャンセルへの対応</strong><br><br>
+    ご連絡ありがとうございます。<br>
+    キャンセル承りました。<br><br>
+    またご都合の良い日がございましたら<br>
+    お気軽にご予約ください。<br>
+    お待ちしております！
+  </div>
+
+  <div class="template-box">
+    <strong>定型文⑤ 日程が合わない場合</strong><br><br>
+    お問い合わせありがとうございます！<br><br>
+    申し訳ございません、<br>
+    ◯月◯日（◯）は予約が埋まっております。<br><br>
+    直近ですと<br>
+    ◯月◯日（◯）◯時〜<br>
+    ◯月◯日（◯）◯時〜<br>
+    が空いておりますが、いかがでしょうか？
+  </div>
+</div>
+
+<!-- SECTION 8 -->
+<div class="section" id="sec8">
+  <h2 class="section-title"><span class="section-num">8</span>リピート導線（minimoからの卒業）</h2>
+
+  <p>minimoで集客したお客さんを、<strong>2回目以降はminimoを通さずに予約してもらう仕組み</strong>を作りましょう。minimoは1件ごとに手数料（440〜660円）がかかるため、リピーターもminimoで予約され続けると利益を圧迫します。</p>
+
+  <p><strong>リピート導線の4ステップ：</strong></p>
+  <ul class="num-list">
+    <li><span class="num">1</span><strong>施術後にLINE公式のQRコードを見せる</strong>：「次回のご予約やお問い合わせはLINEからが便利です」と自然に誘導。スマホの画面でQRを表示するか、カードに印刷しておく。</li>
+    <li><span class="num">2</span><strong>LINE登録特典をつける</strong>：「LINE登録で次回500円オフ」「LINE登録でトリートメントサンプルプレゼント」など、登録する理由を作る。</li>
+    <li><span class="num">3</span><strong>次回予約をLINEで受ける</strong>：「次回は◯週間後がベストです。LINEからご予約いただければ、minimoの手数料分お安くできます」と正直に伝えてOK。お客さんにもメリットがある。</li>
+    <li><span class="num">4</span><strong>LINEで再来店メッセージを送る</strong>：前回来店から1ヶ月後に「そろそろカラーの色落ちが気になる頃ですね」とメッセージ。季節に合った提案を添えると効果的。</li>
+  </ul>
+
+  <div class="point-box">
+    <div class="label">移行率の目安</div><br>
+    minimo → LINE公式への移行率は<strong>40〜60%が目標</strong>です。全員は無理ですが、半分以上を移行できれば、minimoの手数料を大幅に削減しながらリピーターを確保できます。移行率が30%以下の場合、声かけのタイミングか特典の内容を見直しましょう。
+  </div>
+
+  <div class="example-box">
+    <strong>リピート導線の全体図</strong><br><br>
+    minimoで初来店<br>
+    ↓ 施術後にLINE登録（QR見せる＋特典）<br>
+    ↓ LINE登録で次回500円オフクーポン<br>
+    ↓ 1ヶ月後にLINEで再来店メッセージ<br>
+    ↓ 2回目以降はLINE予約（minimo手数料なし）<br>
+    ↓ 3回目以降はHPBの指名予約に移行<br>
+    <br>
+    ※ HPBの指名予約に移行することで<br>
+    　 HPBの指名数が増え、HPB内の検索順位も上がる
+  </div>
+</div>
+
+<!-- SECTION 9 -->
+<div class="section" id="sec9">
+  <h2 class="section-title"><span class="section-num">9</span>やってはいけないNG行動</h2>
+
+  <ul class="num-list">
+    <li><span class="num">1</span><strong>他媒体への誘導をプロフィールに書く</strong>：「Instagramフォローしてね」「HPBから予約がお得」などをminimoのプロフィールに書くと、ガイドライン違反になる可能性があります。外部誘導は施術後の対面で。</li>
+    <li><span class="num">2</span><strong>写真を使い回し続ける</strong>：半年以上同じ写真だと「最近の実績がないのでは？」と思われます。月5枚は追加しましょう。</li>
+    <li><span class="num">3</span><strong>メニューを10個以上並べる</strong>：選択肢が多いと決められない。3〜5個に絞ること。「なんでもできます」は「何も得意じゃない」と同じ。</li>
+    <li><span class="num">4</span><strong>口コミ返信をコピペする</strong>：全部同じ返信だと「この人、読んでないな」と思われる。1件ずつ内容に触れた返信を。</li>
+    <li><span class="num">5</span><strong>価格を頻繁に変える</strong>：「前は安かったのに高くなった」とクレームの原因になる。価格変更は慎重に、事前告知をしてから。</li>
+    <li><span class="num">6</span><strong>返信を翌日以降にする</strong>：30分以内が理想。通知をONにして、できるだけ早く返信する体制を作る。</li>
+    <li><span class="num">7</span><strong>minimoで利益を出そうとする</strong>：minimoは新規客の「入口」。利益はLINE・HPB経由のリピートで回収する設計に。</li>
+  </ul>
+</div>
+
+<!-- SECTION 10 : CHECKLIST -->
+<div class="section" id="sec10">
+  <div class="final-checklist">
+    <h2>minimo集客チェックリスト</h2>
+    <p class="final-sub">40項目をチェックして、あなたのminimoページを診断してください</p>
+
+    <div class="cl-category">プロフィール（8項目）</div>
+    <ul class="cl-items">
+      <li>名前に「得意ジャンル」が入っている</li>
+      <li>名前に「エリア名（駅名）」が入っている</li>
+      <li>名前に「差別化ポイント」が1つ入っている</li>
+      <li>自己紹介文にキャッチコピー（悩みの代弁）がある</li>
+      <li>自己紹介文に経歴・実績が書いてある</li>
+      <li>自己紹介文に得意な施術が明記されている</li>
+      <li>自己紹介文に人柄が伝わる一言がある</li>
+      <li>「当日予約OK」などの訴求ワードが入っている</li>
+    </ul>
+
+    <div class="cl-category">写真（8項目）</div>
+    <ul class="cl-items">
+      <li>写真が合計10枚以上掲載されている</li>
+      <li>ビフォーアフター写真が5枚以上ある</li>
+      <li>自然光で撮影された写真が使われている</li>
+      <li>背景がシンプルで統一されている</li>
+      <li>縦長（3:4）で撮影されている</li>
+      <li>得意なスタイルに特化して載せている</li>
+      <li>3ヶ月以内に写真が更新されている</li>
+      <li>過度な加工（フィルター等）をしていない</li>
+    </ul>
+
+    <div class="cl-category">価格・メニュー（8項目）</div>
+    <ul class="cl-items">
+      <li>HPB価格の60〜70%に設定されている</li>
+      <li>「minimo限定価格」と明記されている</li>
+      <li>メニュー数が3〜5個に絞られている</li>
+      <li>集客用・本命・高単価の3段構えになっている</li>
+      <li>メニュー説明に「お客様の悩み」が書かれている</li>
+      <li>所要時間が明記されている</li>
+      <li>初回限定メニューが1つある</li>
+      <li>通常価格との差額が見える形になっている</li>
+    </ul>
+
+    <div class="cl-category">口コミ（6項目）</div>
+    <ul class="cl-items">
+      <li>口コミが10件以上ある</li>
+      <li>口コミの返信率が100%</li>
+      <li>口コミの返信が24時間以内にされている</li>
+      <li>返信がコピペではなく個別の内容に触れている</li>
+      <li>返信に次回の提案が添えられている</li>
+      <li>施術後にその場で口コミをお願いしている</li>
+    </ul>
+
+    <div class="cl-category">返信・対応（5項目）</div>
+    <ul class="cl-items">
+      <li>問い合わせに30分以内で返信している</li>
+      <li>定型文が5パターン以上用意されている</li>
+      <li>通知をONにしている</li>
+      <li>日程が合わない場合に代替日を提案している</li>
+      <li>施術後にお礼メッセージを送っている</li>
+    </ul>
+
+    <div class="cl-category">リピート導線（5項目）</div>
+    <ul class="cl-items">
+      <li>LINE公式アカウントのQRコードを用意している</li>
+      <li>LINE登録特典（次回割引など）を用意している</li>
+      <li>施術後にLINE登録を案内している</li>
+      <li>LINEで再来店メッセージを送る仕組みがある</li>
+      <li>2回目以降はLINE予約に移行する導線がある</li>
+    </ul>
+
+    <div class="score-section">
+      <h3>判定</h3>
+      <table class="score-table">
+        <tr><td>35〜40個</td><td>素晴らしい。微調整で更に伸びます</td></tr>
+        <tr><td>25〜34個</td><td>あと一歩。チェックが入らなかった項目を優先的に改善</td></tr>
+        <tr><td>15〜24個</td><td>改善の余地大。まずプロフィールと写真から見直しましょう</td></tr>
+        <tr><td>14個以下</td><td>基礎から見直し。このガイドの上から順にやっていきましょう</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-banner">
+  <div class="cta-label">期間限定</div>
+  <h3>minimoの設定、一緒に見直しませんか？</h3>
+  <p>30分の無料診断で、あなたのminimoページの改善点をお伝えします。HPBとの連携設計もアドバイスします。</p>
+  <a href="https://timerex.net/s/tattoou123456_ad67/57c1cebf" class="cta-btn" target="_blank" rel="noopener">30分無料診断を予約する</a>
+  <p class="cta-note">※ 予約枠には限りがあります</p>
+</div>
+
+</div><!-- /container -->
+
+<footer class="footer">&copy; 2026 Salon Result Lab</footer>
+
+</body>
+</html>
