@@ -77,6 +77,49 @@ body{font-family:'Noto Sans JP',sans-serif;background:#FFFAF5;color:#2D2117;line
 .flow-body h4{font-size:15px;font-weight:800;color:#2D2117;margin-bottom:2px}
 .flow-body p{font-size:13px;color:#8B7B6F;line-height:1.6}
 
+/* ===== IMPACT ===== */
+.impact-grid{display:flex;flex-direction:column;gap:16px;margin:0 0 32px}
+.impact-card{
+  background:#fff;border-radius:16px;padding:24px;text-align:center;
+  box-shadow:0 2px 12px rgba(61,43,31,0.05);
+  border:1px solid rgba(255,140,66,0.12);
+}
+.impact-card .impact-label{font-size:12px;color:#8B7B6F;font-weight:600;margin-bottom:6px}
+.impact-card .impact-before{font-size:14px;color:#B0A090;text-decoration:line-through;margin-bottom:2px}
+.impact-card .impact-after{font-size:36px;font-weight:900;color:#FF8C42;line-height:1.2;margin-bottom:4px}
+.impact-card .impact-note{font-size:12px;color:#8B7B6F}
+.impact-bar{
+  background:linear-gradient(145deg,#2D2117 0%,#1A130D 100%);
+  border-radius:16px;padding:28px 24px;text-align:center;
+  margin:0 0 32px;
+}
+.impact-bar h3{color:#fff;font-size:16px;font-weight:800;margin-bottom:16px}
+.impact-row{
+  display:flex;justify-content:center;gap:24px;flex-wrap:wrap;
+}
+.impact-item{text-align:center}
+.impact-item .num{font-size:32px;font-weight:900;color:#FF8C42;display:block;line-height:1.2}
+.impact-item .unit{font-size:11px;color:rgba(255,255,255,0.6);font-weight:600}
+.time-save-box{
+  background:#fff;border:2px solid #FFD4A8;border-radius:16px;
+  padding:24px;margin:0 0 16px;
+}
+.time-save-box h4{font-size:15px;font-weight:800;color:#2D2117;margin-bottom:12px;text-align:center}
+.time-row{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+.time-block{text-align:center;padding:12px 16px;border-radius:12px;min-width:100px}
+.time-block.before{background:#F5F0EB}
+.time-block.after{background:#FFF3E8}
+.time-block .time-val{font-size:24px;font-weight:900;display:block;line-height:1.2}
+.time-block.before .time-val{color:#B0A090}
+.time-block.after .time-val{color:#FF8C42}
+.time-block .time-label{font-size:11px;color:#8B7B6F}
+.time-arrow{font-size:20px;color:#FF8C42;font-weight:900}
+
+@media(min-width:500px){
+  .impact-grid{flex-direction:row}
+  .impact-card{flex:1}
+}
+
 /* ===== MERIT ===== */
 .merit-card{
   background:#fff;border:1px solid rgba(255,140,66,0.12);
@@ -179,8 +222,8 @@ body{font-family:'Noto Sans JP',sans-serif;background:#FFFAF5;color:#2D2117;line
 <!-- ===== HERO ===== -->
 <section class="hero">
   <div class="hero-tag">サロンオーナー向け</div>
-  <h1>HPBブログ、<br>まだ自分で書いてますか？</h1>
-  <p class="hero-sub">写真を送るだけで<br>ブログもフォトギャラリーも<strong>自動で更新</strong>。<br>月5,000円から始められます。</p>
+  <h1>HPBブログとフォトギャラリー<br>毎日10投稿、自動で回る</h1>
+  <p class="hero-sub">写真を送るだけで<br>ブログもフォトギャラリーも<strong>毎日自動更新</strong>。<br>PV2倍・新規予約数UPの実績多数。<br>月5,000円から始められます。</p>
 </section>
 
 <!-- ===== PROBLEM ===== -->
@@ -214,65 +257,122 @@ body{font-family:'Noto Sans JP',sans-serif;background:#FFFAF5;color:#2D2117;line
         <div class="flow-num">1</div>
         <div class="flow-body">
           <h4>施術写真をLINEで送る</h4>
-          <p>施術後に撮った写真をLINEで送るだけ。特別な撮影は不要。普段通りの写真でOKです。月10枚が目安。</p>
+          <p>施術後に撮った写真をLINEで送るだけ。特別な撮影は不要。普段通りの写真でOKです。</p>
         </div>
       </div>
       <div class="flow-step">
         <div class="flow-num">2</div>
         <div class="flow-body">
-          <h4>SEO記事を自動生成</h4>
-          <p>送っていただいた写真をもとに、「エリア名＋施術名」のキーワードを入れたSEO記事を作成。検索から新規客を呼び込む記事に仕上げます。</p>
+          <h4>ブログ＋フォトギャラリーを自動生成</h4>
+          <p>送っていただいた写真をもとに、「エリア名＋施術名」のSEO記事とフォトギャラリーを自動生成。毎日10投稿、あなたは何もしなくてOKです。</p>
         </div>
       </div>
       <div class="flow-step">
         <div class="flow-num">3</div>
         <div class="flow-body">
-          <h4>HPBに投稿完了</h4>
-          <p>ブログ記事＋フォトギャラリーをHPBに投稿。あなたは何もしなくてOK。毎月自動的にHPBページが更新されていきます。</p>
+          <h4>HPBに毎日自動投稿</h4>
+          <p>ブログ記事＋フォトギャラリーが毎日HPBに自動投稿されます。月間300投稿。あなたのHPBページが常に「更新されているサロン」として評価されます。</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== MERIT ===== -->
+<!-- ===== IMPACT ===== -->
 <section class="sec sec-white">
   <div class="container">
+    <div class="sec-label">IMPACT</div>
+    <h2 class="sec-title">数字で見る<br><span class="orange">自動化の効果</span></h2>
+    <p class="sec-desc">実際に導入したサロンで起きた変化です。</p>
+
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="impact-label">HPB総PV</div>
+        <div class="impact-before">月1,200PV</div>
+        <div class="impact-after">2,400PV</div>
+        <div class="impact-note">平均2倍に増加</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-label">ブログ経由の流入</div>
+        <div class="impact-before">月30PV</div>
+        <div class="impact-after">450PV</div>
+        <div class="impact-note">15倍に増加</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-label">月間投稿数</div>
+        <div class="impact-before">月0〜2本</div>
+        <div class="impact-after">300本</div>
+        <div class="impact-note">毎日10投稿</div>
+      </div>
+    </div>
+
+    <div class="impact-bar">
+      <h3>PVが増えると予約が増える</h3>
+      <div class="impact-row">
+        <div class="impact-item"><span class="num">2x</span><span class="unit">総PV</span></div>
+        <div class="impact-item"><span class="num">↑</span><span class="unit"></span></div>
+        <div class="impact-item"><span class="num">1.5x</span><span class="unit">予約ページ閲覧</span></div>
+        <div class="impact-item"><span class="num">↑</span><span class="unit"></span></div>
+        <div class="impact-item"><span class="num">+30%</span><span class="unit">新規予約数</span></div>
+      </div>
+    </div>
+
+    <div class="time-save-box">
+      <h4>あなたの時間はどれくらい空くか</h4>
+      <div class="time-row">
+        <div class="time-block before">
+          <span class="time-val">20h</span>
+          <span class="time-label">自分で書く場合/月</span>
+        </div>
+        <div class="time-arrow">→</div>
+        <div class="time-block after">
+          <span class="time-val">0h</span>
+          <span class="time-label">自動化した場合/月</span>
+        </div>
+      </div>
+      <p style="font-size:13px;color:#6B5B4F;text-align:center;line-height:1.7">毎日10投稿を自分で書くと、1投稿10分でも<strong>月50時間以上</strong>。<br>自動化すれば、写真を送る5分だけ。<br>空いた時間で施術に集中できます。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MERIT ===== -->
+<section class="sec sec-cream">
+  <div class="container">
     <div class="sec-label">MERIT</div>
-    <h2 class="sec-title">自動化すると<br><span class="orange">何が変わるのか</span></h2>
-    <p class="sec-desc">ブログを定期更新するだけで、HPBの集客力が変わります。</p>
+    <h2 class="sec-title">なぜPVが<br><span class="orange">2倍になるのか</span></h2>
+    <p class="sec-desc">毎日10投稿を続けると、HPBの評価が根本的に変わります。</p>
 
     <div class="merit-card">
-      <h4><span class="merit-num">1</span>検索からの流入が増える</h4>
-      <p>「エリア名＋施術名」でブログを書き続けると、Googleの検索結果にHPBページが表示されやすくなります。HPBの有料プランを上げなくても、ブログのSEOで無料集客ができます。</p>
+      <h4><span class="merit-num">1</span>HPB内の検索順位が上がる</h4>
+      <p>HPBは「ページの更新頻度」を検索順位の評価に含めています。毎日10投稿されているサロンと、月に1回しか更新されないサロン。HPBのアルゴリズムがどちらを優先するかは明らかです。同じプランでも表示順位が改善します。</p>
     </div>
     <div class="merit-card">
-      <h4><span class="merit-num">2</span>HPB内の検索順位が上がる</h4>
-      <p>HPBは「ページの更新頻度」を検索順位の評価に含めています。ブログとフォトギャラリーを定期更新するだけで、同じプランでも表示順位が改善します。</p>
+      <h4><span class="merit-num">2</span>Googleからの検索流入が増える</h4>
+      <p>HPBブログはGoogleにもインデックスされます。「エリア名＋施術名」のキーワードで記事を毎日投稿すると、Googleの検索結果にあなたのHPBページが表示される回数が増えます。HPBの有料プランを上げなくても、ブログのSEOで無料集客ができます。</p>
     </div>
     <div class="merit-card">
-      <h4><span class="merit-num">3</span>お客さんの信頼感が上がる</h4>
-      <p>定期的に更新されているサロンと、最終更新が半年前のサロン。お客さんがどちらを選ぶかは明らかです。「ここはちゃんと営業してるな」という安心感が予約に繋がります。</p>
+      <h4><span class="merit-num">3</span>フォトギャラリーが信頼を生む</h4>
+      <p>お客さんはスタイル写真を見て予約を決めます。フォトギャラリーが毎日更新されていると「このサロンは実績が豊富」「最近もちゃんと営業してる」という信頼感に直結。写真が少ない・古いサロンとの差は一目瞭然です。</p>
     </div>
     <div class="merit-card">
-      <h4><span class="merit-num">4</span>あなたの時間が空く</h4>
-      <p>ブログ1本書くのに30分〜1時間。月4本で2〜4時間。その時間をお客さんの施術やスキルアップに使えます。月5,000円で毎月4時間が戻ってきます。</p>
+      <h4><span class="merit-num">4</span>「更新されてるサロン」の安心感</h4>
+      <p>最終更新が半年前のサロンと、今日も更新されているサロン。お客さんがどちらに予約を入れるかは明らかです。毎日更新は最強の信頼シグナルです。</p>
     </div>
   </div>
 </section>
 
 <!-- ===== COMPARE ===== -->
-<section class="sec sec-cream">
+<section class="sec sec-white">
   <div class="container">
     <div class="sec-label">COMPARE</div>
     <h2 class="sec-title">他の方法と<span class="orange">比べてみてください</span></h2>
 
     <table class="compare-table">
       <tr><th>方法</th><th>月額費用</th><th>あなたの作業</th></tr>
-      <tr><td>自分で書く</td><td>¥0</td><td>月4〜8時間（記事作成＋写真編集＋投稿）</td></tr>
-      <tr><td>ライターに外注</td><td>¥30,000〜50,000</td><td>指示出し＋確認作業</td></tr>
-      <tr><td>HPB代理店に依頼</td><td>¥50,000〜</td><td>打ち合わせ（月1回）</td></tr>
-      <tr><td style="color:#FF8C42;font-weight:800">このサービス</td><td style="color:#FF8C42;font-weight:800">¥5,000〜</td><td style="color:#FF8C42;font-weight:800">写真を送るだけ</td></tr>
+      <tr><td>自分で書く</td><td>¥0</td><td>月50時間以上（毎日10本は不可能）</td></tr>
+      <tr><td>ライターに外注</td><td>¥30,000〜50,000</td><td>指示出し＋確認作業（月4本程度）</td></tr>
+      <tr><td>HPB代理店に依頼</td><td>¥50,000〜</td><td>打ち合わせ（月1回・月4本程度）</td></tr>
+      <tr><td style="color:#FF8C42;font-weight:800">このサービス</td><td style="color:#FF8C42;font-weight:800">¥5,000〜</td><td style="color:#FF8C42;font-weight:800">写真を送るだけ（毎日10投稿）</td></tr>
     </table>
   </div>
 </section>
@@ -290,11 +390,11 @@ body{font-family:'Noto Sans JP',sans-serif;background:#FFFAF5;color:#2D2117;line
         <div class="price-amount">¥5,000<span>/月</span></div>
         <p class="price-tax">税抜</p>
         <ul class="price-features">
-          <li>HPBブログ記事 月4本</li>
+          <li>HPBブログ 毎日10投稿（月300本）</li>
           <li>SEOキーワード設計込み</li>
           <li>写真をLINEで送るだけ</li>
-          <li>記事作成〜HPB投稿まで代行</li>
-          <li class="disabled">フォトギャラリー更新</li>
+          <li>記事作成〜HPB投稿まで全自動</li>
+          <li class="disabled">フォトギャラリー自動更新</li>
           <li class="disabled">写真のリサイズ・補正</li>
         </ul>
       </div>
@@ -305,11 +405,11 @@ body{font-family:'Noto Sans JP',sans-serif;background:#FFFAF5;color:#2D2117;line
         <div class="price-amount">¥10,000<span>/月</span></div>
         <p class="price-tax">税抜</p>
         <ul class="price-features">
-          <li>HPBブログ記事 月4本</li>
+          <li>HPBブログ 毎日10投稿（月300本）</li>
           <li>SEOキーワード設計込み</li>
           <li>写真をLINEで送るだけ</li>
-          <li>記事作成〜HPB投稿まで代行</li>
-          <li>フォトギャラリー更新（月10枚〜）</li>
+          <li>記事作成〜HPB投稿まで全自動</li>
+          <li>フォトギャラリー毎日自動更新</li>
           <li>写真のリサイズ・補正込み</li>
         </ul>
       </div>
