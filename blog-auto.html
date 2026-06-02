@@ -45,6 +45,32 @@ body{font-family:'Noto Sans JP',sans-serif;background:#FFFAF5;color:#2D2117;line
 .sec-title .orange{color:#FF8C42}
 .sec-desc{font-size:14px;color:#8B7B6F;margin-bottom:32px;line-height:1.8}
 
+/* ===== FACT ===== */
+.fact-box{
+  background:#fff;border:2px solid #FFD4A8;border-radius:20px;
+  padding:36px 28px;text-align:center;position:relative;overflow:hidden;
+  box-shadow:0 4px 24px rgba(255,140,66,0.1);
+}
+.fact-box::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,#FF8C42,#FFB380,#FF8C42);
+}
+.fact-lead{
+  font-size:15px;font-weight:800;color:#2D2117;line-height:1.7;margin-bottom:16px;
+}
+.fact-main{
+  font-size:20px;font-weight:900;color:#2D2117;line-height:1.5;margin-bottom:16px;
+}
+.fact-num{
+  font-size:48px;font-weight:900;color:#FF8C42;
+  display:inline-block;line-height:1;vertical-align:middle;
+  margin:0 4px;
+}
+.fact-desc{
+  font-size:13px;color:#6B5B4F;line-height:1.8;
+  max-width:480px;margin:0 auto;
+}
+
 /* ===== PROBLEM ===== */
 .problem-list{list-style:none;padding:0;margin:0 0 28px}
 .problem-list li{
@@ -201,6 +227,30 @@ body{font-family:'Noto Sans JP',sans-serif;background:#FFFAF5;color:#2D2117;line
 .cta-btn:active{transform:scale(0.97)}
 .cta-micro{font-size:11px;color:#B0A090;margin-top:10px}
 
+/* ===== DUAL CTA ===== */
+.dual-cta{
+  display:flex;flex-direction:column;align-items:center;gap:12px;
+  margin:24px 0;text-align:center;
+}
+.cta-btn-primary{
+  display:inline-block;width:100%;max-width:360px;
+  background:linear-gradient(135deg,#FF8C42,#FF6B1A);
+  color:#fff;padding:16px 40px;border-radius:60px;
+  font-size:16px;font-weight:800;text-decoration:none;
+  box-shadow:0 4px 20px rgba(255,140,66,0.3);
+  transition:transform 0.2s;text-align:center;
+}
+.cta-btn-primary:active{transform:scale(0.97)}
+.cta-btn-secondary{
+  display:inline-block;width:100%;max-width:360px;
+  background:#fff;
+  color:#FF8C42;padding:14px 40px;border-radius:60px;
+  font-size:15px;font-weight:800;text-decoration:none;
+  border:2px solid #FF8C42;
+  transition:transform 0.2s, background 0.2s;text-align:center;
+}
+.cta-btn-secondary:active{transform:scale(0.97);background:#FFF8F2}
+
 /* ===== FAQ ===== */
 .faq-item{border-bottom:1px solid #F0E8E0;padding:16px 0}
 .faq-q{font-size:14px;font-weight:700;color:#FF8C42;margin-bottom:6px}
@@ -226,11 +276,22 @@ body{font-family:'Noto Sans JP',sans-serif;background:#FFFAF5;color:#2D2117;line
   <p class="hero-sub">写真を送るだけで<br>ブログもフォトギャラリーも<strong>毎日自動更新</strong>。<br>PV2倍・新規予約数UPの実績多数。<br>月5,000円から始められます。</p>
 </section>
 
-<!-- ===== PROBLEM ===== -->
+<!-- ===== FACT ===== -->
 <section class="sec sec-white">
   <div class="container">
+    <div class="fact-box">
+      <p class="fact-lead">「新規が増えない」「PVがエリア平均より低い」「PVが伸びない」</p>
+      <p class="fact-main">その原因の<span class="fact-num">80%</span>は<br>ブログの更新頻度と内容です。</p>
+      <p class="fact-desc">正しいキーワードで書かれたブログを、正しい頻度で更新するだけで、HPBのPVと新規予約数は大きく変わります。技術力の問題でも、プランの問題でもありません。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROBLEM ===== -->
+<section class="sec sec-cream">
+  <div class="container">
     <div class="sec-label">PROBLEM</div>
-    <h2 class="sec-title">HPBブログ、<br><span class="orange">こうなっていませんか？</span></h2>
+    <h2 class="sec-title">でも実際は、<br><span class="orange">こうなっていませんか？</span></h2>
     <ul class="problem-list">
       <li>書かないといけないのはわかってるけど、時間がない</li>
       <li>何を書けばいいかわからなくて、結局放置してる</li>
@@ -415,8 +476,9 @@ body{font-family:'Noto Sans JP',sans-serif;background:#FFFAF5;color:#2D2117;line
       </div>
     </div>
 
-    <div class="cta-wrap">
-      <a href="https://lin.ee/usQ5jomD" class="cta-btn" target="_blank" rel="noopener">LINEで申し込む・相談する</a>
+    <div class="dual-cta">
+      <a href="https://lin.ee/usQ5jomD" class="cta-btn-primary" target="_blank" rel="noopener">導入を検討する</a>
+      <a href="https://timerex.net/s/tattoou123456_ad67/57c1cebf" class="cta-btn-secondary" target="_blank" rel="noopener">まずは相談する（無料）</a>
       <p class="cta-micro">初月解約OK・縛りなし</p>
     </div>
   </div>
@@ -461,9 +523,10 @@ body{font-family:'Noto Sans JP',sans-serif;background:#FFFAF5;color:#2D2117;line
   <div class="container" style="text-align:center">
     <h2 class="sec-title">ブログ更新、<br><span class="orange">もう悩まなくていい。</span></h2>
     <p class="sec-desc">写真を送るだけ。あとは全部お任せください。<br>月5,000円で、HPBの集客力が変わります。</p>
-    <div class="cta-wrap">
-      <a href="https://lin.ee/usQ5jomD" class="cta-btn" target="_blank" rel="noopener">LINEで申し込む・相談する</a>
-      <p class="cta-micro">お気軽にご相談ください</p>
+    <div class="dual-cta">
+      <a href="https://lin.ee/usQ5jomD" class="cta-btn-primary" target="_blank" rel="noopener">導入を検討する</a>
+      <a href="https://timerex.net/s/tattoou123456_ad67/57c1cebf" class="cta-btn-secondary" target="_blank" rel="noopener">まずは相談する（無料）</a>
+      <p class="cta-micro">初月解約OK・縛りなし</p>
     </div>
   </div>
 </section>
