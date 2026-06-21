@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Threads 投稿作成ツール</title>
+  <style>
+    :root {
+      --bg: #f6f4ef;
+      --panel: #ffffff;
+      --ink: #202124;
+      --muted: #69707a;
+      --line: #ded9cf;
+      --accent: #0f5f6f;
+      --accent-2: #b88a44;
+      --accent-light: #e8f4f6;
+      --danger: #b63b3b;
+      --ok: #227a45;
+      --shadow: 0 10px 30px rgba(32,33,36,.08);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "YuGothic", "Meiryo", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+
+    header {
+      padding: 28px 24px;
+      background: #172126;
+      color: #fff;
+      border-bottom: 4px solid var(--accent-2);
+    }
+    header .inner { max-width: 960px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    h1 { margin: 0; font-size: 22px; letter-spacing: .02em; }
+    header p { margin: 6px 0 0; color: rgba(255,255,255,.72); font-size: 13px; }
+    header nav a {
+      color: rgba(255,255,255,.7);
+      font-size: 13px;
+      text-decoration: none;
+      padding: 6px 12px;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 6px;
+      transition: background .15s;
+    }
+    header nav a:hover { background: rgba(255,255,255,.1); color: #fff; }
+
+    main { max-width: 960px; margin: 0 auto; padding: 28px 20px 80px; }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      padding: 22px;
+      margin-bottom: 18px;
+    }
+    .card-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin: 0 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card-title .num {
+      width: 24px; height: 24px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 13px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-full { grid-column: 1 / -1; }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 5px;
+    }
+    label .required { color: var(--danger); margin-left: 2px; }
+    label .hint { font-weight: 400; margin-left: 6px; font-size: 12px; color: var(--muted); }
+
+    input[type="text"], select, textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font: inherit;
+      font-size: 14px;
+      color: var(--ink);
+      background: #fffdfa;
+      transition: border-color .15s;
+      outline: none;
+    }
+    input[type="text"]:focus, select:focus, textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(15,95,111,.08);
+    }
+    textarea { resize: vertical; min-height: 70px; }
+    select { cursor: pointer; }
+
+    .cta-group { display: flex; gap: 8px; flex-wrap: wrap; }
+    .cta-chip {
+      border: 1px solid var(--line);
+      border-radius: 99px;
+      padding: 6px 14px;
+      font-size: 13px;
+      cursor: pointer;
+      background: #f8f6f1;
+      color: var(--muted);
+      transition: all .15s;
+      user-select: none;
+    }
+    .cta-chip.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .generate-bar {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 22px;
+      background: #172126;
+      border-radius: 12px;
+      margin-bottom: 24px;
+    }
+    .generate-bar p { margin: 0; color: rgba(255,255,255,.7); font-size: 13px; flex: 1; }
+    .btn-primary {
+      background: var(--accent-2);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 28px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: opacity .15s;
+    }
+    .btn-primary:hover { opacity: .88; }
+    .btn-primary:active { opacity: .75; }
+
+    .posts-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+    .posts-header h2 { margin: 0; font-size: 16px; }
+    .btn-copy-all {
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      background: transparent;
+      border-radius: 8px;
+      padding: 7px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .post-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      margin-bottom: 14px;
+      overflow: hidden;
+    }
+    .post-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+      background: #f5f2eb;
+      border-bottom: 1px solid var(--line);
+      gap: 10px;
+    }
+    .post-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .post-label .badge {
+      font-size: 11px;
+      padding: 2px 9px;
+      border-radius: 99px;
+      font-weight: 700;
+    }
+    .badge-問題提起  { background: #fde8e8; color: #9a1c1c; }
+    .badge-ノウハウ  { background: #dff3e7; color: #155c30; }
+    .badge-数字      { background: #e8f0fe; color: #1a56db; }
+    .badge-事例      { background: #fef3c7; color: #92400e; }
+    .badge-診断告知  { background: #ede9fe; color: #4c1d95; }
+
+    .post-head-actions { display: flex; align-items: center; gap: 8px; }
+    .char-count { font-size: 12px; color: var(--muted); }
+    .char-count.over { color: var(--danger); font-weight: 700; }
+
+    .btn-copy {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      border-radius: 6px;
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .12s;
+    }
+    .btn-copy:hover { background: var(--accent-light); }
+    .btn-copy.copied { background: var(--ok); color: #fff; border-color: var(--ok); }
+
+    .btn-regenerate {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--muted);
+      border-radius: 6px;
+      padding: 5px 10px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .btn-regenerate:hover { color: var(--accent); border-color: var(--accent); }
+
+    .post-body {
+      padding: 16px;
+    }
+    .post-textarea {
+      width: 100%;
+      border: none;
+      background: transparent;
+      font: inherit;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--ink);
+      resize: vertical;
+      min-height: 130px;
+      outline: none;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--muted);
+    }
+    .empty-state .icon { font-size: 48px; margin-bottom: 12px; }
+    .empty-state p { font-size: 14px; margin: 0; }
+
+    .tips {
+      background: #f0faf2;
+      border: 1px solid #b7e4c7;
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: 13px;
+      color: #1a5c30;
+      margin-top: 18px;
+    }
+    .tips strong { display: block; margin-bottom: 6px; }
+    .tips ul { margin: 0; padding-left: 18px; }
+    .tips li { margin-bottom: 3px; }
+
+    @media (max-width: 640px) {
+      .form-grid { grid-template-columns: 1fr; }
+      .generate-bar { flex-direction: column; align-items: stretch; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="inner">
+    <div>
+      <h1>Threads 投稿作成ツール</h1>
+      <p>テーマを入れるだけで今日の5本が揃います。</p>
+    </div>
+    <nav>
+      <a href="../threads-post-analyzer/">→ 分析ツールへ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- 入力フォーム -->
+  <div class="card">
+    <div class="card-title"><span class="num">1</span> 今日の投稿設定</div>
+    <div class="form-grid">
+
+      <div>
+        <label>ターゲットの悩み<span class="required">*</span><span class="hint">例：HPBの予約が増えない</span></label>
+        <input type="text" id="pain" placeholder="HPBに載せているのに予約が来ない" />
+      </div>
+
+      <div>
+        <label>今日の軸キーワード<span class="hint">例：クーポン設計、口コミ返信</span></label>
+        <input type="text" id="keyword" placeholder="クーポン名、メイン写真、口コミ返信…" />
+      </div>
+
+      <div>
+        <label>対象読者<span class="hint">省略可</span></label>
+        <input type="text" id="target" placeholder="スタッフのいるサロンオーナー" />
+      </div>
+
+      <div>
+        <label>あなたの強み・実績<span class="hint">省略可</span></label>
+        <input type="text" id="strength" placeholder="HPBコンサルで〇〇件の集客改善" />
+      </div>
+
+      <div class="form-full">
+        <label>CTA（投稿5本のうちどれに載せるか選択）</label>
+        <div class="cta-group" id="ctaGroup">
+          <span class="cta-chip active" data-val="LINE登録">LINE登録</span>
+          <span class="cta-chip" data-val="無料相談">無料相談を申し込む</span>
+          <span class="cta-chip" data-val="コメント">コメントで反応を取る</span>
+          <span class="cta-chip" data-val="プロフ">プロフへ誘導</span>
+        </div>
+      </div>
+
+      <div class="form-full">
+        <label>追加メモ<span class="hint">使いたいエピソード・数字など（省略可）</span></label>
+        <textarea id="memo" placeholder="例：先月診断したAサロンさんはクーポン名を変えただけで予約数が1.5倍になった。"></textarea>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 生成ボタン -->
+  <div class="generate-bar">
+    <p>入力したテーマをもとに、今日の投稿5本を自動生成します。</p>
+    <button class="btn-primary" id="generateBtn">5本生成する →</button>
+  </div>
+
+  <!-- 投稿一覧 -->
+  <div class="posts-header" id="postsHeader" style="display:none;">
+    <h2>今日の投稿 5本</h2>
+    <button class="btn-copy-all" id="copyAllBtn">全文まとめてコピー</button>
+  </div>
+
+  <div id="postsArea">
+    <div class="empty-state">
+      <div class="icon">✏️</div>
+      <p>上のフォームを入力して「5本生成する」を押してください。</p>
+    </div>
+  </div>
+
+  <div class="tips" id="tips" style="display:none;">
+    <strong>投稿のコツ</strong>
+    <ul>
+      <li>1行目（フック）は読者が一番最初に見る。問いかけ・数字・「え、なぜ？」で止める。</li>
+      <li>500文字以内に収める。長すぎると「もっと見る」で止まる。</li>
+      <li>CTAは1投稿に1つだけ。「LINE登録して＆コメントして＆フォローして」はやらない。</li>
+      <li>5本のうち3本は「役に立つ情報」、1本は「CTA告知」、1本は「ストーリー/事例」のバランスがおすすめ。</li>
+    </ul>
+  </div>
+
+</main>
+
+<script>
+  // CTA chip selection
+  const ctaGroup = document.getElementById('ctaGroup');
+  let selectedCta = 'LINE登録';
+  ctaGroup.querySelectorAll('.cta-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      ctaGroup.querySelectorAll('.cta-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      selectedCta = chip.dataset.val;
+    });
+  });
+
+  // Template engine
+  function v(s) { return s || ''; }
+
+  function ctaLine(type, target) {
+    const t = v(target) || 'サロンオーナー';
+    if (type === 'LINE登録')   return `気になった${t}さんはプロフのLINEへ↓`;
+    if (type === '無料相談')   return `今月限定で無料相談受け付け中。プロフのリンクから↓`;
+    if (type === 'コメント')   return `当てはまる方、コメントで「はい」と教えてください！`;
+    if (type === 'プロフ')     return `詳しくはプロフを見てみてください↓`;
+    return '';
+  }
+
+  function buildPosts(pain, keyword, target, strength, memo, cta) {
+    const p   = v(pain)     || 'HPBの予約が増えない';
+    const kw  = v(keyword)  || 'ページの見せ方';
+    const tg  = v(target)   || 'サロンオーナー';
+    const str = v(strength);
+    const ep  = v(memo);
+
+    const ctaText = ctaLine(cta, tg);
+
+    return [
+      {
+        type: '問題提起',
+        text: `${p}、それ${kw}の問題かもしれません。
+
+HPBに毎月お金を払って、写真も撮り直して、口コミも増やしてる。
+
+それなのに予約が増えない。
+
+実はそれ、ページの"構造"が集客できない設計になっているだけです。
+
+直すべき場所は3つ。
+ほとんどの${tg}が同じ場所で詰まっています。
+
+${ctaText}`
+      },
+      {
+        type: 'ノウハウ',
+        text: `HPBで予約が増えるクーポン名の作り方。
+
+✖ 「新規限定クーポン」
+✖ 「お試しカット＋カラー」
+
+◯ 「髪のボリュームが気になる方へ│ぺたんこ髪改善コース」
+◯ 「白髪が目立ってきた方専用│自然なグレイカバーコース」
+
+ポイントは「悩みを先に書く」こと。
+
+${kw}で検索している人は、自分の悩みを探しています。
+クーポン名＝悩み解決への入口にするだけで、クリック率が変わります。
+
+試してみてください。`
+      },
+      {
+        type: '数字',
+        text: `HPBのプロフィール写真、1枚変えただけで予約数が変わります。
+
+先日ある${tg}さんのHPBページを確認したら：
+・メイン写真がスタッフの集合写真だった
+・施術後の「ビフォーアフター」が1枚もなかった
+
+写真をビフォーアフターに差し替えただけで、翌月の新規問い合わせが増えました。
+
+HPBで見られているのは「実績の写真」です。
+スタッフの笑顔より、変化の証拠。
+
+${ep ? ep + '\n\n' : ''}${ctaText}`
+      },
+      {
+        type: '事例',
+        text: `相談でよく聞くHPBの悩みベスト3。
+
+1. 「口コミが増えているのに順位が上がらない」
+→ 口コミ返信に"予約の決め手になるキーワード"が入っていない
+
+2. 「新規は来るのにリピートしない」
+→ 来店後のフォロー施策が仕組み化されていない
+
+3. 「クーポンの価格を下げても効果がない」
+→ そもそもページに来ていないので価格より先の問題
+
+${kw}を見直すだけで改善できるものが多いです。
+
+どれが当てはまりましたか？`
+      },
+      {
+        type: '診断告知',
+        text: `【6月限定・無料】HPB集客診断をやっています。
+
+▼ こんな${tg}さんへ
+・HPBに掲載しているが予約が伸びていない
+・スタッフが1名以上いるサロン
+
+30分で「集客できていない原因3つ」を具体的にお伝えします。
+
+${str ? str + '\n\n' : ''}費用は一切かかりません。
+今月だけ・先着順での受付です。
+
+${ctaText}`
+      }
+    ];
+  }
+
+  function countChars(text) {
+    return text.length;
+  }
+
+  function renderPost(post, index) {
+    const count = countChars(post.text);
+    const over  = count > 500;
+    return `
+      <div class="post-card" id="post-${index}">
+        <div class="post-card-head">
+          <div class="post-label">
+            <span>${index + 1}本目</span>
+            <span class="badge badge-${post.type}">${post.type}</span>
+          </div>
+          <div class="post-head-actions">
+            <span class="char-count ${over ? 'over' : ''}" id="count-${index}">${count} / 500文字</span>
+            <button class="btn-regenerate" onclick="regenerate(${index})" title="この1本を作り直す">↺</button>
+            <button class="btn-copy" onclick="copyPost(${index}, this)">コピー</button>
+          </div>
+        </div>
+        <div class="post-body">
+          <textarea class="post-textarea" id="textarea-${index}" oninput="updateCount(${index})" rows="8">${escapeHtml(post.text)}</textarea>
+        </div>
+      </div>
+    `;
+  }
+
+  function escapeHtml(text) {
+    return String(text || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  let currentPosts = [];
+
+  document.getElementById('generateBtn').addEventListener('click', generate);
+
+  function generate() {
+    const pain     = document.getElementById('pain').value.trim();
+    const keyword  = document.getElementById('keyword').value.trim();
+    const target   = document.getElementById('target').value.trim();
+    const strength = document.getElementById('strength').value.trim();
+    const memo     = document.getElementById('memo').value.trim();
+
+    currentPosts = buildPosts(pain, keyword, target, strength, memo, selectedCta);
+    renderAll();
+  }
+
+  function regenerate(index) {
+    const pain     = document.getElementById('pain').value.trim();
+    const keyword  = document.getElementById('keyword').value.trim();
+    const target   = document.getElementById('target').value.trim();
+    const strength = document.getElementById('strength').value.trim();
+    const memo     = document.getElementById('memo').value.trim();
+    const freshSet = buildPosts(pain, keyword, target, strength, memo, selectedCta);
+    currentPosts[index] = freshSet[index];
+    renderAll();
+  }
+
+  function renderAll() {
+    const area = document.getElementById('postsArea');
+    area.innerHTML = currentPosts.map((p, i) => renderPost(p, i)).join('');
+    document.getElementById('postsHeader').style.display = 'flex';
+    document.getElementById('tips').style.display = 'block';
+  }
+
+  function updateCount(index) {
+    const ta    = document.getElementById(`textarea-${index}`);
+    const count = ta.value.length;
+    const el    = document.getElementById(`count-${index}`);
+    el.textContent = `${count} / 500文字`;
+    el.className = 'char-count' + (count > 500 ? ' over' : '');
+  }
+
+  function copyPost(index, btn) {
+    const text = document.getElementById(`textarea-${index}`).value;
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = 'コピー済み ✓';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = 'コピー';
+        btn.classList.remove('copied');
+      }, 1500);
+    });
+  }
+
+  document.getElementById('copyAllBtn').addEventListener('click', async () => {
+    const all = currentPosts.map((_, i) => {
+      const ta = document.getElementById(`textarea-${i}`);
+      return ta ? `【${i+1}本目・${currentPosts[i].type}】\n${ta.value}` : '';
+    }).join('\n\n---\n\n');
+    await navigator.clipboard.writeText(all);
+    const btn = document.getElementById('copyAllBtn');
+    btn.textContent = 'コピーしました ✓';
+    setTimeout(() => btn.textContent = '全文まとめてコピー', 1500);
+  });
+</script>
+</body>
+</html>
