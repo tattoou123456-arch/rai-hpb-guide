@@ -432,11 +432,11 @@ footer{background:var(--ink);color:rgba(255,255,255,.4);text-align:center;font-s
 /* ===== 流入元トラッキング =====
    ?src=xxx で流入元を判定し、LINE登録ボタンのリンクを切り替える。
    未指定・未知の値なら DEFAULT_URL（通常の友だち追加URL）にフォールバックする。 */
-var T = "https://line-harness.tattoou123456.workers.dev/t/";
+var R = "https://line-harness.tattoou123456.workers.dev/r/";
 var DEFAULT_URL = "https://lin.ee/UbEyJAu";
 var ROUTES = {
-  "ig-rai": T + "a34f360b-71f8-4662-a372-a6c7b7b55323", // Instagram @hpb_seo_rai
-  "th-rai": T + "e5a08b66-277c-40d3-ae1c-e59fe90cd52a"  // Threads   @hpb_seo_rai
+  "ig-rai": R + "ig-rai", // Instagram @hpb_seo_rai
+  "th-rai": R + "th-rai"  // Threads   @hpb_seo_rai
 };
 (function () {
   var q = new URLSearchParams(location.search);

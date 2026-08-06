@@ -500,13 +500,11 @@ footer{
    ?src=xxx で流入元を判定し、LINE登録ボタンのリンクを切り替える。
    ROUTES に無い値・未指定なら DEFAULT_URL（共通の友だち追加URL）を使う。
    計測用URLが準備できたら ROUTES の値を差し替えるだけで切り替わる。 */
-var T = "https://line-harness.tattoou123456.workers.dev/t/";
+var R = "https://line-harness.tattoou123456.workers.dev/r/";
 var DEFAULT_URL = "https://lin.ee/usQ5jomD";
 var ROUTES = {
-  "ig-rai": T + "e33c0756-904a-48bf-8214-3d6a8e16e9d1", // Instagram @hpb_seo_rai
-  "th-rai": T + "aeac9931-62f3-490e-a262-5ad76faa7724", // Threads   @hpb_seo_rai
-  "ig-lab": T + "a6458949-7eb3-40e7-a2c4-87c3a7267eed", // Instagram @salon_result_lab
-  "th-lab": T + "0d44c5b5-ffe1-4b89-83fb-62b40dc05cb4"  // Threads   @salon_result_lab
+  "ig-lab": R + "ig-lab", // Instagram @salon_result_lab
+  "th-lab": R + "th-lab"  // Threads   @salon_result_lab
 };
 (function () {
   var q = new URLSearchParams(location.search);
